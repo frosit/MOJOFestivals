@@ -94,4 +94,28 @@
         Target="ServiceInterface:Festival_Beoordeling" />
     </Association.Attributes>
   </Association>
+  <EntityType>
+    <EntityType.Attributes>
+      <Proxy
+        Target="ServiceInterface:ActiviteitOpPodia" />
+    </EntityType.Attributes>
+  </EntityType>
+  <Association>
+    <Association.Attributes>
+      <Proxy
+        Target="ServiceInterface:ActiviteitOpPodia_Podium" />
+    </Association.Attributes>
+  </Association>
+  <Association>
+    <Association.Attributes>
+      <Proxy
+        Target="ServiceInterface:ActiviteitOpPodia_Activiteit" />
+    </Association.Attributes>
+  </Association>
+  <Association>
+    <Association.Attributes>
+      <Proxy
+        Target="ServiceInterface:ActiviteitOpPodia_Festival" />
+    </Association.Attributes>
+  </Association>
 </Application>

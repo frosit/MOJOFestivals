@@ -98,9 +98,8 @@
       </EntityProperty>
       <EntityProperty
         Name="Eind"
-        PropertyType=":DateTime">
+        PropertyType=":DateTime?">
         <EntityProperty.Attributes>
-          <Required />
           <NotSearchable />
         </EntityProperty.Attributes>
       </EntityProperty>
@@ -118,6 +117,11 @@
         Association="Festival_Podium"
         FromEnd="Festival"
         ToEnd="Podium" />
+      <NavigationProperty
+        Name="ActiviteitOpPodias"
+        Association="ActiviteitOpPodia_Festival"
+        FromEnd="Festival"
+        ToEnd="ActiviteitOpPodia" />
       <EntityProperty
         Name="Artiesten"
         PropertyType=":String">
@@ -337,6 +341,16 @@
         Name="Beoordeling"
         EntitySet="Beoordelingen" />
     </AssociationSet>
+    <AssociationSet
+      Name="ActiviteitOpPodia_Festivals"
+      Association="ActiviteitOpPodia_Festival">
+      <AssociationSetEnd
+        Name="ActiviteitOpPodia"
+        EntitySet="ActiviteitOpPodias" />
+      <AssociationSetEnd
+        Name="Festival"
+        EntitySet="Festivals" />
+    </AssociationSet>
   </EntityContainer>
   <DataService
     Name="ApplicationDataMapping">
@@ -419,6 +433,27 @@
         </SsdlAssociationSetEnd>
       </AssociationSetMapping.Attributes>
     </AssociationSetMapping>
+    <AssociationSetMapping
+      AssociationSet="ActiviteitOpPodia_Festivals">
+      <AssociationSetMapping.Attributes>
+        <SsdlAssociationSet
+          Name="ActiviteitOpPodia_Festivals" />
+        <SsdlAssociationSetEnd
+          End="ApplicationData/Members[ActiviteitOpPodia_Festivals]/Members[ActiviteitOpPodia]">
+          <SsdlAssociationSetEnd.Attributes>
+            <SsdlPropertyRef
+              Name="ActiviteitOpPodia_Festival" />
+          </SsdlAssociationSetEnd.Attributes>
+        </SsdlAssociationSetEnd>
+        <SsdlAssociationSetEnd
+          End="ApplicationData/Members[ActiviteitOpPodia_Festivals]/Members[Festival]">
+          <SsdlAssociationSetEnd.Attributes>
+            <SsdlPropertyRef
+              Name="Id" />
+          </SsdlAssociationSetEnd.Attributes>
+        </SsdlAssociationSetEnd>
+      </AssociationSetMapping.Attributes>
+    </AssociationSetMapping>
   </DataService>
   <Association
     Name="Ticket_Festival">
@@ -466,5 +501,21 @@
       Name="Beoordeling"
       Multiplicity="Many"
       EntityType="Beoordeling" />
+  </Association>
+  <Association
+    Name="ActiviteitOpPodia_Festival">
+    <AssociationEnd
+      Name="ActiviteitOpPodia"
+      Multiplicity="Many"
+      EntityType="ActiviteitOpPodia" />
+    <AssociationEnd
+      Name="Festival"
+      Multiplicity="One"
+      EntityType="Festival">
+      <AssociationEnd.Attributes>
+        <DeleteRule
+          Action="Cascade" />
+      </AssociationEnd.Attributes>
+    </AssociationEnd>
   </Association>
 </ServiceApplication>

@@ -5,7 +5,7 @@
     <Partial />
   </ServiceApplication.Attributes>
   <EntityType
-    Name="Podium">
+    Name="ActiviteitOpPodia">
     <EntityType.Methods>
       <EntityMethod
         Name="Delete">
@@ -23,15 +23,21 @@
           <NotSearchable />
         </KeyProperty.Attributes>
       </KeyProperty>
-      <EntityProperty
-        Name="Naam"
-        PropertyType=":String">
-        <EntityProperty.Attributes>
-          <Required />
-          <MaxLength
-            Value="255" />
-        </EntityProperty.Attributes>
-      </EntityProperty>
+      <NavigationProperty
+        Name="Podium"
+        Association="ActiviteitOpPodia_Podium"
+        FromEnd="ActiviteitOpPodia"
+        ToEnd="Podium" />
+      <NavigationProperty
+        Name="Activiteit"
+        Association="ActiviteitOpPodia_Activiteit"
+        FromEnd="ActiviteitOpPodia"
+        ToEnd="Activiteit" />
+      <NavigationProperty
+        Name="Festival"
+        Association="ActiviteitOpPodia_Festival"
+        FromEnd="ActiviteitOpPodia"
+        ToEnd="Festival" />
       <EntityProperty
         Name="Van"
         PropertyType=":DateTime">
@@ -48,16 +54,6 @@
           <NotSearchable />
         </EntityProperty.Attributes>
       </EntityProperty>
-      <NavigationProperty
-        Name="Festival"
-        Association="Festival_Podium"
-        FromEnd="Podium"
-        ToEnd="Festival" />
-      <NavigationProperty
-        Name="ActiviteitOpPodias"
-        Association="ActiviteitOpPodia_Podium"
-        FromEnd="Podium"
-        ToEnd="ActiviteitOpPodia" />
       <EntityProperty
         Name="RowVersion"
         PropertyType=":RowVersion">
@@ -76,14 +72,14 @@
       <Partial />
     </EntityContainer.Attributes>
     <EntitySet
-      Name="Podia"
+      Name="ActiviteitOpPodias"
       CanDelete="True"
       CanInsert="True"
       CanUpdate="True"
-      EntityType="Podium" />
+      EntityType="ActiviteitOpPodia" />
     <QueryOperation
-      Name="Podia_Single"
-      ReturnType="Podium">
+      Name="ActiviteitOpPodias_Single"
+      ReturnType="ActiviteitOpPodia">
       <QueryOperation.Attributes>
         <Generated />
         <Description
@@ -109,7 +105,7 @@
       <QueryOperation.Source>
         <QuerySourceExpressionTree>
           <MemberExpression
-            Member="Podia" />
+            Member="ActiviteitOpPodias" />
         </QuerySourceExpressionTree>
       </QueryOperation.Source>
       <QueryOperationParameter
@@ -122,8 +118,8 @@
       </QueryOperationParameter>
     </QueryOperation>
     <QueryOperation
-      Name="Podia_SingleOrDefault"
-      ReturnType="Podium">
+      Name="ActiviteitOpPodias_SingleOrDefault"
+      ReturnType="ActiviteitOpPodia">
       <QueryOperation.Attributes>
         <Generated />
         <Description
@@ -149,7 +145,7 @@
       <QueryOperation.Source>
         <QuerySourceExpressionTree>
           <MemberExpression
-            Member="Podia" />
+            Member="ActiviteitOpPodias" />
         </QuerySourceExpressionTree>
       </QueryOperation.Source>
       <QueryOperationParameter
@@ -161,16 +157,6 @@
         </QueryOperationParameter.Attributes>
       </QueryOperationParameter>
     </QueryOperation>
-    <AssociationSet
-      Name="ActiviteitOpPodia_Podiums"
-      Association="ActiviteitOpPodia_Podium">
-      <AssociationSetEnd
-        Name="ActiviteitOpPodia"
-        EntitySet="ActiviteitOpPodias" />
-      <AssociationSetEnd
-        Name="Podium"
-        EntitySet="Podia" />
-    </AssociationSet>
   </EntityContainer>
   <DataService
     Name="ApplicationDataMapping">
@@ -178,50 +164,21 @@
       <Partial />
     </DataService.Attributes>
     <EntitySetMapping
-      EntitySet="Podia">
+      EntitySet="ActiviteitOpPodias">
       <EntitySetMapping.Attributes>
         <SsdlForeignKeyProperty
-          Name="Festival_Podium"
+          Name="ActiviteitOpPodia_Podium"
+          Nullable="False"
+          Type="int" />
+        <SsdlForeignKeyProperty
+          Name="ActiviteitOpPodia_Activiteit"
+          Nullable="False"
+          Type="int" />
+        <SsdlForeignKeyProperty
+          Name="ActiviteitOpPodia_Festival"
           Nullable="False"
           Type="int" />
       </EntitySetMapping.Attributes>
     </EntitySetMapping>
-    <AssociationSetMapping
-      AssociationSet="ActiviteitOpPodia_Podiums">
-      <AssociationSetMapping.Attributes>
-        <SsdlAssociationSet
-          Name="ActiviteitOpPodia_Podiums" />
-        <SsdlAssociationSetEnd
-          End="ApplicationData/Members[ActiviteitOpPodia_Podiums]/Members[ActiviteitOpPodia]">
-          <SsdlAssociationSetEnd.Attributes>
-            <SsdlPropertyRef
-              Name="ActiviteitOpPodia_Podium" />
-          </SsdlAssociationSetEnd.Attributes>
-        </SsdlAssociationSetEnd>
-        <SsdlAssociationSetEnd
-          End="ApplicationData/Members[ActiviteitOpPodia_Podiums]/Members[Podium]">
-          <SsdlAssociationSetEnd.Attributes>
-            <SsdlPropertyRef
-              Name="Id" />
-          </SsdlAssociationSetEnd.Attributes>
-        </SsdlAssociationSetEnd>
-      </AssociationSetMapping.Attributes>
-    </AssociationSetMapping>
   </DataService>
-  <Association
-    Name="ActiviteitOpPodia_Podium">
-    <AssociationEnd
-      Name="ActiviteitOpPodia"
-      Multiplicity="Many"
-      EntityType="ActiviteitOpPodia" />
-    <AssociationEnd
-      Name="Podium"
-      Multiplicity="One"
-      EntityType="Podium">
-      <AssociationEnd.Attributes>
-        <DeleteRule
-          Action="Cascade" />
-      </AssociationEnd.Attributes>
-    </AssociationEnd>
-  </Association>
 </ServiceApplication>

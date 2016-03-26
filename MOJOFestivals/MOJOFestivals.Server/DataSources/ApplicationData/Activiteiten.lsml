@@ -72,6 +72,11 @@
         Association="Activiteit_Genre"
         FromEnd="Activiteit"
         ToEnd="Genre" />
+      <NavigationProperty
+        Name="ActiviteitOpPodias"
+        Association="ActiviteitOpPodia_Activiteit"
+        FromEnd="Activiteit"
+        ToEnd="ActiviteitOpPodia" />
       <EntityProperty
         Name="CreatedBy"
         IsReadOnly="True"
@@ -130,13 +135,13 @@
       <Partial />
     </EntityContainer.Attributes>
     <EntitySet
-      Name="Artiesten"
+      Name="Activiteiten"
       CanDelete="True"
       CanInsert="True"
       CanUpdate="True"
       EntityType="Activiteit" />
     <QueryOperation
-      Name="Artiesten_Single"
+      Name="Activiteiten_Single"
       ReturnType="Activiteit">
       <QueryOperation.Attributes>
         <Generated />
@@ -163,7 +168,7 @@
       <QueryOperation.Source>
         <QuerySourceExpressionTree>
           <MemberExpression
-            Member="Artiesten" />
+            Member="Activiteiten" />
         </QuerySourceExpressionTree>
       </QueryOperation.Source>
       <QueryOperationParameter
@@ -176,7 +181,7 @@
       </QueryOperationParameter>
     </QueryOperation>
     <QueryOperation
-      Name="Artiesten_SingleOrDefault"
+      Name="Activiteiten_SingleOrDefault"
       ReturnType="Activiteit">
       <QueryOperation.Attributes>
         <Generated />
@@ -203,7 +208,7 @@
       <QueryOperation.Source>
         <QuerySourceExpressionTree>
           <MemberExpression
-            Member="Artiesten" />
+            Member="Activiteiten" />
         </QuerySourceExpressionTree>
       </QueryOperation.Source>
       <QueryOperationParameter
@@ -215,6 +220,16 @@
         </QueryOperationParameter.Attributes>
       </QueryOperationParameter>
     </QueryOperation>
+    <AssociationSet
+      Name="ActiviteitOpPodia_Activiteits"
+      Association="ActiviteitOpPodia_Activiteit">
+      <AssociationSetEnd
+        Name="ActiviteitOpPodia"
+        EntitySet="ActiviteitOpPodias" />
+      <AssociationSetEnd
+        Name="Activiteit"
+        EntitySet="Activiteiten" />
+    </AssociationSet>
   </EntityContainer>
   <DataService
     Name="ApplicationDataMapping">
@@ -222,7 +237,7 @@
       <Partial />
     </DataService.Attributes>
     <EntitySetMapping
-      EntitySet="Artiesten">
+      EntitySet="Activiteiten">
       <EntitySetMapping.Attributes>
         <SsdlForeignKeyProperty
           Name="Activiteit_Type"
@@ -234,5 +249,42 @@
           Type="int" />
       </EntitySetMapping.Attributes>
     </EntitySetMapping>
+    <AssociationSetMapping
+      AssociationSet="ActiviteitOpPodia_Activiteits">
+      <AssociationSetMapping.Attributes>
+        <SsdlAssociationSet
+          Name="ActiviteitOpPodia_Activiteits" />
+        <SsdlAssociationSetEnd
+          End="ApplicationData/Members[ActiviteitOpPodia_Activiteits]/Members[ActiviteitOpPodia]">
+          <SsdlAssociationSetEnd.Attributes>
+            <SsdlPropertyRef
+              Name="ActiviteitOpPodia_Activiteit" />
+          </SsdlAssociationSetEnd.Attributes>
+        </SsdlAssociationSetEnd>
+        <SsdlAssociationSetEnd
+          End="ApplicationData/Members[ActiviteitOpPodia_Activiteits]/Members[Activiteit]">
+          <SsdlAssociationSetEnd.Attributes>
+            <SsdlPropertyRef
+              Name="Id" />
+          </SsdlAssociationSetEnd.Attributes>
+        </SsdlAssociationSetEnd>
+      </AssociationSetMapping.Attributes>
+    </AssociationSetMapping>
   </DataService>
+  <Association
+    Name="ActiviteitOpPodia_Activiteit">
+    <AssociationEnd
+      Name="ActiviteitOpPodia"
+      Multiplicity="Many"
+      EntityType="ActiviteitOpPodia" />
+    <AssociationEnd
+      Name="Activiteit"
+      Multiplicity="One"
+      EntityType="Activiteit">
+      <AssociationEnd.Attributes>
+        <DeleteRule
+          Action="Cascade" />
+      </AssociationEnd.Attributes>
+    </AssociationEnd>
+  </Association>
 </ServiceApplication>

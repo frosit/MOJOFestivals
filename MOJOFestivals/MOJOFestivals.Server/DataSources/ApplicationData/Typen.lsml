@@ -44,7 +44,7 @@
         FromEnd="Type"
         ToEnd="Festival" />
       <NavigationProperty
-        Name="Artiesten"
+        Name="Activiteiten"
         Association="Activiteit_Type"
         FromEnd="Type"
         ToEnd="Activiteit" />
@@ -176,7 +176,7 @@
       Association="Activiteit_Type">
       <AssociationSetEnd
         Name="Activiteit"
-        EntitySet="Artiesten" />
+        EntitySet="Activiteiten" />
       <AssociationSetEnd
         Name="Type"
         EntitySet="Typen" />

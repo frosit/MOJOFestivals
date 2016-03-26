@@ -211,8 +211,9 @@
     </LightSwitchModel>
     <LightSwitchModel Include="DataSources\ApplicationData\Tickets.lsml" />
     <LightSwitchModel Include="DataSources\ApplicationData\Podia.lsml" />
-    <LightSwitchModel Include="DataSources\ApplicationData\Artiesten.lsml" />
+    <LightSwitchModel Include="DataSources\ApplicationData\Activiteiten.lsml" />
     <LightSwitchModel Include="DataSources\ApplicationData\Beoordelingen.lsml" />
+    <LightSwitchModel Include="DataSources\ApplicationData\ActiviteitOpPodias.lsml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
