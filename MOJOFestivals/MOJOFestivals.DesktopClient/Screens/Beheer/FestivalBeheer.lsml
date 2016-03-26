@@ -1425,6 +1425,10 @@
                 <ContentItem
                   Name="Group1"
                   Kind="Group">
+                  <ContentItem.Attributes>
+                    <DisplayName
+                      Value="Algemeen" />
+                  </ContentItem.Attributes>
                   <ContentItem
                     Name="Text"
                     Kind="ScreenContent"
@@ -1435,7 +1439,17 @@
                         <ScreenExpressionTree>
                           <ChainExpression>
                             <ConstantExpression
-                              Value="Een paar notities omtrent gebruik. Zorg ervoor dat het festival correct is geselecteerd voordat je in de tabs werkt. Het activiteiten tab heeft speciale funcites voor aanvullen van festival data en controleren data van activiteit. De grid functies zijn geblokkeerd. Gebruik de button om een nieuwe activiteit toe te voegen.\n\r"
+                              Value="Een paar notities omtrent gebruik. Zorg ervoor dat het festival correct is geselecteerd voordat je in de tabs werkt. \n\r\n\rHet activiteiten tab heeft speciale funcites voor aanvullen van festival data en controleren data van activiteit.\n\rDe grid functies zijn geblokkeerd. \n\rGebruik de button om een nieuwe activiteit toe te voegen.\n\r"
+                              ResultType=":String" />
+                          </ChainExpression>
+                        </ScreenExpressionTree>
+                      </ControlPropertySource>
+                      <ControlPropertySource
+                        Property="Microsoft.LightSwitch.RichClient:RootControl/Properties[AttachedLabelPosition]">
+                        <ScreenExpressionTree>
+                          <ChainExpression>
+                            <ConstantExpression
+                              Value="None"
                               ResultType=":String" />
                           </ChainExpression>
                         </ScreenExpressionTree>

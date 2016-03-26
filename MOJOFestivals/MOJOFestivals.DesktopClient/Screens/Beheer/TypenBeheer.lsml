@@ -5,7 +5,7 @@
     <Partial />
   </Application.Attributes>
   <Screen
-    Name="TypenListDetail">
+    Name="TypenBeheer">
     <Screen.Attributes>
       <SaveChangesTo
         EntityContainer="ApplicationData" />
@@ -31,7 +31,7 @@
                 <ScreenExpressionTree>
                   <ChainExpression>
                     <MemberExpression
-                      Member="TypenListDetail/Properties[Typen]" />
+                      Member="TypenBeheer/Properties[Typen]" />
                   </ChainExpression>
                 </ScreenExpressionTree>
               </ContentItem.DataSource>
@@ -66,7 +66,7 @@
                     <ScreenExpressionTree>
                       <ChainExpression>
                         <MemberExpression
-                          Member="TypenListDetail/Properties[Typen]" />
+                          Member="TypenBeheer/Properties[Typen]" />
                         <CallExpression
                           Target="AddAndEditNew" />
                       </ChainExpression>
@@ -80,7 +80,7 @@
                     <ScreenExpressionTree>
                       <ChainExpression>
                         <MemberExpression
-                          Member="TypenListDetail/Properties[Typen]" />
+                          Member="TypenBeheer/Properties[Typen]" />
                         <CallExpression
                           Target="EditSelected" />
                       </ChainExpression>
@@ -94,7 +94,7 @@
                     <ScreenExpressionTree>
                       <ChainExpression>
                         <MemberExpression
-                          Member="TypenListDetail/Properties[Typen]" />
+                          Member="TypenBeheer/Properties[Typen]" />
                         <CallExpression
                           Target="DeleteSelected" />
                       </ChainExpression>
@@ -153,7 +153,7 @@
                 <ScreenExpressionTree>
                   <ChainExpression>
                     <MemberExpression
-                      Member="TypenListDetail/Properties[Typen]" />
+                      Member="TypenBeheer/Properties[Typen]" />
                     <MemberExpression
                       Member="SelectedItem" />
                   </ChainExpression>
@@ -194,7 +194,7 @@
                 <ScreenExpressionTree>
                   <ChainExpression>
                     <MemberExpression
-                      Member="TypenListDetail/Properties[Genres]" />
+                      Member="TypenBeheer/Properties[Genres]" />
                   </ChainExpression>
                 </ScreenExpressionTree>
               </ContentItem.DataSource>
@@ -229,7 +229,7 @@
                     <ScreenExpressionTree>
                       <ChainExpression>
                         <MemberExpression
-                          Member="TypenListDetail/Properties[Genres]" />
+                          Member="TypenBeheer/Properties[Genres]" />
                         <CallExpression
                           Target="AddAndEditNew" />
                       </ChainExpression>
@@ -243,7 +243,7 @@
                     <ScreenExpressionTree>
                       <ChainExpression>
                         <MemberExpression
-                          Member="TypenListDetail/Properties[Genres]" />
+                          Member="TypenBeheer/Properties[Genres]" />
                         <CallExpression
                           Target="EditSelected" />
                       </ChainExpression>
@@ -257,7 +257,7 @@
                     <ScreenExpressionTree>
                       <ChainExpression>
                         <MemberExpression
-                          Member="TypenListDetail/Properties[Genres]" />
+                          Member="TypenBeheer/Properties[Genres]" />
                         <CallExpression
                           Target="DeleteSelected" />
                       </ChainExpression>
@@ -310,7 +310,7 @@
               <ScreenExpressionTree>
                 <ChainExpression>
                   <CallExpression
-                    Target="TypenListDetail/Methods[Save]" />
+                    Target="TypenBeheer/Methods[Save]" />
                 </ChainExpression>
               </ScreenExpressionTree>
             </ContentItem.DataSource>
@@ -322,7 +322,7 @@
               <ScreenExpressionTree>
                 <ChainExpression>
                   <CallExpression
-                    Target="TypenListDetail/Methods[Refresh]" />
+                    Target="TypenBeheer/Methods[Refresh]" />
                 </ChainExpression>
               </ScreenExpressionTree>
             </ContentItem.DataSource>
@@ -383,7 +383,7 @@
         <ScreenExpressionTree>
           <ChainExpression>
             <CallExpression
-              Target="TypenListDetail/Properties[Typen]/Query" />
+              Target="TypenBeheer/Properties[Typen]/Query" />
           </ChainExpression>
         </ScreenExpressionTree>
       </ScreenCollectionProperty>
@@ -402,7 +402,7 @@
               <QuerySourceExpressionTree>
                 <ChainExpression>
                   <MemberExpression
-                    Member="TypenListDetail/Properties[Typen]" />
+                    Member="TypenBeheer/Properties[Typen]" />
                   <MemberExpression
                     Member="SelectedItem" />
                   <MemberExpression
@@ -415,7 +415,7 @@
         <ScreenExpressionTree>
           <ChainExpression>
             <CallExpression
-              Target="TypenListDetail/Properties[Genres]/Query" />
+              Target="TypenBeheer/Properties[Genres]/Query" />
           </ChainExpression>
         </ScreenExpressionTree>
       </ScreenCollectionProperty>
@@ -423,10 +423,10 @@
   </Screen>
   <Application.Methods>
     <ApplicationMethod
-      Name="ShowTypenListDetail">
+      Name="ShowTypenBeheer">
       <ApplicationMethod.Attributes>
         <ShowScreenMethod
-          TargetScreen="TypenListDetail" />
+          TargetScreen="TypenBeheer" />
       </ApplicationMethod.Attributes>
     </ApplicationMethod>
   </Application.Methods>

@@ -5,7 +5,7 @@
     <Partial />
   </Application.Attributes>
   <Screen
-    Name="TicketsListDetail">
+    Name="ActiviteitenBeheer">
     <Screen.Attributes>
       <SaveChangesTo
         EntityContainer="ApplicationData" />
@@ -23,69 +23,118 @@
             Name="ListColumn"
             Kind="Group">
             <ContentItem
-              Name="TicketList"
+              Name="ActiviteitList"
               Kind="Collection"
-              DataType="CollectionView$Ticket"
+              DataType="CollectionView$Activiteit"
               View="Microsoft.LightSwitch.RichClient:List">
               <ContentItem.DataSource>
                 <ScreenExpressionTree>
                   <ChainExpression>
                     <MemberExpression
-                      Member="TicketsListDetail/Properties[Tickets]" />
+                      Member="ActiviteitenBeheer/Properties[Activiteiten]" />
                   </ChainExpression>
                 </ScreenExpressionTree>
               </ContentItem.DataSource>
               <ContentItem
                 Name="RowTemplate"
                 Kind="Details"
-                DataType="Ticket">
+                DataType="Activiteit">
                 <ContentItem.DataSource>
                   <ScreenExpressionTree>
                     <ChainExpression />
                   </ScreenExpressionTree>
                 </ContentItem.DataSource>
                 <ContentItem
-                  Name="Aantal"
+                  Name="Naam"
                   Kind="Value"
-                  DataType=":Int32">
+                  DataType=":String">
                   <ContentItem.DataSource>
                     <ScreenExpressionTree>
                       <ChainExpression>
                         <MemberExpression
-                          Member="Ticket/Properties[Aantal]" />
+                          Member="Activiteit/Properties[Naam]" />
                       </ChainExpression>
                     </ScreenExpressionTree>
                   </ContentItem.DataSource>
                 </ContentItem>
                 <ContentItem
-                  Name="Persoon"
+                  Name="Beschrijving"
                   Kind="Value"
-                  DataType=":Person?">
+                  DataType=":String?">
                   <ContentItem.DataSource>
                     <ScreenExpressionTree>
                       <ChainExpression>
                         <MemberExpression
-                          Member="Ticket/Properties[Gebruiker]" />
+                          Member="Activiteit/Properties[Beschrijving]" />
                       </ChainExpression>
                     </ScreenExpressionTree>
                   </ContentItem.DataSource>
                 </ContentItem>
                 <ContentItem
-                  Name="Festival"
+                  Name="Afbeelding"
+                  Kind="Value"
+                  DataType="Microsoft.LightSwitch.Extensions:Image?">
+                  <ContentItem.DataSource>
+                    <ScreenExpressionTree>
+                      <ChainExpression>
+                        <MemberExpression
+                          Member="Activiteit/Properties[Afbeelding]" />
+                      </ChainExpression>
+                    </ScreenExpressionTree>
+                  </ContentItem.DataSource>
+                </ContentItem>
+                <ContentItem
+                  Name="Land"
+                  Kind="Value"
+                  DataType=":String">
+                  <ContentItem.DataSource>
+                    <ScreenExpressionTree>
+                      <ChainExpression>
+                        <MemberExpression
+                          Member="Activiteit/Properties[Land]" />
+                      </ChainExpression>
+                    </ScreenExpressionTree>
+                  </ContentItem.DataSource>
+                </ContentItem>
+                <ContentItem
+                  Name="Type"
                   Kind="Details"
-                  DataType="Festival">
+                  DataType="Type">
                   <ContentItem.DataSource>
                     <ScreenExpressionTree>
                       <ChainExpression>
                         <MemberExpression
-                          Member="Ticket/Properties[Festival]" />
+                          Member="Activiteit/Properties[Type]" />
                       </ChainExpression>
                     </ScreenExpressionTree>
                   </ContentItem.DataSource>
                   <ContentItem
                     Name="RowTemplate1"
                     Kind="Details"
-                    DataType="Festival">
+                    DataType="Type">
+                    <ContentItem.DataSource>
+                      <ScreenExpressionTree>
+                        <ChainExpression />
+                      </ScreenExpressionTree>
+                    </ContentItem.DataSource>
+                  </ContentItem>
+                </ContentItem>
+                <ContentItem
+                  Name="Genre"
+                  Kind="Details"
+                  DataType="Genre">
+                  <ContentItem.DataSource>
+                    <ScreenExpressionTree>
+                      <ChainExpression>
+                        <MemberExpression
+                          Member="Activiteit/Properties[Genre]" />
+                      </ChainExpression>
+                    </ScreenExpressionTree>
+                  </ContentItem.DataSource>
+                  <ContentItem
+                    Name="RowTemplate2"
+                    Kind="Details"
+                    DataType="Genre">
                     <ContentItem.DataSource>
                       <ScreenExpressionTree>
                         <ChainExpression />
@@ -101,7 +150,7 @@
                     <ScreenExpressionTree>
                       <ChainExpression>
                         <MemberExpression
-                          Member="Ticket/Properties[CreatedBy]" />
+                          Member="Activiteit/Properties[CreatedBy]" />
                       </ChainExpression>
                     </ScreenExpressionTree>
                   </ContentItem.DataSource>
@@ -114,7 +163,7 @@
                     <ScreenExpressionTree>
                       <ChainExpression>
                         <MemberExpression
-                          Member="Ticket/Properties[Created]" />
+                          Member="Activiteit/Properties[Created]" />
                       </ChainExpression>
                     </ScreenExpressionTree>
                   </ContentItem.DataSource>
@@ -127,7 +176,7 @@
                     <ScreenExpressionTree>
                       <ChainExpression>
                         <MemberExpression
-                          Member="Ticket/Properties[ModifiedBy]" />
+                          Member="Activiteit/Properties[ModifiedBy]" />
                       </ChainExpression>
                     </ScreenExpressionTree>
                   </ContentItem.DataSource>
@@ -140,7 +189,7 @@
                     <ScreenExpressionTree>
                       <ChainExpression>
                         <MemberExpression
-                          Member="Ticket/Properties[Modified]" />
+                          Member="Activiteit/Properties[Modified]" />
                       </ChainExpression>
                     </ScreenExpressionTree>
                   </ContentItem.DataSource>
@@ -148,13 +197,13 @@
               </ContentItem>
               <ContentItem.CommandItems>
                 <ContentItem
-                  Name="Tickets_AddAndEditNew"
+                  Name="Activiteiten_AddAndEditNew"
                   Kind="Command">
                   <ContentItem.DataSource>
                     <ScreenExpressionTree>
                       <ChainExpression>
                         <MemberExpression
-                          Member="TicketsListDetail/Properties[Tickets]" />
+                          Member="ActiviteitenBeheer/Properties[Activiteiten]" />
                         <CallExpression
                           Target="AddAndEditNew" />
                       </ChainExpression>
@@ -162,13 +211,13 @@
                   </ContentItem.DataSource>
                 </ContentItem>
                 <ContentItem
-                  Name="Tickets_EditSelected"
+                  Name="Activiteiten_EditSelected"
                   Kind="Command">
                   <ContentItem.DataSource>
                     <ScreenExpressionTree>
                       <ChainExpression>
                         <MemberExpression
-                          Member="TicketsListDetail/Properties[Tickets]" />
+                          Member="ActiviteitenBeheer/Properties[Activiteiten]" />
                         <CallExpression
                           Target="EditSelected" />
                       </ChainExpression>
@@ -176,13 +225,13 @@
                   </ContentItem.DataSource>
                 </ContentItem>
                 <ContentItem
-                  Name="Tickets_DeleteSelected"
+                  Name="Activiteiten_DeleteSelected"
                   Kind="Command">
                   <ContentItem.DataSource>
                     <ScreenExpressionTree>
                       <ChainExpression>
                         <MemberExpression
-                          Member="TicketsListDetail/Properties[Tickets]" />
+                          Member="ActiviteitenBeheer/Properties[Activiteiten]" />
                         <CallExpression
                           Target="DeleteSelected" />
                       </ChainExpression>
@@ -230,65 +279,114 @@
             Name="DetailsColumn"
             Kind="Group">
             <ContentItem
-              Name="TicketDetails"
+              Name="ActiviteitDetails"
               Kind="Details"
-              DataType="Ticket">
+              DataType="Activiteit">
               <ContentItem.Attributes>
                 <DisplayName
-                  Value="Ticket Details" />
+                  Value="Activiteit Details" />
               </ContentItem.Attributes>
               <ContentItem.DataSource>
                 <ScreenExpressionTree>
                   <ChainExpression>
                     <MemberExpression
-                      Member="TicketsListDetail/Properties[Tickets]" />
+                      Member="ActiviteitenBeheer/Properties[Activiteiten]" />
                     <MemberExpression
                       Member="SelectedItem" />
                   </ChainExpression>
                 </ScreenExpressionTree>
               </ContentItem.DataSource>
               <ContentItem
-                Name="Aantal1"
+                Name="Naam1"
                 Kind="Value"
-                DataType=":Int32">
+                DataType=":String">
                 <ContentItem.DataSource>
                   <ScreenExpressionTree>
                     <ChainExpression>
                       <MemberExpression
-                        Member="Ticket/Properties[Aantal]" />
+                        Member="Activiteit/Properties[Naam]" />
                     </ChainExpression>
                   </ScreenExpressionTree>
                 </ContentItem.DataSource>
               </ContentItem>
               <ContentItem
-                Name="Persoon1"
+                Name="Beschrijving1"
                 Kind="Value"
-                DataType=":Person?">
+                DataType=":String?">
                 <ContentItem.DataSource>
                   <ScreenExpressionTree>
                     <ChainExpression>
                       <MemberExpression
-                        Member="Ticket/Properties[Gebruiker]" />
+                        Member="Activiteit/Properties[Beschrijving]" />
                     </ChainExpression>
                   </ScreenExpressionTree>
                 </ContentItem.DataSource>
               </ContentItem>
               <ContentItem
-                Name="Festival1"
+                Name="Afbeelding1"
+                Kind="Value"
+                DataType="Microsoft.LightSwitch.Extensions:Image?">
+                <ContentItem.DataSource>
+                  <ScreenExpressionTree>
+                    <ChainExpression>
+                      <MemberExpression
+                        Member="Activiteit/Properties[Afbeelding]" />
+                    </ChainExpression>
+                  </ScreenExpressionTree>
+                </ContentItem.DataSource>
+              </ContentItem>
+              <ContentItem
+                Name="Land1"
+                Kind="Value"
+                DataType=":String">
+                <ContentItem.DataSource>
+                  <ScreenExpressionTree>
+                    <ChainExpression>
+                      <MemberExpression
+                        Member="Activiteit/Properties[Land]" />
+                    </ChainExpression>
+                  </ScreenExpressionTree>
+                </ContentItem.DataSource>
+              </ContentItem>
+              <ContentItem
+                Name="Type1"
                 Kind="Details"
-                DataType="Festival">
+                DataType="Type">
                 <ContentItem.DataSource>
                   <ScreenExpressionTree>
                     <ChainExpression>
                       <MemberExpression
-                        Member="Ticket/Properties[Festival]" />
+                        Member="Activiteit/Properties[Type]" />
                     </ChainExpression>
                   </ScreenExpressionTree>
                 </ContentItem.DataSource>
                 <ContentItem
-                  Name="RowTemplate2"
+                  Name="RowTemplate3"
                   Kind="Details"
-                  DataType="Festival">
+                  DataType="Type">
+                  <ContentItem.DataSource>
+                    <ScreenExpressionTree>
+                      <ChainExpression />
+                    </ScreenExpressionTree>
+                  </ContentItem.DataSource>
+                </ContentItem>
+              </ContentItem>
+              <ContentItem
+                Name="Genre1"
+                Kind="Details"
+                DataType="Genre">
+                <ContentItem.DataSource>
+                  <ScreenExpressionTree>
+                    <ChainExpression>
+                      <MemberExpression
+                        Member="Activiteit/Properties[Genre]" />
+                    </ChainExpression>
+                  </ScreenExpressionTree>
+                </ContentItem.DataSource>
+                <ContentItem
+                  Name="RowTemplate4"
+                  Kind="Details"
+                  DataType="Genre">
                   <ContentItem.DataSource>
                     <ScreenExpressionTree>
                       <ChainExpression />
@@ -304,7 +402,7 @@
                   <ScreenExpressionTree>
                     <ChainExpression>
                       <MemberExpression
-                        Member="Ticket/Properties[CreatedBy]" />
+                        Member="Activiteit/Properties[CreatedBy]" />
                     </ChainExpression>
                   </ScreenExpressionTree>
                 </ContentItem.DataSource>
@@ -317,7 +415,7 @@
                   <ScreenExpressionTree>
                     <ChainExpression>
                       <MemberExpression
-                        Member="Ticket/Properties[Created]" />
+                        Member="Activiteit/Properties[Created]" />
                     </ChainExpression>
                   </ScreenExpressionTree>
                 </ContentItem.DataSource>
@@ -330,7 +428,7 @@
                   <ScreenExpressionTree>
                     <ChainExpression>
                       <MemberExpression
-                        Member="Ticket/Properties[ModifiedBy]" />
+                        Member="Activiteit/Properties[ModifiedBy]" />
                     </ChainExpression>
                   </ScreenExpressionTree>
                 </ContentItem.DataSource>
@@ -343,7 +441,7 @@
                   <ScreenExpressionTree>
                     <ChainExpression>
                       <MemberExpression
-                        Member="Ticket/Properties[Modified]" />
+                        Member="Activiteit/Properties[Modified]" />
                     </ChainExpression>
                   </ScreenExpressionTree>
                 </ContentItem.DataSource>
@@ -355,6 +453,158 @@
                     <ChainExpression>
                       <ConstantExpression
                         Value="Top"
+                        ResultType=":String" />
+                    </ChainExpression>
+                  </ScreenExpressionTree>
+                </ControlPropertySource>
+              </ContentItem.PropertySources>
+            </ContentItem>
+            <ContentItem
+              Name="ActiviteitOpPodias"
+              Kind="Collection"
+              DataType="CollectionView$ActiviteitOpPodia"
+              View="Microsoft.LightSwitch.RichClient:DataGrid">
+              <ContentItem.DataSource>
+                <ScreenExpressionTree>
+                  <ChainExpression>
+                    <MemberExpression
+                      Member="ActiviteitenBeheer/Properties[ActiviteitOpPodias]" />
+                  </ChainExpression>
+                </ScreenExpressionTree>
+              </ContentItem.DataSource>
+              <ContentItem
+                Name="RowTemplate5"
+                Kind="Details"
+                DataType="ActiviteitOpPodia">
+                <ContentItem.DataSource>
+                  <ScreenExpressionTree>
+                    <ChainExpression />
+                  </ScreenExpressionTree>
+                </ContentItem.DataSource>
+                <ContentItem
+                  Name="Podium"
+                  Kind="Details"
+                  DataType="Podium">
+                  <ContentItem.DataSource>
+                    <ScreenExpressionTree>
+                      <ChainExpression>
+                        <MemberExpression
+                          Member="ActiviteitOpPodia/Properties[Podium]" />
+                      </ChainExpression>
+                    </ScreenExpressionTree>
+                  </ContentItem.DataSource>
+                  <ContentItem
+                    Name="RowTemplate6"
+                    Kind="Details"
+                    DataType="Podium">
+                    <ContentItem.DataSource>
+                      <ScreenExpressionTree>
+                        <ChainExpression />
+                      </ScreenExpressionTree>
+                    </ContentItem.DataSource>
+                  </ContentItem>
+                </ContentItem>
+                <ContentItem
+                  Name="Festival"
+                  Kind="Details"
+                  DataType="Festival">
+                  <ContentItem.DataSource>
+                    <ScreenExpressionTree>
+                      <ChainExpression>
+                        <MemberExpression
+                          Member="ActiviteitOpPodia/Properties[Festival]" />
+                      </ChainExpression>
+                    </ScreenExpressionTree>
+                  </ContentItem.DataSource>
+                  <ContentItem
+                    Name="RowTemplate7"
+                    Kind="Details"
+                    DataType="Festival">
+                    <ContentItem.DataSource>
+                      <ScreenExpressionTree>
+                        <ChainExpression />
+                      </ScreenExpressionTree>
+                    </ContentItem.DataSource>
+                  </ContentItem>
+                </ContentItem>
+                <ContentItem
+                  Name="Van"
+                  Kind="Value"
+                  DataType=":DateTime">
+                  <ContentItem.DataSource>
+                    <ScreenExpressionTree>
+                      <ChainExpression>
+                        <MemberExpression
+                          Member="ActiviteitOpPodia/Properties[Van]" />
+                      </ChainExpression>
+                    </ScreenExpressionTree>
+                  </ContentItem.DataSource>
+                </ContentItem>
+                <ContentItem
+                  Name="Tot"
+                  Kind="Value"
+                  DataType=":DateTime">
+                  <ContentItem.DataSource>
+                    <ScreenExpressionTree>
+                      <ChainExpression>
+                        <MemberExpression
+                          Member="ActiviteitOpPodia/Properties[Tot]" />
+                      </ChainExpression>
+                    </ScreenExpressionTree>
+                  </ContentItem.DataSource>
+                </ContentItem>
+              </ContentItem>
+              <ContentItem.CommandItems>
+                <ContentItem
+                  Name="ActiviteitOpPodias_AddAndEditNew"
+                  Kind="Command">
+                  <ContentItem.DataSource>
+                    <ScreenExpressionTree>
+                      <ChainExpression>
+                        <MemberExpression
+                          Member="ActiviteitenBeheer/Properties[ActiviteitOpPodias]" />
+                        <CallExpression
+                          Target="AddAndEditNew" />
+                      </ChainExpression>
+                    </ScreenExpressionTree>
+                  </ContentItem.DataSource>
+                </ContentItem>
+                <ContentItem
+                  Name="ActiviteitOpPodias_EditSelected"
+                  Kind="Command">
+                  <ContentItem.DataSource>
+                    <ScreenExpressionTree>
+                      <ChainExpression>
+                        <MemberExpression
+                          Member="ActiviteitenBeheer/Properties[ActiviteitOpPodias]" />
+                        <CallExpression
+                          Target="EditSelected" />
+                      </ChainExpression>
+                    </ScreenExpressionTree>
+                  </ContentItem.DataSource>
+                </ContentItem>
+                <ContentItem
+                  Name="ActiviteitOpPodias_DeleteSelected"
+                  Kind="Command">
+                  <ContentItem.DataSource>
+                    <ScreenExpressionTree>
+                      <ChainExpression>
+                        <MemberExpression
+                          Member="ActiviteitenBeheer/Properties[ActiviteitOpPodias]" />
+                        <CallExpression
+                          Target="DeleteSelected" />
+                      </ChainExpression>
+                    </ScreenExpressionTree>
+                  </ContentItem.DataSource>
+                </ContentItem>
+              </ContentItem.CommandItems>
+              <ContentItem.PropertySources>
+                <ControlPropertySource
+                  Property="Microsoft.LightSwitch.RichClient:RootControl/Properties[VerticalAlignment]">
+                  <ScreenExpressionTree>
+                    <ChainExpression>
+                      <ConstantExpression
+                        Value="Stretch"
                         ResultType=":String" />
                     </ChainExpression>
                   </ScreenExpressionTree>
@@ -393,7 +643,7 @@
               <ScreenExpressionTree>
                 <ChainExpression>
                   <CallExpression
-                    Target="TicketsListDetail/Methods[Save]" />
+                    Target="ActiviteitenBeheer/Methods[Save]" />
                 </ChainExpression>
               </ScreenExpressionTree>
             </ContentItem.DataSource>
@@ -405,7 +655,7 @@
               <ScreenExpressionTree>
                 <ChainExpression>
                   <CallExpression
-                    Target="TicketsListDetail/Methods[Refresh]" />
+                    Target="ActiviteitenBeheer/Methods[Refresh]" />
                 </ChainExpression>
               </ScreenExpressionTree>
             </ContentItem.DataSource>
@@ -445,20 +695,20 @@
     </Screen.Methods>
     <Screen.Properties>
       <ScreenCollectionProperty
-        Name="Tickets"
+        Name="Activiteiten"
         PageSize="45"
-        PropertyType="CollectionView$Ticket">
+        PropertyType="CollectionView$Activiteit">
         <ScreenCollectionProperty.Query>
           <ScreenQueryDefinition
-            Name="TicketsQuery"
-            ReturnType="Ticket*">
+            Name="ActiviteitenQuery"
+            ReturnType="Activiteit*">
             <ScreenQueryDefinition.FilterExpression>
               <QueryFilterExpressionTree />
             </ScreenQueryDefinition.FilterExpression>
             <ScreenQueryDefinition.Source>
               <QuerySourceExpressionTree>
                 <MemberExpression
-                  Member="ApplicationData/Members[Tickets]" />
+                  Member="ApplicationData/Members[Activiteiten]" />
               </QuerySourceExpressionTree>
             </ScreenQueryDefinition.Source>
           </ScreenQueryDefinition>
@@ -466,7 +716,39 @@
         <ScreenExpressionTree>
           <ChainExpression>
             <CallExpression
-              Target="TicketsListDetail/Properties[Tickets]/Query" />
+              Target="ActiviteitenBeheer/Properties[Activiteiten]/Query" />
+          </ChainExpression>
+        </ScreenExpressionTree>
+      </ScreenCollectionProperty>
+      <ScreenCollectionProperty
+        Name="ActiviteitOpPodias"
+        PageSize="15"
+        PropertyType="CollectionView$ActiviteitOpPodia">
+        <ScreenCollectionProperty.Query>
+          <ScreenQueryDefinition
+            Name="ActiviteitOpPodiasQuery"
+            ReturnType="ActiviteitOpPodia*">
+            <ScreenQueryDefinition.FilterExpression>
+              <QueryFilterExpressionTree />
+            </ScreenQueryDefinition.FilterExpression>
+            <ScreenQueryDefinition.Source>
+              <QuerySourceExpressionTree>
+                <ChainExpression>
+                  <MemberExpression
+                    Member="ActiviteitenBeheer/Properties[Activiteiten]" />
+                  <MemberExpression
+                    Member="SelectedItem" />
+                  <MemberExpression
+                    Member="ActiviteitOpPodias" />
+                </ChainExpression>
+              </QuerySourceExpressionTree>
+            </ScreenQueryDefinition.Source>
+          </ScreenQueryDefinition>
+        </ScreenCollectionProperty.Query>
+        <ScreenExpressionTree>
+          <ChainExpression>
+            <CallExpression
+              Target="ActiviteitenBeheer/Properties[ActiviteitOpPodias]/Query" />
           </ChainExpression>
         </ScreenExpressionTree>
       </ScreenCollectionProperty>
@@ -474,10 +756,10 @@
   </Screen>
   <Application.Methods>
     <ApplicationMethod
-      Name="ShowTicketsListDetail">
+      Name="ShowActiviteitenBeheer">
       <ApplicationMethod.Attributes>
         <ShowScreenMethod
-          TargetScreen="TicketsListDetail" />
+          TargetScreen="ActiviteitenBeheer" />
       </ApplicationMethod.Attributes>
     </ApplicationMethod>
   </Application.Methods>

@@ -160,6 +160,14 @@
         </EntityProperty.Attributes>
       </EntityProperty>
       <EntityProperty
+        Name="TicketsVerkocht"
+        PropertyType=":Int32">
+        <EntityProperty.Attributes>
+          <Computed />
+          <NotSearchable />
+        </EntityProperty.Attributes>
+      </EntityProperty>
+      <EntityProperty
         Name="TicketsResterend"
         PropertyType=":String">
         <EntityProperty.Attributes>

@@ -198,6 +198,9 @@
     <Compile Include="DataSources\ApplicationData\Festival.lsml.cs">
       <DependentUpon>Festivals.lsml</DependentUpon>
     </Compile>
+    <Compile Include="DataSources\ApplicationData\Ticket.lsml.cs">
+      <DependentUpon>Tickets.lsml</DependentUpon>
+    </Compile>
     <Compile Include="DataSources\ApplicationData\_ApplicationDataService.lsml.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -225,6 +228,9 @@
       <DependentUpon>Podia.lsml</DependentUpon>
     </LightSwitchModel>
     <LightSwitchModel Include="DataSources\ApplicationData\getPodiaByVan.lsml">
+      <DependentUpon>ActiviteitOpPodias.lsml</DependentUpon>
+    </LightSwitchModel>
+    <LightSwitchModel Include="DataSources\ApplicationData\ActiviteitenPerFestival.lsml">
       <DependentUpon>ActiviteitOpPodias.lsml</DependentUpon>
     </LightSwitchModel>
     <None Include="Web.Debug.config">

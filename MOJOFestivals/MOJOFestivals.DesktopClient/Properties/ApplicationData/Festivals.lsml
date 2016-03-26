@@ -38,6 +38,13 @@
             Target="LightSwitchServiceApplication:Festival/Properties[GemiddeldeBeoordeling]" />
         </EntityProperty.Attributes>
       </EntityProperty>
+      <EntityProperty>
+        <EntityProperty.Attributes>
+          <Computed />
+          <Proxy
+            Target="LightSwitchServiceApplication:Festival/Properties[TicketsVerkocht]" />
+        </EntityProperty.Attributes>
+      </EntityProperty>
     </EntityType.Properties>
   </EntityType>
 </Application>

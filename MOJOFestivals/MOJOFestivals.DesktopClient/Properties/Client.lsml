@@ -3,7 +3,7 @@
   Name="LightSwitchApplication.MOJOFestivals.DesktopClient"
   TargetPlatform="RichClient"
   Version="1.0.0.0"
-  DefaultNavigationItem="!module/NavigationItems[group1]"
+  DefaultNavigationItem="!module/NavigationItems[group3]"
   Shell="Microsoft.LightSwitch.Cosmopolitan:CosmopolitanShell"
   Theme="Microsoft.LightSwitch.Cosmopolitan:CosmopolitanTheme" xmlns="http://schemas.microsoft.com/LightSwitch/2010/xaml/model">
   <Application.Attributes>
@@ -43,20 +43,17 @@
       Name="ScreenCommandShowCreateNewActiviteit"
       Target="!module/Methods[ShowCreateNewActiviteit]" />
     <ApplicationCommand
-      Name="ScreenCommandShowTicketsListDetail"
-      Target="!module/Methods[ShowTicketsListDetail]" />
-    <ApplicationCommand
       Name="ScreenCommandShowHome"
       Target="!module/Methods[ShowHome]" />
     <ApplicationCommand
-      Name="ScreenCommandShowBezoekersListDetail"
-      Target="!module/Methods[ShowBezoekersListDetail]" />
+      Name="ScreenCommandShowBezoekersBeheer"
+      Target="!module/Methods[ShowBezoekersBeheer]" />
     <ApplicationCommand
-      Name="ScreenCommandShowActiviteitenListDetail"
-      Target="!module/Methods[ShowActiviteitenListDetail]" />
+      Name="ScreenCommandShowActiviteitenBeheer"
+      Target="!module/Methods[ShowActiviteitenBeheer]" />
     <ApplicationCommand
-      Name="ScreenCommandShowTypenListDetail"
-      Target="!module/Methods[ShowTypenListDetail]" />
+      Name="ScreenCommandShowTypenBeheer"
+      Target="!module/Methods[ShowTypenBeheer]" />
     <ApplicationCommand
       Name="ScreenCommandShowTicketOverzicht"
       Target="!module/Methods[ShowTicketOverzicht]" />
@@ -64,17 +61,17 @@
       Name="ScreenCommandShowBeoordelingenOverzicht"
       Target="!module/Methods[ShowBeoordelingenOverzicht]" />
     <ApplicationCommand
-      Name="ScreenCommandShowPodiaListDetail"
-      Target="!module/Methods[ShowPodiaListDetail]" />
-    <ApplicationCommand
-      Name="ScreenCommandShowActiviteitOpPodiasListDetail"
-      Target="!module/Methods[ShowActiviteitOpPodiasListDetail]" />
+      Name="ScreenCommandShowActiviteitenOverzicht"
+      Target="!module/Methods[ShowActiviteitenOverzicht]" />
     <ApplicationCommand
       Name="ScreenCommandShowFestivalBeheer"
       Target="!module/Methods[ShowFestivalBeheer]" />
     <ApplicationCommand
       Name="ScreenCommandShowCreateNewFestival"
       Target="!module/Methods[ShowCreateNewFestival]" />
+    <ApplicationCommand
+      Name="ScreenCommandShowFestivalStatistieken"
+      Target="!module/Methods[ShowFestivalStatistieken]" />
   </Application.Commands>
   <Application.NavigationItems>
     <ApplicationNavigationGroup
@@ -91,20 +88,17 @@
         Name="CreateNewActiviteit"
         Command="!module/Commands[ScreenCommandShowCreateNewActiviteit]" />
       <ApplicationNavigationLink
-        Name="TicketsListDetail"
-        Command="!module/Commands[ScreenCommandShowTicketsListDetail]" />
-      <ApplicationNavigationLink
         Name="Home"
         Command="!module/Commands[ScreenCommandShowHome]" />
       <ApplicationNavigationLink
-        Name="BezoekersListDetail"
-        Command="!module/Commands[ScreenCommandShowBezoekersListDetail]" />
+        Name="BezoekersBeheer"
+        Command="!module/Commands[ScreenCommandShowBezoekersBeheer]" />
       <ApplicationNavigationLink
-        Name="ActiviteitenListDetail"
-        Command="!module/Commands[ScreenCommandShowActiviteitenListDetail]" />
+        Name="ActiviteitenBeheer"
+        Command="!module/Commands[ScreenCommandShowActiviteitenBeheer]" />
       <ApplicationNavigationLink
-        Name="TypenListDetail"
-        Command="!module/Commands[ScreenCommandShowTypenListDetail]" />
+        Name="TypenBeheer"
+        Command="!module/Commands[ScreenCommandShowTypenBeheer]" />
       <ApplicationNavigationLink
         Name="TicketOverzicht"
         Command="!module/Commands[ScreenCommandShowTicketOverzicht]" />
@@ -112,17 +106,17 @@
         Name="BeoordelingenOverzicht"
         Command="!module/Commands[ScreenCommandShowBeoordelingenOverzicht]" />
       <ApplicationNavigationLink
-        Name="PodiaListDetail"
-        Command="!module/Commands[ScreenCommandShowPodiaListDetail]" />
-      <ApplicationNavigationLink
-        Name="ActiviteitOpPodiasListDetail"
-        Command="!module/Commands[ScreenCommandShowActiviteitOpPodiasListDetail]" />
+        Name="ActiviteitenOverzicht"
+        Command="!module/Commands[ScreenCommandShowActiviteitenOverzicht]" />
       <ApplicationNavigationLink
         Name="FestivalBeheer"
         Command="!module/Commands[ScreenCommandShowFestivalBeheer]" />
       <ApplicationNavigationLink
         Name="CreateNewFestival"
         Command="!module/Commands[ScreenCommandShowCreateNewFestival]" />
+      <ApplicationNavigationLink
+        Name="FestivalStatistieken"
+        Command="!module/Commands[ScreenCommandShowFestivalStatistieken]" />
     </ApplicationNavigationGroup>
     <ApplicationNavigationGroup
       Name="group">
@@ -133,6 +127,12 @@
       <ApplicationNavigationLink
         Name="link"
         Command="!module/Commands[ScreenCommandShowNewTypenGenre]" />
+      <ApplicationNavigationLink
+        Name="link2"
+        Command="!module/Commands[ScreenCommandShowCreateNewActiviteit]" />
+      <ApplicationNavigationLink
+        Name="link5"
+        Command="!module/Commands[ScreenCommandShowCreateNewFestival]" />
     </ApplicationNavigationGroup>
     <ApplicationNavigationGroup
       Name="group1">
@@ -143,6 +143,15 @@
       <ApplicationNavigationLink
         Name="link1"
         Command="!module/Commands[ScreenCommandShowFestivalBeheer]" />
+      <ApplicationNavigationLink
+        Name="link6"
+        Command="!module/Commands[ScreenCommandShowBezoekersBeheer]" />
+      <ApplicationNavigationLink
+        Name="link7"
+        Command="!module/Commands[ScreenCommandShowTypenBeheer]" />
+      <ApplicationNavigationLink
+        Name="link8"
+        Command="!module/Commands[ScreenCommandShowActiviteitenBeheer]" />
     </ApplicationNavigationGroup>
     <ApplicationNavigationGroup
       Name="group2">
@@ -156,6 +165,17 @@
       <ApplicationNavigationLink
         Name="link4"
         Command="!module/Commands[ScreenCommandShowTicketOverzicht]" />
+    </ApplicationNavigationGroup>
+    <ApplicationNavigationGroup
+      Name="group3"
+      DefaultItem="!module/NavigationItems[group3]/Children[link9]">
+      <ApplicationNavigationGroup.Attributes>
+        <DisplayName
+          Value="Statistieken" />
+      </ApplicationNavigationGroup.Attributes>
+      <ApplicationNavigationLink
+        Name="link9"
+        Command="!module/Commands[ScreenCommandShowFestivalStatistieken]" />
     </ApplicationNavigationGroup>
     <ApplicationNavigationGroup
       Name="Administration">

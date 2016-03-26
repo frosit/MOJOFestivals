@@ -53,6 +53,14 @@
         FromEnd="Ticket"
         ToEnd="Bezoeker" />
       <EntityProperty
+        Name="TotaalBedrag"
+        PropertyType="Microsoft.LightSwitch.Extensions:Money">
+        <EntityProperty.Attributes>
+          <Computed />
+          <NotSearchable />
+        </EntityProperty.Attributes>
+      </EntityProperty>
+      <EntityProperty
         Name="CreatedBy"
         IsReadOnly="True"
         PropertyType=":Person?">

@@ -111,6 +111,14 @@
               Name="Genre"
               Kind="Details"
               DataType="Genre">
+              <ContentItem.ChoicesSource>
+                <ScreenExpressionTree>
+                  <ChainExpression>
+                    <MemberExpression
+                      Member="CreateNewActiviteit/Properties[GenresPerType]" />
+                  </ChainExpression>
+                </ScreenExpressionTree>
+              </ContentItem.ChoicesSource>
               <ContentItem.DataSource>
                 <ScreenExpressionTree>
                   <ChainExpression>
@@ -270,6 +278,44 @@
       <ScreenProperty
         Name="ActiviteitProperty"
         PropertyType="Activiteit" />
+      <ScreenCollectionProperty
+        Name="GenresPerType"
+        PageSize="45"
+        PropertyType="CollectionView$Genre">
+        <ScreenCollectionProperty.Query>
+          <ScreenQueryDefinition
+            Name="GenresPerTypeQuery"
+            ReturnType="Genre*">
+            <ScreenQueryDefinition.FilterExpression>
+              <QueryFilterExpressionTree />
+            </ScreenQueryDefinition.FilterExpression>
+            <ScreenQueryDefinition.Source>
+              <QuerySourceExpressionTree>
+                <MemberExpression
+                  Member="ApplicationData/Members[GenresPerType]" />
+              </QuerySourceExpressionTree>
+            </ScreenQueryDefinition.Source>
+          </ScreenQueryDefinition>
+        </ScreenCollectionProperty.Query>
+        <ScreenExpressionTree>
+          <ChainExpression>
+            <CallExpression
+              Target="CreateNewActiviteit/Properties[GenresPerType]/Query">
+              <ArgumentExpression
+                Parameter="Id">
+                <ChainExpression>
+                  <MemberExpression
+                    Member="CreateNewActiviteit/Properties[ActiviteitProperty]" />
+                  <MemberExpression
+                    Member="Type" />
+                  <MemberExpression
+                    Member="Id" />
+                </ChainExpression>
+              </ArgumentExpression>
+            </CallExpression>
+          </ChainExpression>
+        </ScreenExpressionTree>
+      </ScreenCollectionProperty>
     </Screen.Properties>
   </Screen>
   <Application.Methods>

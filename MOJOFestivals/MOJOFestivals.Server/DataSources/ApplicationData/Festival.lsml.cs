@@ -43,5 +43,19 @@ namespace LightSwitchApplication
             }
 
         }
+
+        partial void Artiesten_Compute(ref string result)
+        {
+            //result = this.DataWorkspace.ApplicationData.ActiviteitenPerFestival(this.Id).ToString();
+
+            result = "artiesten hier";
+
+        }
+
+        partial void TicketsVerkocht_Compute(ref int result)
+        {
+            result = this.Tickets.Sum(h => h.Aantal);
+
+        }
     }
 }

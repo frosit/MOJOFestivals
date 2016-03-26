@@ -5,7 +5,7 @@
     <Partial />
   </Application.Attributes>
   <Screen
-    Name="PodiaListDetail">
+    Name="ActiviteitenOverzicht">
     <Screen.Attributes>
       <SaveChangesTo
         EntityContainer="ApplicationData" />
@@ -23,39 +23,95 @@
             Name="ListColumn"
             Kind="Group">
             <ContentItem
-              Name="PodiumList"
+              Name="ActiviteitOpPodiaList"
               Kind="Collection"
-              DataType="CollectionView$Podium"
+              DataType="CollectionView$ActiviteitOpPodia"
               View="Microsoft.LightSwitch.RichClient:List">
               <ContentItem.DataSource>
                 <ScreenExpressionTree>
                   <ChainExpression>
                     <MemberExpression
-                      Member="PodiaListDetail/Properties[Podia]" />
+                      Member="ActiviteitenOverzicht/Properties[ActiviteitOpPodias]" />
                   </ChainExpression>
                 </ScreenExpressionTree>
               </ContentItem.DataSource>
               <ContentItem
                 Name="RowTemplate"
                 Kind="Details"
-                DataType="Podium">
+                DataType="ActiviteitOpPodia">
                 <ContentItem.DataSource>
                   <ScreenExpressionTree>
                     <ChainExpression />
                   </ScreenExpressionTree>
                 </ContentItem.DataSource>
                 <ContentItem
-                  Name="Naam"
-                  Kind="Value"
-                  DataType=":String">
+                  Name="Podium"
+                  Kind="Details"
+                  DataType="Podium">
                   <ContentItem.DataSource>
                     <ScreenExpressionTree>
                       <ChainExpression>
                         <MemberExpression
-                          Member="Podium/Properties[Naam]" />
+                          Member="ActiviteitOpPodia/Properties[Podium]" />
                       </ChainExpression>
                     </ScreenExpressionTree>
                   </ContentItem.DataSource>
+                  <ContentItem
+                    Name="RowTemplate1"
+                    Kind="Details"
+                    DataType="Podium">
+                    <ContentItem.DataSource>
+                      <ScreenExpressionTree>
+                        <ChainExpression />
+                      </ScreenExpressionTree>
+                    </ContentItem.DataSource>
+                  </ContentItem>
+                </ContentItem>
+                <ContentItem
+                  Name="Activiteit"
+                  Kind="Details"
+                  DataType="Activiteit">
+                  <ContentItem.DataSource>
+                    <ScreenExpressionTree>
+                      <ChainExpression>
+                        <MemberExpression
+                          Member="ActiviteitOpPodia/Properties[Activiteit]" />
+                      </ChainExpression>
+                    </ScreenExpressionTree>
+                  </ContentItem.DataSource>
+                  <ContentItem
+                    Name="RowTemplate2"
+                    Kind="Details"
+                    DataType="Activiteit">
+                    <ContentItem.DataSource>
+                      <ScreenExpressionTree>
+                        <ChainExpression />
+                      </ScreenExpressionTree>
+                    </ContentItem.DataSource>
+                  </ContentItem>
+                </ContentItem>
+                <ContentItem
+                  Name="Festival"
+                  Kind="Details"
+                  DataType="Festival">
+                  <ContentItem.DataSource>
+                    <ScreenExpressionTree>
+                      <ChainExpression>
+                        <MemberExpression
+                          Member="ActiviteitOpPodia/Properties[Festival]" />
+                      </ChainExpression>
+                    </ScreenExpressionTree>
+                  </ContentItem.DataSource>
+                  <ContentItem
+                    Name="RowTemplate3"
+                    Kind="Details"
+                    DataType="Festival">
+                    <ContentItem.DataSource>
+                      <ScreenExpressionTree>
+                        <ChainExpression />
+                      </ScreenExpressionTree>
+                    </ContentItem.DataSource>
+                  </ContentItem>
                 </ContentItem>
                 <ContentItem
                   Name="Van"
@@ -65,7 +121,7 @@
                     <ScreenExpressionTree>
                       <ChainExpression>
                         <MemberExpression
-                          Member="Podium/Properties[Van]" />
+                          Member="ActiviteitOpPodia/Properties[Van]" />
                       </ChainExpression>
                     </ScreenExpressionTree>
                   </ContentItem.DataSource>
@@ -78,44 +134,21 @@
                     <ScreenExpressionTree>
                       <ChainExpression>
                         <MemberExpression
-                          Member="Podium/Properties[Tot]" />
+                          Member="ActiviteitOpPodia/Properties[Tot]" />
                       </ChainExpression>
                     </ScreenExpressionTree>
                   </ContentItem.DataSource>
-                </ContentItem>
-                <ContentItem
-                  Name="Festival"
-                  Kind="Details"
-                  DataType="Festival">
-                  <ContentItem.DataSource>
-                    <ScreenExpressionTree>
-                      <ChainExpression>
-                        <MemberExpression
-                          Member="Podium/Properties[Festival]" />
-                      </ChainExpression>
-                    </ScreenExpressionTree>
-                  </ContentItem.DataSource>
-                  <ContentItem
-                    Name="RowTemplate1"
-                    Kind="Details"
-                    DataType="Festival">
-                    <ContentItem.DataSource>
-                      <ScreenExpressionTree>
-                        <ChainExpression />
-                      </ScreenExpressionTree>
-                    </ContentItem.DataSource>
-                  </ContentItem>
                 </ContentItem>
               </ContentItem>
               <ContentItem.CommandItems>
                 <ContentItem
-                  Name="Podia_AddAndEditNew"
+                  Name="ActiviteitOpPodias_AddAndEditNew"
                   Kind="Command">
                   <ContentItem.DataSource>
                     <ScreenExpressionTree>
                       <ChainExpression>
                         <MemberExpression
-                          Member="PodiaListDetail/Properties[Podia]" />
+                          Member="ActiviteitenOverzicht/Properties[ActiviteitOpPodias]" />
                         <CallExpression
                           Target="AddAndEditNew" />
                       </ChainExpression>
@@ -123,13 +156,13 @@
                   </ContentItem.DataSource>
                 </ContentItem>
                 <ContentItem
-                  Name="Podia_EditSelected"
+                  Name="ActiviteitOpPodias_EditSelected"
                   Kind="Command">
                   <ContentItem.DataSource>
                     <ScreenExpressionTree>
                       <ChainExpression>
                         <MemberExpression
-                          Member="PodiaListDetail/Properties[Podia]" />
+                          Member="ActiviteitenOverzicht/Properties[ActiviteitOpPodias]" />
                         <CallExpression
                           Target="EditSelected" />
                       </ChainExpression>
@@ -137,13 +170,13 @@
                   </ContentItem.DataSource>
                 </ContentItem>
                 <ContentItem
-                  Name="Podia_DeleteSelected"
+                  Name="ActiviteitOpPodias_DeleteSelected"
                   Kind="Command">
                   <ContentItem.DataSource>
                     <ScreenExpressionTree>
                       <ChainExpression>
                         <MemberExpression
-                          Member="PodiaListDetail/Properties[Podia]" />
+                          Member="ActiviteitenOverzicht/Properties[ActiviteitOpPodias]" />
                         <CallExpression
                           Target="DeleteSelected" />
                       </ChainExpression>
@@ -191,35 +224,91 @@
             Name="DetailsColumn"
             Kind="Group">
             <ContentItem
-              Name="PodiumDetails"
+              Name="ActiviteitOpPodiaDetails"
               Kind="Details"
-              DataType="Podium">
+              DataType="ActiviteitOpPodia">
               <ContentItem.Attributes>
                 <DisplayName
-                  Value="Podium Details" />
+                  Value="Activiteit Op Podia Details" />
               </ContentItem.Attributes>
               <ContentItem.DataSource>
                 <ScreenExpressionTree>
                   <ChainExpression>
                     <MemberExpression
-                      Member="PodiaListDetail/Properties[Podia]" />
+                      Member="ActiviteitenOverzicht/Properties[ActiviteitOpPodias]" />
                     <MemberExpression
                       Member="SelectedItem" />
                   </ChainExpression>
                 </ScreenExpressionTree>
               </ContentItem.DataSource>
               <ContentItem
-                Name="Naam1"
-                Kind="Value"
-                DataType=":String">
+                Name="Podium1"
+                Kind="Details"
+                DataType="Podium">
                 <ContentItem.DataSource>
                   <ScreenExpressionTree>
                     <ChainExpression>
                       <MemberExpression
-                        Member="Podium/Properties[Naam]" />
+                        Member="ActiviteitOpPodia/Properties[Podium]" />
                     </ChainExpression>
                   </ScreenExpressionTree>
                 </ContentItem.DataSource>
+                <ContentItem
+                  Name="RowTemplate4"
+                  Kind="Details"
+                  DataType="Podium">
+                  <ContentItem.DataSource>
+                    <ScreenExpressionTree>
+                      <ChainExpression />
+                    </ScreenExpressionTree>
+                  </ContentItem.DataSource>
+                </ContentItem>
+              </ContentItem>
+              <ContentItem
+                Name="Activiteit1"
+                Kind="Details"
+                DataType="Activiteit">
+                <ContentItem.DataSource>
+                  <ScreenExpressionTree>
+                    <ChainExpression>
+                      <MemberExpression
+                        Member="ActiviteitOpPodia/Properties[Activiteit]" />
+                    </ChainExpression>
+                  </ScreenExpressionTree>
+                </ContentItem.DataSource>
+                <ContentItem
+                  Name="RowTemplate5"
+                  Kind="Details"
+                  DataType="Activiteit">
+                  <ContentItem.DataSource>
+                    <ScreenExpressionTree>
+                      <ChainExpression />
+                    </ScreenExpressionTree>
+                  </ContentItem.DataSource>
+                </ContentItem>
+              </ContentItem>
+              <ContentItem
+                Name="Festival1"
+                Kind="Details"
+                DataType="Festival">
+                <ContentItem.DataSource>
+                  <ScreenExpressionTree>
+                    <ChainExpression>
+                      <MemberExpression
+                        Member="ActiviteitOpPodia/Properties[Festival]" />
+                    </ChainExpression>
+                  </ScreenExpressionTree>
+                </ContentItem.DataSource>
+                <ContentItem
+                  Name="RowTemplate6"
+                  Kind="Details"
+                  DataType="Festival">
+                  <ContentItem.DataSource>
+                    <ScreenExpressionTree>
+                      <ChainExpression />
+                    </ScreenExpressionTree>
+                  </ContentItem.DataSource>
+                </ContentItem>
               </ContentItem>
               <ContentItem
                 Name="Van1"
@@ -229,7 +318,7 @@
                   <ScreenExpressionTree>
                     <ChainExpression>
                       <MemberExpression
-                        Member="Podium/Properties[Van]" />
+                        Member="ActiviteitOpPodia/Properties[Van]" />
                     </ChainExpression>
                   </ScreenExpressionTree>
                 </ContentItem.DataSource>
@@ -242,33 +331,10 @@
                   <ScreenExpressionTree>
                     <ChainExpression>
                       <MemberExpression
-                        Member="Podium/Properties[Tot]" />
+                        Member="ActiviteitOpPodia/Properties[Tot]" />
                     </ChainExpression>
                   </ScreenExpressionTree>
                 </ContentItem.DataSource>
-              </ContentItem>
-              <ContentItem
-                Name="Festival1"
-                Kind="Details"
-                DataType="Festival">
-                <ContentItem.DataSource>
-                  <ScreenExpressionTree>
-                    <ChainExpression>
-                      <MemberExpression
-                        Member="Podium/Properties[Festival]" />
-                    </ChainExpression>
-                  </ScreenExpressionTree>
-                </ContentItem.DataSource>
-                <ContentItem
-                  Name="RowTemplate2"
-                  Kind="Details"
-                  DataType="Festival">
-                  <ContentItem.DataSource>
-                    <ScreenExpressionTree>
-                      <ChainExpression />
-                    </ScreenExpressionTree>
-                  </ContentItem.DataSource>
-                </ContentItem>
               </ContentItem>
               <ContentItem.PropertySources>
                 <ControlPropertySource
@@ -277,158 +343,6 @@
                     <ChainExpression>
                       <ConstantExpression
                         Value="Top"
-                        ResultType=":String" />
-                    </ChainExpression>
-                  </ScreenExpressionTree>
-                </ControlPropertySource>
-              </ContentItem.PropertySources>
-            </ContentItem>
-            <ContentItem
-              Name="ActiviteitOpPodias"
-              Kind="Collection"
-              DataType="CollectionView$ActiviteitOpPodia"
-              View="Microsoft.LightSwitch.RichClient:DataGrid">
-              <ContentItem.DataSource>
-                <ScreenExpressionTree>
-                  <ChainExpression>
-                    <MemberExpression
-                      Member="PodiaListDetail/Properties[ActiviteitOpPodias]" />
-                  </ChainExpression>
-                </ScreenExpressionTree>
-              </ContentItem.DataSource>
-              <ContentItem
-                Name="RowTemplate3"
-                Kind="Details"
-                DataType="ActiviteitOpPodia">
-                <ContentItem.DataSource>
-                  <ScreenExpressionTree>
-                    <ChainExpression />
-                  </ScreenExpressionTree>
-                </ContentItem.DataSource>
-                <ContentItem
-                  Name="Activiteit"
-                  Kind="Details"
-                  DataType="Activiteit">
-                  <ContentItem.DataSource>
-                    <ScreenExpressionTree>
-                      <ChainExpression>
-                        <MemberExpression
-                          Member="ActiviteitOpPodia/Properties[Activiteit]" />
-                      </ChainExpression>
-                    </ScreenExpressionTree>
-                  </ContentItem.DataSource>
-                  <ContentItem
-                    Name="RowTemplate4"
-                    Kind="Details"
-                    DataType="Activiteit">
-                    <ContentItem.DataSource>
-                      <ScreenExpressionTree>
-                        <ChainExpression />
-                      </ScreenExpressionTree>
-                    </ContentItem.DataSource>
-                  </ContentItem>
-                </ContentItem>
-                <ContentItem
-                  Name="Festival2"
-                  Kind="Details"
-                  DataType="Festival">
-                  <ContentItem.DataSource>
-                    <ScreenExpressionTree>
-                      <ChainExpression>
-                        <MemberExpression
-                          Member="ActiviteitOpPodia/Properties[Festival]" />
-                      </ChainExpression>
-                    </ScreenExpressionTree>
-                  </ContentItem.DataSource>
-                  <ContentItem
-                    Name="RowTemplate5"
-                    Kind="Details"
-                    DataType="Festival">
-                    <ContentItem.DataSource>
-                      <ScreenExpressionTree>
-                        <ChainExpression />
-                      </ScreenExpressionTree>
-                    </ContentItem.DataSource>
-                  </ContentItem>
-                </ContentItem>
-                <ContentItem
-                  Name="Van2"
-                  Kind="Value"
-                  DataType=":DateTime">
-                  <ContentItem.DataSource>
-                    <ScreenExpressionTree>
-                      <ChainExpression>
-                        <MemberExpression
-                          Member="ActiviteitOpPodia/Properties[Van]" />
-                      </ChainExpression>
-                    </ScreenExpressionTree>
-                  </ContentItem.DataSource>
-                </ContentItem>
-                <ContentItem
-                  Name="Tot2"
-                  Kind="Value"
-                  DataType=":DateTime">
-                  <ContentItem.DataSource>
-                    <ScreenExpressionTree>
-                      <ChainExpression>
-                        <MemberExpression
-                          Member="ActiviteitOpPodia/Properties[Tot]" />
-                      </ChainExpression>
-                    </ScreenExpressionTree>
-                  </ContentItem.DataSource>
-                </ContentItem>
-              </ContentItem>
-              <ContentItem.CommandItems>
-                <ContentItem
-                  Name="ActiviteitOpPodias_AddAndEditNew"
-                  Kind="Command">
-                  <ContentItem.DataSource>
-                    <ScreenExpressionTree>
-                      <ChainExpression>
-                        <MemberExpression
-                          Member="PodiaListDetail/Properties[ActiviteitOpPodias]" />
-                        <CallExpression
-                          Target="AddAndEditNew" />
-                      </ChainExpression>
-                    </ScreenExpressionTree>
-                  </ContentItem.DataSource>
-                </ContentItem>
-                <ContentItem
-                  Name="ActiviteitOpPodias_EditSelected"
-                  Kind="Command">
-                  <ContentItem.DataSource>
-                    <ScreenExpressionTree>
-                      <ChainExpression>
-                        <MemberExpression
-                          Member="PodiaListDetail/Properties[ActiviteitOpPodias]" />
-                        <CallExpression
-                          Target="EditSelected" />
-                      </ChainExpression>
-                    </ScreenExpressionTree>
-                  </ContentItem.DataSource>
-                </ContentItem>
-                <ContentItem
-                  Name="ActiviteitOpPodias_DeleteSelected"
-                  Kind="Command">
-                  <ContentItem.DataSource>
-                    <ScreenExpressionTree>
-                      <ChainExpression>
-                        <MemberExpression
-                          Member="PodiaListDetail/Properties[ActiviteitOpPodias]" />
-                        <CallExpression
-                          Target="DeleteSelected" />
-                      </ChainExpression>
-                    </ScreenExpressionTree>
-                  </ContentItem.DataSource>
-                </ContentItem>
-              </ContentItem.CommandItems>
-              <ContentItem.PropertySources>
-                <ControlPropertySource
-                  Property="Microsoft.LightSwitch.RichClient:RootControl/Properties[VerticalAlignment]">
-                  <ScreenExpressionTree>
-                    <ChainExpression>
-                      <ConstantExpression
-                        Value="Stretch"
                         ResultType=":String" />
                     </ChainExpression>
                   </ScreenExpressionTree>
@@ -467,7 +381,7 @@
               <ScreenExpressionTree>
                 <ChainExpression>
                   <CallExpression
-                    Target="PodiaListDetail/Methods[Save]" />
+                    Target="ActiviteitenOverzicht/Methods[Save]" />
                 </ChainExpression>
               </ScreenExpressionTree>
             </ContentItem.DataSource>
@@ -479,7 +393,7 @@
               <ScreenExpressionTree>
                 <ChainExpression>
                   <CallExpression
-                    Target="PodiaListDetail/Methods[Refresh]" />
+                    Target="ActiviteitenOverzicht/Methods[Refresh]" />
                 </ChainExpression>
               </ScreenExpressionTree>
             </ContentItem.DataSource>
@@ -519,34 +433,8 @@
     </Screen.Methods>
     <Screen.Properties>
       <ScreenCollectionProperty
-        Name="Podia"
-        PageSize="45"
-        PropertyType="CollectionView$Podium">
-        <ScreenCollectionProperty.Query>
-          <ScreenQueryDefinition
-            Name="PodiaQuery"
-            ReturnType="Podium*">
-            <ScreenQueryDefinition.FilterExpression>
-              <QueryFilterExpressionTree />
-            </ScreenQueryDefinition.FilterExpression>
-            <ScreenQueryDefinition.Source>
-              <QuerySourceExpressionTree>
-                <MemberExpression
-                  Member="ApplicationData/Members[Podia]" />
-              </QuerySourceExpressionTree>
-            </ScreenQueryDefinition.Source>
-          </ScreenQueryDefinition>
-        </ScreenCollectionProperty.Query>
-        <ScreenExpressionTree>
-          <ChainExpression>
-            <CallExpression
-              Target="PodiaListDetail/Properties[Podia]/Query" />
-          </ChainExpression>
-        </ScreenExpressionTree>
-      </ScreenCollectionProperty>
-      <ScreenCollectionProperty
         Name="ActiviteitOpPodias"
-        PageSize="15"
+        PageSize="45"
         PropertyType="CollectionView$ActiviteitOpPodia">
         <ScreenCollectionProperty.Query>
           <ScreenQueryDefinition
@@ -557,14 +445,8 @@
             </ScreenQueryDefinition.FilterExpression>
             <ScreenQueryDefinition.Source>
               <QuerySourceExpressionTree>
-                <ChainExpression>
-                  <MemberExpression
-                    Member="PodiaListDetail/Properties[Podia]" />
-                  <MemberExpression
-                    Member="SelectedItem" />
-                  <MemberExpression
-                    Member="ActiviteitOpPodias" />
-                </ChainExpression>
+                <MemberExpression
+                  Member="ApplicationData/Members[ActiviteitOpPodias]" />
               </QuerySourceExpressionTree>
             </ScreenQueryDefinition.Source>
           </ScreenQueryDefinition>
@@ -572,7 +454,7 @@
         <ScreenExpressionTree>
           <ChainExpression>
             <CallExpression
-              Target="PodiaListDetail/Properties[ActiviteitOpPodias]/Query" />
+              Target="ActiviteitenOverzicht/Properties[ActiviteitOpPodias]/Query" />
           </ChainExpression>
         </ScreenExpressionTree>
       </ScreenCollectionProperty>
@@ -580,10 +462,10 @@
   </Screen>
   <Application.Methods>
     <ApplicationMethod
-      Name="ShowPodiaListDetail">
+      Name="ShowActiviteitenOverzicht">
       <ApplicationMethod.Attributes>
         <ShowScreenMethod
-          TargetScreen="PodiaListDetail" />
+          TargetScreen="ActiviteitenOverzicht" />
       </ApplicationMethod.Attributes>
     </ApplicationMethod>
   </Application.Methods>
