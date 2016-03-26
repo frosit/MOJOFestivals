@@ -105,6 +105,12 @@
       <Private>True</Private>
       <Type>Client</Type>
     </ProjectReference>
+    <ProjectReference Include="MOJOFestivals.HTMLClient\MOJOFestivals.HTMLClient.jsproj">
+      <Name>MOJOFestivals.HTMLClient</Name>
+      <Project>{7dbb4600-28f7-4f44-87b3-c0ccbdb9e632}</Project>
+      <Private>True</Private>
+      <Type>Client</Type>
+    </ProjectReference>
     <ProjectReference Include="MOJOFestivals.Server\MOJOFestivals.Server.csproj">
       <Name>MOJOFestivals.Server</Name>
       <Project>{89cd321d-f5ee-4f82-8c74-95c6b07a8e82}</Project>
