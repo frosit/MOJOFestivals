@@ -5,7 +5,7 @@
     <Partial />
   </ServiceApplication.Attributes>
   <EntityType
-    Name="Festival">
+    Name="Gebruiker">
     <EntityType.Attributes>
       <CreatedModifiedPropertiesEnabled />
     </EntityType.Attributes>
@@ -27,124 +27,78 @@
         </KeyProperty.Attributes>
       </KeyProperty>
       <EntityProperty
+        Name="Persoon"
+        PropertyType=":Person">
+        <EntityProperty.Attributes>
+          <Required />
+          <NotSearchable />
+          <MaxLength
+            Value="255" />
+        </EntityProperty.Attributes>
+      </EntityProperty>
+      <EntityProperty
         Name="Naam"
         PropertyType=":String">
         <EntityProperty.Attributes>
-          <MaxLength
-            Value="255" />
-          <Required />
-          <IncludeInUniqueIndex />
-        </EntityProperty.Attributes>
-      </EntityProperty>
-      <EntityProperty
-        Name="Beschrijving"
-        PropertyType=":String?">
-        <EntityProperty.Attributes>
-          <MaxLength
-            Value="1000" />
-        </EntityProperty.Attributes>
-      </EntityProperty>
-      <EntityProperty
-        Name="Logo"
-        PropertyType="Microsoft.LightSwitch.Extensions:Image?">
-        <EntityProperty.Attributes>
-          <NotSearchable />
-        </EntityProperty.Attributes>
-      </EntityProperty>
-      <EntityProperty
-        Name="Sfeerfoto"
-        PropertyType="Microsoft.LightSwitch.Extensions:Image?">
-        <EntityProperty.Attributes>
-          <NotSearchable />
-        </EntityProperty.Attributes>
-      </EntityProperty>
-      <NavigationProperty
-        Name="Type"
-        Association="Festival_Type"
-        FromEnd="Festival"
-        ToEnd="Type" />
-      <NavigationProperty
-        Name="Genre"
-        Association="Festival_Genre"
-        FromEnd="Festival"
-        ToEnd="Genre" />
-      <EntityProperty
-        Name="Doelgroep"
-        PropertyType=":String?">
-        <EntityProperty.Attributes>
-          <MaxLength
-            Value="255" />
-          <SupportedValue
-            DisplayName="Kinderen"
-            Value="1" />
-          <SupportedValue
-            DisplayName="Jongeren"
-            Value="2" />
-          <SupportedValue
-            DisplayName="Adolescenten"
-            Value="3" />
-          <SupportedValue
-            DisplayName="Ouderen"
-            Value="4" />
-        </EntityProperty.Attributes>
-      </EntityProperty>
-      <EntityProperty
-        Name="Start"
-        PropertyType=":DateTime">
-        <EntityProperty.Attributes>
-          <Required />
-          <NotSearchable />
-        </EntityProperty.Attributes>
-      </EntityProperty>
-      <EntityProperty
-        Name="Eind"
-        PropertyType=":DateTime">
-        <EntityProperty.Attributes>
-          <Required />
-          <NotSearchable />
-        </EntityProperty.Attributes>
-      </EntityProperty>
-      <EntityProperty
-        Name="Locatie"
-        PropertyType=":String">
-        <EntityProperty.Attributes>
-          <Required />
-          <MaxLength
-            Value="255" />
-        </EntityProperty.Attributes>
-      </EntityProperty>
-      <NavigationProperty
-        Name="Podia"
-        Association="Festival_Podium"
-        FromEnd="Festival"
-        ToEnd="Podium" />
-      <EntityProperty
-        Name="Artiesten"
-        PropertyType=":String">
-        <EntityProperty.Attributes>
           <Computed />
         </EntityProperty.Attributes>
       </EntityProperty>
       <EntityProperty
-        Name="TicketsTotaal"
-        PropertyType=":Int32">
+        Name="Voorletters"
+        PropertyType=":String">
         <EntityProperty.Attributes>
+          <MaxLength
+            Value="255" />
           <Required />
-          <NotSearchable />
         </EntityProperty.Attributes>
       </EntityProperty>
       <EntityProperty
-        Name="TicketsResterend"
-        PropertyType=":String">
+        Name="Tussenvoegsel"
+        PropertyType=":String?">
         <EntityProperty.Attributes>
-          <Computed />
+          <MaxLength
+            Value="255" />
         </EntityProperty.Attributes>
       </EntityProperty>
-      <NavigationProperty
-        Name="Tickets"
-        Association="Ticket_Festival"
-        FromEnd="Festival"
-        ToEnd="Ticket" />
+      <EntityProperty
+        Name="Achternaam"
+        PropertyType=":String">
+        <EntityProperty.Attributes>
+          <Required />
+          <MaxLength
+            Value="255" />
+        </EntityProperty.Attributes>
+      </EntityProperty>
+      <EntityProperty
+        Name="Email"
+        PropertyType=":String">
+        <EntityProperty.Attributes>
+          <Required />
+          <MaxLength
+            Value="255" />
+        </EntityProperty.Attributes>
+      </EntityProperty>
+      <EntityProperty
+        Name="IBAN"
+        PropertyType=":String?">
+        <EntityProperty.Attributes>
+          <MaxLength
+            Value="255" />
+        </EntityProperty.Attributes>
+      </EntityProperty>
+      <EntityProperty
+        Name="Gemachtigd"
+        PropertyType=":Boolean?">
+        <EntityProperty.Attributes>
+          <NotSearchable />
+          <SupportedValue
+            DisplayName="Nee"
+            Value="False" />
+          <SupportedValue
+            DisplayName="Ja"
+            Value="True" />
+        </EntityProperty.Attributes>
+      </EntityProperty>
       <EntityProperty
         Name="CreatedBy"
         IsReadOnly="True"
@@ -203,14 +157,14 @@
       <Partial />
     </EntityContainer.Attributes>
     <EntitySet
-      Name="Festivals"
+      Name="Gebruikers"
       CanDelete="True"
       CanInsert="True"
       CanUpdate="True"
-      EntityType="Festival" />
+      EntityType="Gebruiker" />
     <QueryOperation
-      Name="Festivals_Single"
-      ReturnType="Festival">
+      Name="Gebruikers_Single"
+      ReturnType="Gebruiker">
       <QueryOperation.Attributes>
         <Generated />
         <Description
@@ -236,7 +190,7 @@
       <QueryOperation.Source>
         <QuerySourceExpressionTree>
           <MemberExpression
-            Member="Festivals" />
+            Member="Gebruikers" />
         </QuerySourceExpressionTree>
       </QueryOperation.Source>
       <QueryOperationParameter
@@ -249,8 +203,8 @@
       </QueryOperationParameter>
     </QueryOperation>
     <QueryOperation
-      Name="Festivals_SingleOrDefault"
-      ReturnType="Festival">
+      Name="Gebruikers_SingleOrDefault"
+      ReturnType="Gebruiker">
       <QueryOperation.Attributes>
         <Generated />
         <Description
@@ -276,7 +230,7 @@
       <QueryOperation.Source>
         <QuerySourceExpressionTree>
           <MemberExpression
-            Member="Festivals" />
+            Member="Gebruikers" />
         </QuerySourceExpressionTree>
       </QueryOperation.Source>
       <QueryOperationParameter
@@ -288,118 +242,5 @@
         </QueryOperationParameter.Attributes>
       </QueryOperationParameter>
     </QueryOperation>
-    <AssociationSet
-      Name="Ticket_Festivals"
-      Association="Ticket_Festival">
-      <AssociationSetEnd
-        Name="Ticket"
-        EntitySet="Tickets" />
-      <AssociationSetEnd
-        Name="Festival"
-        EntitySet="Festivals" />
-    </AssociationSet>
-    <AssociationSet
-      Name="Festival_Podiums"
-      Association="Festival_Podium">
-      <AssociationSetEnd
-        Name="Festival"
-        EntitySet="Festivals" />
-      <AssociationSetEnd
-        Name="Podium"
-        EntitySet="Podia" />
-    </AssociationSet>
   </EntityContainer>
-  <DataService
-    Name="ApplicationDataMapping">
-    <DataService.Attributes>
-      <Partial />
-    </DataService.Attributes>
-    <EntitySetMapping
-      EntitySet="Festivals">
-      <EntitySetMapping.Attributes>
-        <SsdlForeignKeyProperty
-          Name="Festival_Type"
-          Nullable="False"
-          Type="int" />
-        <SsdlForeignKeyProperty
-          Name="Festival_Genre"
-          Nullable="False"
-          Type="int" />
-      </EntitySetMapping.Attributes>
-    </EntitySetMapping>
-    <AssociationSetMapping
-      AssociationSet="Ticket_Festivals">
-      <AssociationSetMapping.Attributes>
-        <SsdlAssociationSet
-          Name="Ticket_Festivals" />
-        <SsdlAssociationSetEnd
-          End="ApplicationData/Members[Ticket_Festivals]/Members[Ticket]">
-          <SsdlAssociationSetEnd.Attributes>
-            <SsdlPropertyRef
-              Name="Ticket_Festival" />
-          </SsdlAssociationSetEnd.Attributes>
-        </SsdlAssociationSetEnd>
-        <SsdlAssociationSetEnd
-          End="ApplicationData/Members[Ticket_Festivals]/Members[Festival]">
-          <SsdlAssociationSetEnd.Attributes>
-            <SsdlPropertyRef
-              Name="Id" />
-          </SsdlAssociationSetEnd.Attributes>
-        </SsdlAssociationSetEnd>
-      </AssociationSetMapping.Attributes>
-    </AssociationSetMapping>
-    <AssociationSetMapping
-      AssociationSet="Festival_Podiums">
-      <AssociationSetMapping.Attributes>
-        <SsdlAssociationSet
-          Name="Festival_Podiums" />
-        <SsdlAssociationSetEnd
-          End="ApplicationData/Members[Festival_Podiums]/Members[Festival]">
-          <SsdlAssociationSetEnd.Attributes>
-            <SsdlPropertyRef
-              Name="Id" />
-          </SsdlAssociationSetEnd.Attributes>
-        </SsdlAssociationSetEnd>
-        <SsdlAssociationSetEnd
-          End="ApplicationData/Members[Festival_Podiums]/Members[Podium]">
-          <SsdlAssociationSetEnd.Attributes>
-            <SsdlPropertyRef
-              Name="Festival_Podium" />
-          </SsdlAssociationSetEnd.Attributes>
-        </SsdlAssociationSetEnd>
-      </AssociationSetMapping.Attributes>
-    </AssociationSetMapping>
-  </DataService>
-  <Association
-    Name="Ticket_Festival">
-    <AssociationEnd
-      Name="Ticket"
-      Multiplicity="Many"
-      EntityType="Ticket" />
-    <AssociationEnd
-      Name="Festival"
-      Multiplicity="One"
-      EntityType="Festival">
-      <AssociationEnd.Attributes>
-        <DeleteRule
-          Action="Cascade" />
-      </AssociationEnd.Attributes>
-    </AssociationEnd>
-  </Association>
-  <Association
-    Name="Festival_Podium">
-    <AssociationEnd
-      Name="Festival"
-      Multiplicity="One"
-      EntityType="Festival">
-      <AssociationEnd.Attributes>
-        <DeleteRule
-          Action="Cascade" />
-      </AssociationEnd.Attributes>
-    </AssociationEnd>
-    <AssociationEnd
-      Name="Podium"
-      Multiplicity="Many"
-      EntityType="Podium" />
-  </Association>
 </ServiceApplication>

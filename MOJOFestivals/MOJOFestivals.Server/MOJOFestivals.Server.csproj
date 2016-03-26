@@ -203,6 +203,14 @@
     <Content Include="Web.config" />
     <LightSwitchModel Include="Properties\DataSources\ApplicationData.lsml" />
     <LightSwitchModel Include="DataSources\ApplicationData\Festivals.lsml" />
+    <LightSwitchModel Include="DataSources\ApplicationData\Genres.lsml" />
+    <LightSwitchModel Include="DataSources\ApplicationData\Typen.lsml" />
+    <LightSwitchModel Include="DataSources\ApplicationData\Gebruikers.lsml" />
+    <LightSwitchModel Include="DataSources\ApplicationData\GenresPerType.lsml">
+      <DependentUpon>Genres.lsml</DependentUpon>
+    </LightSwitchModel>
+    <LightSwitchModel Include="DataSources\ApplicationData\Tickets.lsml" />
+    <LightSwitchModel Include="DataSources\ApplicationData\Podia.lsml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
