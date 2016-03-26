@@ -288,7 +288,7 @@
                 <ContentItem
                   Name="TotaalBeoordelingen"
                   Kind="Value"
-                  DataType=":String">
+                  DataType=":Int32">
                   <ContentItem.DataSource>
                     <ScreenExpressionTree>
                       <ChainExpression>
@@ -301,7 +301,7 @@
                 <ContentItem
                   Name="GemiddeldeBeoordeling"
                   Kind="Value"
-                  DataType=":String">
+                  DataType=":Decimal">
                   <ContentItem.DataSource>
                     <ScreenExpressionTree>
                       <ChainExpression>
@@ -657,7 +657,7 @@
               <ContentItem
                 Name="TotaalBeoordelingen1"
                 Kind="Value"
-                DataType=":String">
+                DataType=":Int32">
                 <ContentItem.DataSource>
                   <ScreenExpressionTree>
                     <ChainExpression>
@@ -670,7 +670,7 @@
               <ContentItem
                 Name="GemiddeldeBeoordeling1"
                 Kind="Value"
-                DataType=":String">
+                DataType=":Decimal">
                 <ContentItem.DataSource>
                   <ScreenExpressionTree>
                     <ChainExpression>
@@ -807,8 +807,7 @@
               <ContentItem
                 Name="ActiviteitOpPodias"
                 Kind="Collection"
-                DataType="CollectionView$ActiviteitOpPodia"
-                View="Microsoft.LightSwitch.RichClient:DataGrid">
+                DataType="CollectionView$ActiviteitOpPodia">
                 <ContentItem.DataSource>
                   <ScreenExpressionTree>
                     <ChainExpression>
@@ -818,7 +817,7 @@
                   </ScreenExpressionTree>
                 </ContentItem.DataSource>
                 <ContentItem
-                  Name="RowTemplate6"
+                  Name="ActiviteitOpPodiasTemplate"
                   Kind="Details"
                   DataType="ActiviteitOpPodia">
                   <ContentItem.DataSource>
@@ -830,6 +829,14 @@
                     Name="Podium"
                     Kind="Details"
                     DataType="Podium">
+                    <ContentItem.ChoicesSource>
+                      <ScreenExpressionTree>
+                        <ChainExpression>
+                          <MemberExpression
+                            Member="Home/Properties[Podia]" />
+                        </ChainExpression>
+                      </ScreenExpressionTree>
+                    </ContentItem.ChoicesSource>
                     <ContentItem.DataSource>
                       <ScreenExpressionTree>
                         <ChainExpression>
@@ -839,7 +846,7 @@
                       </ScreenExpressionTree>
                     </ContentItem.DataSource>
                     <ContentItem
-                      Name="RowTemplate7"
+                      Name="Podium1"
                       Kind="Details"
                       DataType="Podium">
                       <ContentItem.DataSource>
@@ -862,9 +869,32 @@
                       </ScreenExpressionTree>
                     </ContentItem.DataSource>
                     <ContentItem
-                      Name="RowTemplate8"
+                      Name="Activiteit1"
                       Kind="Details"
                       DataType="Activiteit">
+                      <ContentItem.DataSource>
+                        <ScreenExpressionTree>
+                          <ChainExpression />
+                        </ScreenExpressionTree>
+                      </ContentItem.DataSource>
+                    </ContentItem>
+                  </ContentItem>
+                  <ContentItem
+                    Name="Festival"
+                    Kind="Details"
+                    DataType="Festival">
+                    <ContentItem.DataSource>
+                      <ScreenExpressionTree>
+                        <ChainExpression>
+                          <MemberExpression
+                            Member="ActiviteitOpPodia/Properties[Festival]" />
+                        </ChainExpression>
+                      </ScreenExpressionTree>
+                    </ContentItem.DataSource>
+                    <ContentItem
+                      Name="Festival1"
+                      Kind="Details"
+                      DataType="Festival">
                       <ContentItem.DataSource>
                         <ScreenExpressionTree>
                           <ChainExpression />
@@ -1075,7 +1105,23 @@
             Name="PodiaQuery"
             ReturnType="Podium*">
             <ScreenQueryDefinition.FilterExpression>
-              <QueryFilterExpressionTree />
+              <QueryFilterExpressionTree>
+                <BinaryExpression
+                  NodeType="Equal">
+                  <BinaryExpression.Left>
+                    <ChainExpression>
+                      <MemberExpression
+                        Member="Podium/Properties[Festival]" />
+                      <MemberExpression
+                        Member="Id" />
+                    </ChainExpression>
+                  </BinaryExpression.Left>
+                  <BinaryExpression.Right>
+                    <ParameterExpression
+                      Parameter="Id" />
+                  </BinaryExpression.Right>
+                </BinaryExpression>
+              </QueryFilterExpressionTree>
             </ScreenQueryDefinition.FilterExpression>
             <ScreenQueryDefinition.Source>
               <QuerySourceExpressionTree>
@@ -1089,18 +1135,35 @@
                 </ChainExpression>
               </QuerySourceExpressionTree>
             </ScreenQueryDefinition.Source>
+            <ScreenQueryDefinition.Parameters>
+              <QueryParameter
+                Name="Id"
+                ParameterType=":Int32?" />
+            </ScreenQueryDefinition.Parameters>
           </ScreenQueryDefinition>
         </ScreenCollectionProperty.Query>
         <ScreenExpressionTree>
           <ChainExpression>
             <CallExpression
-              Target="Home/Properties[Podia]/Query" />
+              Target="Home/Properties[Podia]/Query">
+              <ArgumentExpression
+                Parameter="Id">
+                <ChainExpression>
+                  <MemberExpression
+                    Member="Home/Properties[Festivals]" />
+                  <MemberExpression
+                    Member="SelectedItem" />
+                  <MemberExpression
+                    Member="Id" />
+                </ChainExpression>
+              </ArgumentExpression>
+            </CallExpression>
           </ChainExpression>
         </ScreenExpressionTree>
       </ScreenCollectionProperty>
       <ScreenCollectionProperty
         Name="ActiviteitOpPodias"
-        PageSize="15"
+        PageSize="45"
         PropertyType="CollectionView$ActiviteitOpPodia">
         <ScreenCollectionProperty.Query>
           <ScreenQueryDefinition
@@ -1113,7 +1176,7 @@
               <QuerySourceExpressionTree>
                 <ChainExpression>
                   <MemberExpression
-                    Member="Home/Properties[Festivals]" />
+                    Member="Home/Properties[Podia]" />
                   <MemberExpression
                     Member="SelectedItem" />
                   <MemberExpression

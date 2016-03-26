@@ -283,7 +283,7 @@
               <ContentItem
                 Name="TotaalBeoordelingen"
                 Kind="Value"
-                DataType=":String">
+                DataType=":Int32">
                 <ContentItem.DataSource>
                   <ScreenExpressionTree>
                     <ChainExpression>
@@ -296,7 +296,7 @@
               <ContentItem
                 Name="GemiddeldeBeoordeling"
                 Kind="Value"
-                DataType=":String">
+                DataType=":Decimal">
                 <ContentItem.DataSource>
                   <ScreenExpressionTree>
                     <ChainExpression>

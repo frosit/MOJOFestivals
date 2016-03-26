@@ -129,6 +129,21 @@
           <Computed />
         </EntityProperty.Attributes>
       </EntityProperty>
+      <NavigationProperty
+        Name="Tickets"
+        Association="Ticket_Festival"
+        FromEnd="Festival"
+        ToEnd="Ticket" />
+      <EntityProperty
+        Name="Prijs"
+        PropertyType="Microsoft.LightSwitch.Extensions:Money?">
+        <EntityProperty.Attributes>
+          <NotSearchable />
+          <DecimalConstraint
+            Precision="18"
+            Scale="2" />
+        </EntityProperty.Attributes>
+      </EntityProperty>
       <EntityProperty
         Name="TicketsTotaal"
         PropertyType=":Int32">
@@ -145,27 +160,24 @@
         </EntityProperty.Attributes>
       </EntityProperty>
       <NavigationProperty
-        Name="Tickets"
-        Association="Ticket_Festival"
-        FromEnd="Festival"
-        ToEnd="Ticket" />
-      <NavigationProperty
         Name="Beoordelingen"
         Association="Festival_Beoordeling"
         FromEnd="Festival"
         ToEnd="Beoordeling" />
       <EntityProperty
         Name="TotaalBeoordelingen"
-        PropertyType=":String">
+        PropertyType=":Int32">
         <EntityProperty.Attributes>
           <Computed />
+          <NotSearchable />
         </EntityProperty.Attributes>
       </EntityProperty>
       <EntityProperty
         Name="GemiddeldeBeoordeling"
-        PropertyType=":String">
+        PropertyType=":Decimal">
         <EntityProperty.Attributes>
           <Computed />
+          <NotSearchable />
         </EntityProperty.Attributes>
       </EntityProperty>
       <EntityProperty
