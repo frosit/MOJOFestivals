@@ -3,7 +3,7 @@
   Name="LightSwitchApplication.MOJOFestivals.DesktopClient"
   TargetPlatform="RichClient"
   Version="1.0.0.0"
-  DefaultNavigationItem="!module/NavigationItems[group3]"
+  DefaultNavigationItem="!module/NavigationItems[Tasks]"
   Shell="Microsoft.LightSwitch.Cosmopolitan:CosmopolitanShell"
   Theme="Microsoft.LightSwitch.Cosmopolitan:CosmopolitanTheme" xmlns="http://schemas.microsoft.com/LightSwitch/2010/xaml/model">
   <Application.Attributes>
@@ -43,9 +43,6 @@
       Name="ScreenCommandShowCreateNewActiviteit"
       Target="!module/Methods[ShowCreateNewActiviteit]" />
     <ApplicationCommand
-      Name="ScreenCommandShowHome"
-      Target="!module/Methods[ShowHome]" />
-    <ApplicationCommand
       Name="ScreenCommandShowBezoekersBeheer"
       Target="!module/Methods[ShowBezoekersBeheer]" />
     <ApplicationCommand
@@ -72,6 +69,9 @@
     <ApplicationCommand
       Name="ScreenCommandShowFestivalStatistieken"
       Target="!module/Methods[ShowFestivalStatistieken]" />
+    <ApplicationCommand
+      Name="ScreenCommandShowHome"
+      Target="!module/Methods[ShowHome]" />
   </Application.Commands>
   <Application.NavigationItems>
     <ApplicationNavigationGroup
@@ -87,9 +87,6 @@
       <ApplicationNavigationLink
         Name="CreateNewActiviteit"
         Command="!module/Commands[ScreenCommandShowCreateNewActiviteit]" />
-      <ApplicationNavigationLink
-        Name="Home"
-        Command="!module/Commands[ScreenCommandShowHome]" />
       <ApplicationNavigationLink
         Name="BezoekersBeheer"
         Command="!module/Commands[ScreenCommandShowBezoekersBeheer]" />
@@ -117,6 +114,9 @@
       <ApplicationNavigationLink
         Name="FestivalStatistieken"
         Command="!module/Commands[ScreenCommandShowFestivalStatistieken]" />
+      <ApplicationNavigationLink
+        Name="Home"
+        Command="!module/Commands[ScreenCommandShowHome]" />
     </ApplicationNavigationGroup>
     <ApplicationNavigationGroup
       Name="group">

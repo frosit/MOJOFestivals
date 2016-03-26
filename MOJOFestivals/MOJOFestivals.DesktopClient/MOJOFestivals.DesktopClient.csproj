@@ -271,7 +271,6 @@
     <LightSwitchModel Include="Properties\Proxies.lsml" />
     <LightSwitchModel Include="Screens\Nieuw\NewTypenGenre.lsml" />
     <LightSwitchModel Include="Screens\Nieuw\CreateNewActiviteit.lsml" />
-    <LightSwitchModel Include="Screens\Home.lsml" />
     <LightSwitchModel Include="Screens\Beheer\BezoekersBeheer.lsml" />
     <LightSwitchModel Include="Screens\Beheer\ActiviteitenBeheer.lsml" />
     <LightSwitchModel Include="Screens\Beheer\TypenBeheer.lsml" />
@@ -282,6 +281,7 @@
     <LightSwitchModel Include="Screens\Overzichten\ActiviteitenOverzicht.lsml" />
     <LightSwitchModel Include="Screens\Nieuw\CreateNewFestival.lsml" />
     <LightSwitchModel Include="Screens\Statistieken\FestivalStatistieken.lsml" />
+    <LightSwitchModel Include="Screens\Home.lsml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
