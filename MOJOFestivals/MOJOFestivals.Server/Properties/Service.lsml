@@ -33,4 +33,22 @@
         Replacement="$1 $2" />
     </GlobalAttributeGroup.Attributes>
   </GlobalAttributeGroup>
+  <Permission
+    Name="Organisator">
+    <Permission.Attributes>
+      <DisplayName
+        Value="Organisator" />
+      <Description
+        Value="Is in staat om data te beheren" />
+    </Permission.Attributes>
+  </Permission>
+  <Permission
+    Name="Bezoeker">
+    <Permission.Attributes>
+      <DisplayName
+        Value="Bezoeker" />
+      <Description
+        Value="Kan data inzien en beoordelingen en tickets aanmaken" />
+    </Permission.Attributes>
+  </Permission>
 </ServiceApplication>
