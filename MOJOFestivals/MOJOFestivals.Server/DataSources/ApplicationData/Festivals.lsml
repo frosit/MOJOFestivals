@@ -136,12 +136,19 @@
         ToEnd="Ticket" />
       <EntityProperty
         Name="Prijs"
-        PropertyType="Microsoft.LightSwitch.Extensions:Money?">
+        PropertyType="Microsoft.LightSwitch.Extensions:Money">
         <EntityProperty.Attributes>
           <NotSearchable />
           <DecimalConstraint
             Precision="18"
             Scale="2" />
+          <Required />
+          <Attribute
+            Class="Microsoft.LightSwitch.Extensions:@MoneyProperties">
+            <Property
+              Name="CurrencySymbol"
+              Value="€" />
+          </Attribute>
         </EntityProperty.Attributes>
       </EntityProperty>
       <EntityProperty

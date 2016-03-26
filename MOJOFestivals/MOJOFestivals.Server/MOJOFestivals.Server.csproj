@@ -192,9 +192,13 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DataSources\ApplicationData\ActiviteitOpPodia.lsml.cs">
+      <DependentUpon>ActiviteitOpPodias.lsml</DependentUpon>
+    </Compile>
     <Compile Include="DataSources\ApplicationData\Festival.lsml.cs">
       <DependentUpon>Festivals.lsml</DependentUpon>
     </Compile>
+    <Compile Include="DataSources\ApplicationData\_ApplicationDataService.lsml.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -219,6 +223,9 @@
     <LightSwitchModel Include="DataSources\ApplicationData\ActiviteitOpPodias.lsml" />
     <LightSwitchModel Include="DataSources\ApplicationData\PodiaPerFestival.lsml">
       <DependentUpon>Podia.lsml</DependentUpon>
+    </LightSwitchModel>
+    <LightSwitchModel Include="DataSources\ApplicationData\getPodiaByVan.lsml">
+      <DependentUpon>ActiviteitOpPodias.lsml</DependentUpon>
     </LightSwitchModel>
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>

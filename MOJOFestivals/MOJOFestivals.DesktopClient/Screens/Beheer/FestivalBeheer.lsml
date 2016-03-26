@@ -5,7 +5,7 @@
     <Partial />
   </Application.Attributes>
   <Screen
-    Name="FestivalsListDetail">
+    Name="FestivalBeheer">
     <Screen.Attributes>
       <SaveChangesTo
         EntityContainer="ApplicationData" />
@@ -31,7 +31,7 @@
                 <ScreenExpressionTree>
                   <ChainExpression>
                     <MemberExpression
-                      Member="FestivalsListDetail/Properties[Festivals]" />
+                      Member="FestivalBeheer/Properties[Festivals]" />
                   </ChainExpression>
                 </ScreenExpressionTree>
               </ContentItem.DataSource>
@@ -195,6 +195,19 @@
                   </ContentItem.DataSource>
                 </ContentItem>
                 <ContentItem
+                  Name="Prijs"
+                  Kind="Value"
+                  DataType="Microsoft.LightSwitch.Extensions:Money">
+                  <ContentItem.DataSource>
+                    <ScreenExpressionTree>
+                      <ChainExpression>
+                        <MemberExpression
+                          Member="Festival/Properties[Prijs]" />
+                      </ChainExpression>
+                    </ScreenExpressionTree>
+                  </ContentItem.DataSource>
+                </ContentItem>
+                <ContentItem
                   Name="TicketsTotaal"
                   Kind="Value"
                   DataType=":Int32">
@@ -320,7 +333,7 @@
                     <ScreenExpressionTree>
                       <ChainExpression>
                         <MemberExpression
-                          Member="FestivalsListDetail/Properties[Festivals]" />
+                          Member="FestivalBeheer/Properties[Festivals]" />
                         <CallExpression
                           Target="AddAndEditNew" />
                       </ChainExpression>
@@ -334,7 +347,7 @@
                     <ScreenExpressionTree>
                       <ChainExpression>
                         <MemberExpression
-                          Member="FestivalsListDetail/Properties[Festivals]" />
+                          Member="FestivalBeheer/Properties[Festivals]" />
                         <CallExpression
                           Target="EditSelected" />
                       </ChainExpression>
@@ -348,7 +361,7 @@
                     <ScreenExpressionTree>
                       <ChainExpression>
                         <MemberExpression
-                          Member="FestivalsListDetail/Properties[Festivals]" />
+                          Member="FestivalBeheer/Properties[Festivals]" />
                         <CallExpression
                           Target="DeleteSelected" />
                       </ChainExpression>
@@ -407,7 +420,7 @@
                 <ScreenExpressionTree>
                   <ChainExpression>
                     <MemberExpression
-                      Member="FestivalsListDetail/Properties[Festivals]" />
+                      Member="FestivalBeheer/Properties[Festivals]" />
                     <MemberExpression
                       Member="SelectedItem" />
                   </ChainExpression>
@@ -564,6 +577,19 @@
                 </ContentItem.DataSource>
               </ContentItem>
               <ContentItem
+                Name="Prijs1"
+                Kind="Value"
+                DataType="Microsoft.LightSwitch.Extensions:Money">
+                <ContentItem.DataSource>
+                  <ScreenExpressionTree>
+                    <ChainExpression>
+                      <MemberExpression
+                        Member="Festival/Properties[Prijs]" />
+                    </ChainExpression>
+                  </ScreenExpressionTree>
+                </ContentItem.DataSource>
+              </ContentItem>
+              <ContentItem
                 Name="TicketsTotaal1"
                 Kind="Value"
                 DataType=":Int32">
@@ -706,7 +732,7 @@
                   <ScreenExpressionTree>
                     <ChainExpression>
                       <MemberExpression
-                        Member="FestivalsListDetail/Properties[Podia]" />
+                        Member="FestivalBeheer/Properties[Podia]" />
                     </ChainExpression>
                   </ScreenExpressionTree>
                 </ContentItem.DataSource>
@@ -758,6 +784,24 @@
                       </ScreenExpressionTree>
                     </ContentItem.DataSource>
                   </ContentItem>
+                  <ContentItem.CommandItems>
+                    <ContentItem
+                      Name="setDatesFromFestival"
+                      Kind="Command">
+                      <ContentItem.Attributes>
+                        <DisplayName
+                          Value="Pak festival datum" />
+                      </ContentItem.Attributes>
+                      <ContentItem.DataSource>
+                        <ScreenExpressionTree>
+                          <ChainExpression>
+                            <CallExpression
+                              Target="FestivalBeheer/Methods[setDatesFromFestival]" />
+                          </ChainExpression>
+                        </ScreenExpressionTree>
+                      </ContentItem.DataSource>
+                    </ContentItem>
+                  </ContentItem.CommandItems>
                 </ContentItem>
                 <ContentItem.CommandItems>
                   <ContentItem
@@ -767,7 +811,7 @@
                       <ScreenExpressionTree>
                         <ChainExpression>
                           <MemberExpression
-                            Member="FestivalsListDetail/Properties[Podia]" />
+                            Member="FestivalBeheer/Properties[Podia]" />
                           <CallExpression
                             Target="AddAndEditNew" />
                         </ChainExpression>
@@ -781,7 +825,7 @@
                       <ScreenExpressionTree>
                         <ChainExpression>
                           <MemberExpression
-                            Member="FestivalsListDetail/Properties[Podia]" />
+                            Member="FestivalBeheer/Properties[Podia]" />
                           <CallExpression
                             Target="EditSelected" />
                         </ChainExpression>
@@ -795,7 +839,7 @@
                       <ScreenExpressionTree>
                         <ChainExpression>
                           <MemberExpression
-                            Member="FestivalsListDetail/Properties[Podia]" />
+                            Member="FestivalBeheer/Properties[Podia]" />
                           <CallExpression
                             Target="DeleteSelected" />
                         </ChainExpression>
@@ -807,18 +851,17 @@
               <ContentItem
                 Name="ActiviteitOpPodias"
                 Kind="Collection"
-                DataType="CollectionView$ActiviteitOpPodia"
-                View="Microsoft.LightSwitch.RichClient:DataGrid">
+                DataType="CollectionView$ActiviteitOpPodia">
                 <ContentItem.DataSource>
                   <ScreenExpressionTree>
                     <ChainExpression>
                       <MemberExpression
-                        Member="FestivalsListDetail/Properties[ActiviteitOpPodias]" />
+                        Member="FestivalBeheer/Properties[ActiviteitOpPodias]" />
                     </ChainExpression>
                   </ScreenExpressionTree>
                 </ContentItem.DataSource>
                 <ContentItem
-                  Name="RowTemplate6"
+                  Name="ActiviteitOpPodiasTemplate"
                   Kind="Details"
                   DataType="ActiviteitOpPodia">
                   <ContentItem.DataSource>
@@ -839,7 +882,7 @@
                       </ScreenExpressionTree>
                     </ContentItem.DataSource>
                     <ContentItem
-                      Name="RowTemplate7"
+                      Name="Podium1"
                       Kind="Details"
                       DataType="Podium">
                       <ContentItem.DataSource>
@@ -862,7 +905,7 @@
                       </ScreenExpressionTree>
                     </ContentItem.DataSource>
                     <ContentItem
-                      Name="RowTemplate8"
+                      Name="Activiteit1"
                       Kind="Details"
                       DataType="Activiteit">
                       <ContentItem.DataSource>
@@ -871,6 +914,49 @@
                         </ScreenExpressionTree>
                       </ContentItem.DataSource>
                     </ContentItem>
+                  </ContentItem>
+                  <ContentItem
+                    Name="Festival"
+                    Kind="Details"
+                    DataType="Festival">
+                    <ContentItem.ChoicesSource>
+                      <ScreenExpressionTree>
+                        <ChainExpression>
+                          <MemberExpression
+                            Member="FestivalBeheer/Properties[Festivals]" />
+                        </ChainExpression>
+                      </ScreenExpressionTree>
+                    </ContentItem.ChoicesSource>
+                    <ContentItem.DataSource>
+                      <ScreenExpressionTree>
+                        <ChainExpression>
+                          <MemberExpression
+                            Member="ActiviteitOpPodia/Properties[Festival]" />
+                        </ChainExpression>
+                      </ScreenExpressionTree>
+                    </ContentItem.DataSource>
+                    <ContentItem
+                      Name="Festival1"
+                      Kind="Details"
+                      DataType="Festival">
+                      <ContentItem.DataSource>
+                        <ScreenExpressionTree>
+                          <ChainExpression />
+                        </ScreenExpressionTree>
+                      </ContentItem.DataSource>
+                    </ContentItem>
+                    <ContentItem.PropertySources>
+                      <ControlPropertySource
+                        Property="Microsoft.LightSwitch.RichClient:DetailsAutoCompleteBox/Properties[AutoCompleteBoxFilterMode]">
+                        <ScreenExpressionTree>
+                          <ChainExpression>
+                            <ConstantExpression
+                              Value="Equals"
+                              ResultType=":String" />
+                          </ChainExpression>
+                        </ScreenExpressionTree>
+                      </ControlPropertySource>
+                    </ContentItem.PropertySources>
                   </ContentItem>
                   <ContentItem
                     Name="Van1"
@@ -898,6 +984,24 @@
                       </ScreenExpressionTree>
                     </ContentItem.DataSource>
                   </ContentItem>
+                  <ContentItem.CommandItems>
+                    <ContentItem
+                      Name="setFestivalData"
+                      Kind="Command">
+                      <ContentItem.Attributes>
+                        <DisplayName
+                          Value="Pak festival data" />
+                      </ContentItem.Attributes>
+                      <ContentItem.DataSource>
+                        <ScreenExpressionTree>
+                          <ChainExpression>
+                            <CallExpression
+                              Target="FestivalBeheer/Methods[setFestivalData]" />
+                          </ChainExpression>
+                        </ScreenExpressionTree>
+                      </ContentItem.DataSource>
+                    </ContentItem>
+                  </ContentItem.CommandItems>
                 </ContentItem>
                 <ContentItem.CommandItems>
                   <ContentItem
@@ -907,7 +1011,7 @@
                       <ScreenExpressionTree>
                         <ChainExpression>
                           <MemberExpression
-                            Member="FestivalsListDetail/Properties[ActiviteitOpPodias]" />
+                            Member="FestivalBeheer/Properties[ActiviteitOpPodias]" />
                           <CallExpression
                             Target="AddAndEditNew" />
                         </ChainExpression>
@@ -921,7 +1025,7 @@
                       <ScreenExpressionTree>
                         <ChainExpression>
                           <MemberExpression
-                            Member="FestivalsListDetail/Properties[ActiviteitOpPodias]" />
+                            Member="FestivalBeheer/Properties[ActiviteitOpPodias]" />
                           <CallExpression
                             Target="EditSelected" />
                         </ChainExpression>
@@ -935,9 +1039,21 @@
                       <ScreenExpressionTree>
                         <ChainExpression>
                           <MemberExpression
-                            Member="FestivalsListDetail/Properties[ActiviteitOpPodias]" />
+                            Member="FestivalBeheer/Properties[ActiviteitOpPodias]" />
                           <CallExpression
                             Target="DeleteSelected" />
+                        </ChainExpression>
+                      </ScreenExpressionTree>
+                    </ContentItem.DataSource>
+                  </ContentItem>
+                  <ContentItem
+                    Name="newActiviteitOpPodium"
+                    Kind="Command">
+                    <ContentItem.DataSource>
+                      <ScreenExpressionTree>
+                        <ChainExpression>
+                          <CallExpression
+                            Target="FestivalBeheer/Methods[newActiviteitOpPodium]" />
                         </ChainExpression>
                       </ScreenExpressionTree>
                     </ContentItem.DataSource>
@@ -953,12 +1069,12 @@
                   <ScreenExpressionTree>
                     <ChainExpression>
                       <MemberExpression
-                        Member="FestivalsListDetail/Properties[Tickets]" />
+                        Member="FestivalBeheer/Properties[Tickets]" />
                     </ChainExpression>
                   </ScreenExpressionTree>
                 </ContentItem.DataSource>
                 <ContentItem
-                  Name="RowTemplate9"
+                  Name="RowTemplate6"
                   Kind="Details"
                   DataType="Ticket">
                   <ContentItem.DataSource>
@@ -980,7 +1096,7 @@
                     </ContentItem.DataSource>
                   </ContentItem>
                   <ContentItem
-                    Name="Persoon"
+                    Name="Gebruiker"
                     Kind="Value"
                     DataType=":Person?">
                     <ContentItem.DataSource>
@@ -1005,7 +1121,7 @@
                       </ScreenExpressionTree>
                     </ContentItem.DataSource>
                     <ContentItem
-                      Name="RowTemplate10"
+                      Name="RowTemplate7"
                       Kind="Details"
                       DataType="Bezoeker">
                       <ContentItem.DataSource>
@@ -1076,7 +1192,7 @@
                       <ScreenExpressionTree>
                         <ChainExpression>
                           <MemberExpression
-                            Member="FestivalsListDetail/Properties[Tickets]" />
+                            Member="FestivalBeheer/Properties[Tickets]" />
                           <CallExpression
                             Target="AddAndEditNew" />
                         </ChainExpression>
@@ -1090,7 +1206,7 @@
                       <ScreenExpressionTree>
                         <ChainExpression>
                           <MemberExpression
-                            Member="FestivalsListDetail/Properties[Tickets]" />
+                            Member="FestivalBeheer/Properties[Tickets]" />
                           <CallExpression
                             Target="EditSelected" />
                         </ChainExpression>
@@ -1104,7 +1220,7 @@
                       <ScreenExpressionTree>
                         <ChainExpression>
                           <MemberExpression
-                            Member="FestivalsListDetail/Properties[Tickets]" />
+                            Member="FestivalBeheer/Properties[Tickets]" />
                           <CallExpression
                             Target="DeleteSelected" />
                         </ChainExpression>
@@ -1122,12 +1238,12 @@
                   <ScreenExpressionTree>
                     <ChainExpression>
                       <MemberExpression
-                        Member="FestivalsListDetail/Properties[Beoordelingen]" />
+                        Member="FestivalBeheer/Properties[Beoordelingen]" />
                     </ChainExpression>
                   </ScreenExpressionTree>
                 </ContentItem.DataSource>
                 <ContentItem
-                  Name="RowTemplate11"
+                  Name="RowTemplate8"
                   Kind="Details"
                   DataType="Beoordeling">
                   <ContentItem.DataSource>
@@ -1149,7 +1265,7 @@
                     </ContentItem.DataSource>
                   </ContentItem>
                   <ContentItem
-                    Name="Bezoeker1"
+                    Name="Gebruiker1"
                     Kind="Value"
                     DataType=":Person?">
                     <ContentItem.DataSource>
@@ -1162,7 +1278,7 @@
                     </ContentItem.DataSource>
                   </ContentItem>
                   <ContentItem
-                    Name="Bezoeker11"
+                    Name="Bezoeker1"
                     Kind="Details"
                     DataType="Bezoeker">
                     <ContentItem.DataSource>
@@ -1174,7 +1290,7 @@
                       </ScreenExpressionTree>
                     </ContentItem.DataSource>
                     <ContentItem
-                      Name="RowTemplate12"
+                      Name="RowTemplate9"
                       Kind="Details"
                       DataType="Bezoeker">
                       <ContentItem.DataSource>
@@ -1245,7 +1361,7 @@
                       <ScreenExpressionTree>
                         <ChainExpression>
                           <MemberExpression
-                            Member="FestivalsListDetail/Properties[Beoordelingen]" />
+                            Member="FestivalBeheer/Properties[Beoordelingen]" />
                           <CallExpression
                             Target="AddAndEditNew" />
                         </ChainExpression>
@@ -1259,7 +1375,7 @@
                       <ScreenExpressionTree>
                         <ChainExpression>
                           <MemberExpression
-                            Member="FestivalsListDetail/Properties[Beoordelingen]" />
+                            Member="FestivalBeheer/Properties[Beoordelingen]" />
                           <CallExpression
                             Target="EditSelected" />
                         </ChainExpression>
@@ -1273,7 +1389,7 @@
                       <ScreenExpressionTree>
                         <ChainExpression>
                           <MemberExpression
-                            Member="FestivalsListDetail/Properties[Beoordelingen]" />
+                            Member="FestivalBeheer/Properties[Beoordelingen]" />
                           <CallExpression
                             Target="DeleteSelected" />
                         </ChainExpression>
@@ -1327,7 +1443,7 @@
               <ScreenExpressionTree>
                 <ChainExpression>
                   <CallExpression
-                    Target="FestivalsListDetail/Methods[Save]" />
+                    Target="FestivalBeheer/Methods[Save]" />
                 </ChainExpression>
               </ScreenExpressionTree>
             </ContentItem.DataSource>
@@ -1339,7 +1455,7 @@
               <ScreenExpressionTree>
                 <ChainExpression>
                   <CallExpression
-                    Target="FestivalsListDetail/Methods[Refresh]" />
+                    Target="FestivalBeheer/Methods[Refresh]" />
                 </ChainExpression>
               </ScreenExpressionTree>
             </ContentItem.DataSource>
@@ -1376,6 +1492,14 @@
           <Generated />
         </ScreenMethod.Attributes>
       </ScreenMethod>
+      <ScreenMethod
+        Name="setDatesFromFestival" />
+      <ScreenMethod
+        Name="setDatesFromFestivalToPodiaActivity" />
+      <ScreenMethod
+        Name="setFestivalData" />
+      <ScreenMethod
+        Name="newActiviteitOpPodium" />
     </Screen.Methods>
     <Screen.Properties>
       <ScreenCollectionProperty
@@ -1400,7 +1524,7 @@
         <ScreenExpressionTree>
           <ChainExpression>
             <CallExpression
-              Target="FestivalsListDetail/Properties[Festivals]/Query" />
+              Target="FestivalBeheer/Properties[Festivals]/Query" />
           </ChainExpression>
         </ScreenExpressionTree>
       </ScreenCollectionProperty>
@@ -1413,13 +1537,29 @@
             Name="PodiaQuery"
             ReturnType="Podium*">
             <ScreenQueryDefinition.FilterExpression>
-              <QueryFilterExpressionTree />
+              <QueryFilterExpressionTree>
+                <BinaryExpression
+                  NodeType="Equal">
+                  <BinaryExpression.Left>
+                    <ChainExpression>
+                      <MemberExpression
+                        Member="Podium/Properties[Festival]" />
+                      <MemberExpression
+                        Member="Id" />
+                    </ChainExpression>
+                  </BinaryExpression.Left>
+                  <BinaryExpression.Right>
+                    <ParameterExpression
+                      Parameter="Id" />
+                  </BinaryExpression.Right>
+                </BinaryExpression>
+              </QueryFilterExpressionTree>
             </ScreenQueryDefinition.FilterExpression>
             <ScreenQueryDefinition.Source>
               <QuerySourceExpressionTree>
                 <ChainExpression>
                   <MemberExpression
-                    Member="FestivalsListDetail/Properties[Festivals]" />
+                    Member="FestivalBeheer/Properties[Festivals]" />
                   <MemberExpression
                     Member="SelectedItem" />
                   <MemberExpression
@@ -1427,18 +1567,35 @@
                 </ChainExpression>
               </QuerySourceExpressionTree>
             </ScreenQueryDefinition.Source>
+            <ScreenQueryDefinition.Parameters>
+              <QueryParameter
+                Name="Id"
+                ParameterType=":Int32?" />
+            </ScreenQueryDefinition.Parameters>
           </ScreenQueryDefinition>
         </ScreenCollectionProperty.Query>
         <ScreenExpressionTree>
           <ChainExpression>
             <CallExpression
-              Target="FestivalsListDetail/Properties[Podia]/Query" />
+              Target="FestivalBeheer/Properties[Podia]/Query">
+              <ArgumentExpression
+                Parameter="Id">
+                <ChainExpression>
+                  <MemberExpression
+                    Member="FestivalBeheer/Properties[Festivals]" />
+                  <MemberExpression
+                    Member="SelectedItem" />
+                  <MemberExpression
+                    Member="Id" />
+                </ChainExpression>
+              </ArgumentExpression>
+            </CallExpression>
           </ChainExpression>
         </ScreenExpressionTree>
       </ScreenCollectionProperty>
       <ScreenCollectionProperty
         Name="ActiviteitOpPodias"
-        PageSize="15"
+        PageSize="45"
         PropertyType="CollectionView$ActiviteitOpPodia">
         <ScreenCollectionProperty.Query>
           <ScreenQueryDefinition
@@ -1451,7 +1608,7 @@
               <QuerySourceExpressionTree>
                 <ChainExpression>
                   <MemberExpression
-                    Member="FestivalsListDetail/Properties[Festivals]" />
+                    Member="FestivalBeheer/Properties[Podia]" />
                   <MemberExpression
                     Member="SelectedItem" />
                   <MemberExpression
@@ -1464,7 +1621,7 @@
         <ScreenExpressionTree>
           <ChainExpression>
             <CallExpression
-              Target="FestivalsListDetail/Properties[ActiviteitOpPodias]/Query" />
+              Target="FestivalBeheer/Properties[ActiviteitOpPodias]/Query" />
           </ChainExpression>
         </ScreenExpressionTree>
       </ScreenCollectionProperty>
@@ -1483,7 +1640,7 @@
               <QuerySourceExpressionTree>
                 <ChainExpression>
                   <MemberExpression
-                    Member="FestivalsListDetail/Properties[Festivals]" />
+                    Member="FestivalBeheer/Properties[Festivals]" />
                   <MemberExpression
                     Member="SelectedItem" />
                   <MemberExpression
@@ -1496,7 +1653,7 @@
         <ScreenExpressionTree>
           <ChainExpression>
             <CallExpression
-              Target="FestivalsListDetail/Properties[Tickets]/Query" />
+              Target="FestivalBeheer/Properties[Tickets]/Query" />
           </ChainExpression>
         </ScreenExpressionTree>
       </ScreenCollectionProperty>
@@ -1515,7 +1672,7 @@
               <QuerySourceExpressionTree>
                 <ChainExpression>
                   <MemberExpression
-                    Member="FestivalsListDetail/Properties[Festivals]" />
+                    Member="FestivalBeheer/Properties[Festivals]" />
                   <MemberExpression
                     Member="SelectedItem" />
                   <MemberExpression
@@ -1528,7 +1685,7 @@
         <ScreenExpressionTree>
           <ChainExpression>
             <CallExpression
-              Target="FestivalsListDetail/Properties[Beoordelingen]/Query" />
+              Target="FestivalBeheer/Properties[Beoordelingen]/Query" />
           </ChainExpression>
         </ScreenExpressionTree>
       </ScreenCollectionProperty>
@@ -1536,10 +1693,10 @@
   </Screen>
   <Application.Methods>
     <ApplicationMethod
-      Name="ShowFestivalsListDetail">
+      Name="ShowFestivalBeheer">
       <ApplicationMethod.Attributes>
         <ShowScreenMethod
-          TargetScreen="FestivalsListDetail" />
+          TargetScreen="FestivalBeheer" />
       </ApplicationMethod.Attributes>
     </ApplicationMethod>
   </Application.Methods>
