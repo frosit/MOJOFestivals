@@ -7,19 +7,7 @@
   <EntityType>
     <EntityType.Attributes>
       <Proxy
-        Target="ServiceInterface:Activiteit" />
-    </EntityType.Attributes>
-  </EntityType>
-  <EntityType>
-    <EntityType.Attributes>
-      <Proxy
         Target="ServiceInterface:ActiviteitOpPodia" />
-    </EntityType.Attributes>
-  </EntityType>
-  <EntityType>
-    <EntityType.Attributes>
-      <Proxy
-        Target="ServiceInterface:Beoordeling" />
     </EntityType.Attributes>
   </EntityType>
   <EntityType>
@@ -41,26 +29,6 @@
       <Proxy
         Target="ServiceInterface:Genre" />
     </EntityType.Attributes>
-  </EntityType>
-  <EntityType>
-    <EntityType.Attributes>
-      <Proxy
-        Target="ServiceInterface:Podium" />
-    </EntityType.Attributes>
-  </EntityType>
-  <EntityType>
-    <EntityType.Attributes>
-      <Proxy
-        Target="ServiceInterface:Ticket" />
-    </EntityType.Attributes>
-    <EntityType.Properties>
-      <EntityProperty>
-        <EntityProperty.Attributes>
-          <Proxy
-            Target="LightSwitchServiceApplication:Ticket/Properties[TotaalBedrag]" />
-        </EntityProperty.Attributes>
-      </EntityProperty>
-    </EntityType.Properties>
   </EntityType>
   <EntityType>
     <EntityType.Attributes>
@@ -152,4 +120,10 @@
         Target="ServiceInterface:Activiteit_Type" />
     </Association.Attributes>
   </Association>
+  <EntityType>
+    <EntityType.Attributes>
+      <Proxy
+        Target="ServiceInterface:Podium" />
+    </EntityType.Attributes>
+  </EntityType>
 </Application>

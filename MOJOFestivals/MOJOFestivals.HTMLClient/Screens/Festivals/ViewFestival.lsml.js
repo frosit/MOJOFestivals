@@ -8,3 +8,8 @@ myapp.ViewFestival.Details_postRender = function (element, contentItem) {
     });
 }
 
+
+myapp.ViewFestival.TicketsResterend_postRender = function (element, contentItem) {
+    // Write code here.
+
+};

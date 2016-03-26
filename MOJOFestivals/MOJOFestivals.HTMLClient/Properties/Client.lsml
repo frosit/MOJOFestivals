@@ -38,5 +38,14 @@
     <ApplicationNavigationMethodLink
       Name="link"
       Method="!module/Methods[showBrowseFestivals]" />
+    <ApplicationNavigationMethodLink
+      Name="link1"
+      Method="!module/Methods[showBrowseActiviteiten]" />
+    <ApplicationNavigationMethodLink
+      Name="link2"
+      Method="!module/Methods[showBrowseBeoordelingen]" />
+    <ApplicationNavigationMethodLink
+      Name="link3"
+      Method="!module/Methods[showBrowseTickets]" />
   </Application.NavigationItems>
 </Application>
