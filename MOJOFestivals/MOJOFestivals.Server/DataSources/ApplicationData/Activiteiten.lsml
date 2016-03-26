@@ -283,7 +283,7 @@
       EntityType="Activiteit">
       <AssociationEnd.Attributes>
         <DeleteRule
-          Action="Cascade" />
+          Action="Restrict" />
       </AssociationEnd.Attributes>
     </AssociationEnd>
   </Association>

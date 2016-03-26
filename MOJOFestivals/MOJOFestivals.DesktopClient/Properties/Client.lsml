@@ -35,13 +35,90 @@
         Target="ServiceInterface:LightSwitchServiceApplicationGroup" />
     </GlobalAttributeGroup.Attributes>
   </GlobalAttributeGroup>
+  <Application.Commands>
+    <ApplicationCommand
+      Name="ScreenCommandShowNewTypenGenre"
+      Target="!module/Methods[ShowNewTypenGenre]" />
+    <ApplicationCommand
+      Name="ScreenCommandShowCreateNewActiviteit"
+      Target="!module/Methods[ShowCreateNewActiviteit]" />
+    <ApplicationCommand
+      Name="ScreenCommandShowCreateNewFestival"
+      Target="!module/Methods[ShowCreateNewFestival]" />
+    <ApplicationCommand
+      Name="ScreenCommandShowBeoordelingenListDetail"
+      Target="!module/Methods[ShowBeoordelingenListDetail]" />
+    <ApplicationCommand
+      Name="ScreenCommandShowTicketsListDetail"
+      Target="!module/Methods[ShowTicketsListDetail]" />
+    <ApplicationCommand
+      Name="ScreenCommandShowGebruikersListDetail"
+      Target="!module/Methods[ShowGebruikersListDetail]" />
+    <ApplicationCommand
+      Name="ScreenCommandShowHome"
+      Target="!module/Methods[ShowHome]" />
+  </Application.Commands>
   <Application.NavigationItems>
     <ApplicationNavigationGroup
-      Name="Tasks">
+      Name="Tasks"
+      DefaultItem="!module/NavigationItems[Tasks]/Children[Home]">
       <ApplicationNavigationGroup.Attributes>
         <DisplayName
           Value="Tasks" />
       </ApplicationNavigationGroup.Attributes>
+      <ApplicationNavigationLink
+        Name="NewTypenGenre"
+        Command="!module/Commands[ScreenCommandShowNewTypenGenre]" />
+      <ApplicationNavigationLink
+        Name="CreateNewActiviteit"
+        Command="!module/Commands[ScreenCommandShowCreateNewActiviteit]" />
+      <ApplicationNavigationLink
+        Name="CreateNewFestival"
+        Command="!module/Commands[ScreenCommandShowCreateNewFestival]" />
+      <ApplicationNavigationLink
+        Name="BeoordelingenListDetail"
+        Command="!module/Commands[ScreenCommandShowBeoordelingenListDetail]" />
+      <ApplicationNavigationLink
+        Name="TicketsListDetail"
+        Command="!module/Commands[ScreenCommandShowTicketsListDetail]" />
+      <ApplicationNavigationLink
+        Name="GebruikersListDetail"
+        Command="!module/Commands[ScreenCommandShowGebruikersListDetail]" />
+      <ApplicationNavigationLink
+        Name="Home"
+        Command="!module/Commands[ScreenCommandShowHome]" />
+    </ApplicationNavigationGroup>
+    <ApplicationNavigationGroup
+      Name="group">
+      <ApplicationNavigationGroup.Attributes>
+        <DisplayName
+          Value="Nieuw" />
+      </ApplicationNavigationGroup.Attributes>
+      <ApplicationNavigationLink
+        Name="link"
+        Command="!module/Commands[ScreenCommandShowNewTypenGenre]" />
+      <ApplicationNavigationLink
+        Name="link1"
+        Command="!module/Commands[ScreenCommandShowCreateNewActiviteit]" />
+      <ApplicationNavigationLink
+        Name="link2"
+        Command="!module/Commands[ScreenCommandShowCreateNewFestival]" />
+    </ApplicationNavigationGroup>
+    <ApplicationNavigationGroup
+      Name="group1">
+      <ApplicationNavigationGroup.Attributes>
+        <DisplayName
+          Value="Beheer" />
+      </ApplicationNavigationGroup.Attributes>
+      <ApplicationNavigationLink
+        Name="link3"
+        Command="!module/Commands[ScreenCommandShowBeoordelingenListDetail]" />
+      <ApplicationNavigationLink
+        Name="link4"
+        Command="!module/Commands[ScreenCommandShowGebruikersListDetail]" />
+      <ApplicationNavigationLink
+        Name="link5"
+        Command="!module/Commands[ScreenCommandShowTicketsListDetail]" />
     </ApplicationNavigationGroup>
     <ApplicationNavigationGroup
       Name="Administration">
