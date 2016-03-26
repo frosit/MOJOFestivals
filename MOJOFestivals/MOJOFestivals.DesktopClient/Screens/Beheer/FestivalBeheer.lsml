@@ -327,15 +327,17 @@
               </ContentItem>
               <ContentItem.CommandItems>
                 <ContentItem
-                  Name="Festivals_AddAndEditNew"
+                  Name="FestivalListAddAndEditNew"
                   Kind="Command">
+                  <ContentItem.Attributes>
+                    <DisplayName
+                      Value="Add..." />
+                  </ContentItem.Attributes>
                   <ContentItem.DataSource>
                     <ScreenExpressionTree>
                       <ChainExpression>
-                        <MemberExpression
-                          Member="FestivalBeheer/Properties[Festivals]" />
                         <CallExpression
-                          Target="AddAndEditNew" />
+                          Target="FestivalBeheer/Methods[FestivalListAddAndEditNew]" />
                       </ChainExpression>
                     </ScreenExpressionTree>
                   </ContentItem.DataSource>
@@ -505,6 +507,14 @@
                 Name="Genre1"
                 Kind="Details"
                 DataType="Genre">
+                <ContentItem.ChoicesSource>
+                  <ScreenExpressionTree>
+                    <ChainExpression>
+                      <MemberExpression
+                        Member="FestivalBeheer/Properties[GenresPerType]" />
+                    </ChainExpression>
+                  </ScreenExpressionTree>
+                </ContentItem.ChoicesSource>
                 <ContentItem.DataSource>
                   <ScreenExpressionTree>
                     <ChainExpression>
@@ -917,6 +927,7 @@
                   </ContentItem>
                   <ContentItem
                     Name="Festival"
+                    IsHidden="True"
                     Kind="Details"
                     DataType="Festival">
                     <ContentItem.ChoicesSource>
@@ -987,10 +998,13 @@
                   <ContentItem.CommandItems>
                     <ContentItem
                       Name="setFestivalData"
+                      IsHidden="True"
                       Kind="Command">
                       <ContentItem.Attributes>
                         <DisplayName
                           Value="Pak festival data" />
+                        <Description
+                          Value="Deprecated due to new add button above" />
                       </ContentItem.Attributes>
                       <ContentItem.DataSource>
                         <ScreenExpressionTree>
@@ -1002,18 +1016,32 @@
                       </ContentItem.DataSource>
                     </ContentItem>
                   </ContentItem.CommandItems>
+                  <ContentItem.PropertySources>
+                    <ControlPropertySource
+                      Property="Microsoft.LightSwitch.RichClient:RootControl/Properties[BrowseOnly]">
+                      <ScreenExpressionTree>
+                        <ChainExpression>
+                          <ConstantExpression
+                            Value="True"
+                            ResultType=":Boolean" />
+                        </ChainExpression>
+                      </ScreenExpressionTree>
+                    </ControlPropertySource>
+                  </ContentItem.PropertySources>
                 </ContentItem>
                 <ContentItem.CommandItems>
                   <ContentItem
-                    Name="ActiviteitOpPodias_AddAndEditNew"
+                    Name="newActiviteitOpPodium"
                     Kind="Command">
+                    <ContentItem.Attributes>
+                      <DisplayName
+                        Value="Add" />
+                    </ContentItem.Attributes>
                     <ContentItem.DataSource>
                       <ScreenExpressionTree>
                         <ChainExpression>
-                          <MemberExpression
-                            Member="FestivalBeheer/Properties[ActiviteitOpPodias]" />
                           <CallExpression
-                            Target="AddAndEditNew" />
+                            Target="FestivalBeheer/Methods[newActiviteitOpPodium]" />
                         </ChainExpression>
                       </ScreenExpressionTree>
                     </ContentItem.DataSource>
@@ -1042,18 +1070,6 @@
                             Member="FestivalBeheer/Properties[ActiviteitOpPodias]" />
                           <CallExpression
                             Target="DeleteSelected" />
-                        </ChainExpression>
-                      </ScreenExpressionTree>
-                    </ContentItem.DataSource>
-                  </ContentItem>
-                  <ContentItem
-                    Name="newActiviteitOpPodium"
-                    Kind="Command">
-                    <ContentItem.DataSource>
-                      <ScreenExpressionTree>
-                        <ChainExpression>
-                          <CallExpression
-                            Target="FestivalBeheer/Methods[newActiviteitOpPodium]" />
                         </ChainExpression>
                       </ScreenExpressionTree>
                     </ContentItem.DataSource>
@@ -1398,13 +1414,43 @@
                   </ContentItem>
                 </ContentItem.CommandItems>
               </ContentItem>
+              <ContentItem
+                Name="Group"
+                Kind="Group"
+                View="Microsoft.LightSwitch.RichClient:TabsLayout">
+                <ContentItem.Attributes>
+                  <DisplayName
+                    Value="Gebruiksaanwijzing" />
+                </ContentItem.Attributes>
+                <ContentItem
+                  Name="Group1"
+                  Kind="Group">
+                  <ContentItem
+                    Name="Text"
+                    Kind="ScreenContent"
+                    View="Microsoft.LightSwitch.RichClient:StaticLabel">
+                    <ContentItem.PropertySources>
+                      <ControlPropertySource
+                        Property="Microsoft.LightSwitch.RichClient:StaticLabel/Properties[Text]">
+                        <ScreenExpressionTree>
+                          <ChainExpression>
+                            <ConstantExpression
+                              Value="Een paar notities omtrent gebruik. Zorg ervoor dat het festival correct is geselecteerd voordat je in de tabs werkt. Het activiteiten tab heeft speciale funcites voor aanvullen van festival data en controleren data van activiteit. De grid functies zijn geblokkeerd. Gebruik de button om een nieuwe activiteit toe te voegen.\n\r"
+                              ResultType=":String" />
+                          </ChainExpression>
+                        </ScreenExpressionTree>
+                      </ControlPropertySource>
+                    </ContentItem.PropertySources>
+                  </ContentItem>
+                </ContentItem>
+              </ContentItem>
               <ContentItem.PropertySources>
                 <ControlPropertySource
                   Property="Microsoft.LightSwitch.RichClient:RootControl/Properties[VerticalAlignment]">
                   <ScreenExpressionTree>
                     <ChainExpression>
                       <ConstantExpression
-                        Value="Stretch"
+                        Value="Top"
                         ResultType=":String" />
                     </ChainExpression>
                   </ScreenExpressionTree>
@@ -1500,6 +1546,13 @@
         Name="setFestivalData" />
       <ScreenMethod
         Name="newActiviteitOpPodium" />
+      <ScreenMethod
+        Name="FestivalListAddAndEditNew">
+        <ScreenMethod.Attributes>
+          <BuiltInMethodOverride
+            MethodName="AddAndEditNew" />
+        </ScreenMethod.Attributes>
+      </ScreenMethod>
     </Screen.Methods>
     <Screen.Properties>
       <ScreenCollectionProperty
@@ -1686,6 +1739,46 @@
           <ChainExpression>
             <CallExpression
               Target="FestivalBeheer/Properties[Beoordelingen]/Query" />
+          </ChainExpression>
+        </ScreenExpressionTree>
+      </ScreenCollectionProperty>
+      <ScreenCollectionProperty
+        Name="GenresPerType"
+        PageSize="45"
+        PropertyType="CollectionView$Genre">
+        <ScreenCollectionProperty.Query>
+          <ScreenQueryDefinition
+            Name="GenresPerTypeQuery"
+            ReturnType="Genre*">
+            <ScreenQueryDefinition.FilterExpression>
+              <QueryFilterExpressionTree />
+            </ScreenQueryDefinition.FilterExpression>
+            <ScreenQueryDefinition.Source>
+              <QuerySourceExpressionTree>
+                <MemberExpression
+                  Member="ApplicationData/Members[GenresPerType]" />
+              </QuerySourceExpressionTree>
+            </ScreenQueryDefinition.Source>
+          </ScreenQueryDefinition>
+        </ScreenCollectionProperty.Query>
+        <ScreenExpressionTree>
+          <ChainExpression>
+            <CallExpression
+              Target="FestivalBeheer/Properties[GenresPerType]/Query">
+              <ArgumentExpression
+                Parameter="Id">
+                <ChainExpression>
+                  <MemberExpression
+                    Member="FestivalBeheer/Properties[Festivals]" />
+                  <MemberExpression
+                    Member="SelectedItem" />
+                  <MemberExpression
+                    Member="Type" />
+                  <MemberExpression
+                    Member="Id" />
+                </ChainExpression>
+              </ArgumentExpression>
+            </CallExpression>
           </ChainExpression>
         </ScreenExpressionTree>
       </ScreenCollectionProperty>

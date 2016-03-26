@@ -32,20 +32,21 @@ namespace LightSwitchApplication
         }
 
 
-        // TODO remove this data validatie
-        partial void FestivalBeheer_Saving(ref bool handled)
-        {
-            // Write your code here.
-
-           // bool error = false; 
-
-
-
-        }
-
         partial void newActiviteitOpPodium_Execute()
         {
             Application.ShowCreateNewActiviteitOpPodia(Festivals.SelectedItem.Id);
+
+        }
+
+        partial void FestivalListAddAndEditNew_CanExecute(ref bool result)
+        {
+            // Write your code here.
+
+        }
+
+        partial void FestivalListAddAndEditNew_Execute()
+        {
+            Application.ShowCreateNewFestival();
 
         }
     }

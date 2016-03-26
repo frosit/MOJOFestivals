@@ -43,9 +43,6 @@
       Name="ScreenCommandShowCreateNewActiviteit"
       Target="!module/Methods[ShowCreateNewActiviteit]" />
     <ApplicationCommand
-      Name="ScreenCommandShowCreateNewFestival"
-      Target="!module/Methods[ShowCreateNewFestival]" />
-    <ApplicationCommand
       Name="ScreenCommandShowTicketsListDetail"
       Target="!module/Methods[ShowTicketsListDetail]" />
     <ApplicationCommand
@@ -70,11 +67,14 @@
       Name="ScreenCommandShowPodiaListDetail"
       Target="!module/Methods[ShowPodiaListDetail]" />
     <ApplicationCommand
+      Name="ScreenCommandShowActiviteitOpPodiasListDetail"
+      Target="!module/Methods[ShowActiviteitOpPodiasListDetail]" />
+    <ApplicationCommand
       Name="ScreenCommandShowFestivalBeheer"
       Target="!module/Methods[ShowFestivalBeheer]" />
     <ApplicationCommand
-      Name="ScreenCommandShowActiviteitOpPodiasListDetail"
-      Target="!module/Methods[ShowActiviteitOpPodiasListDetail]" />
+      Name="ScreenCommandShowCreateNewFestival"
+      Target="!module/Methods[ShowCreateNewFestival]" />
   </Application.Commands>
   <Application.NavigationItems>
     <ApplicationNavigationGroup
@@ -90,9 +90,6 @@
       <ApplicationNavigationLink
         Name="CreateNewActiviteit"
         Command="!module/Commands[ScreenCommandShowCreateNewActiviteit]" />
-      <ApplicationNavigationLink
-        Name="CreateNewFestival"
-        Command="!module/Commands[ScreenCommandShowCreateNewFestival]" />
       <ApplicationNavigationLink
         Name="TicketsListDetail"
         Command="!module/Commands[ScreenCommandShowTicketsListDetail]" />
@@ -118,11 +115,14 @@
         Name="PodiaListDetail"
         Command="!module/Commands[ScreenCommandShowPodiaListDetail]" />
       <ApplicationNavigationLink
+        Name="ActiviteitOpPodiasListDetail"
+        Command="!module/Commands[ScreenCommandShowActiviteitOpPodiasListDetail]" />
+      <ApplicationNavigationLink
         Name="FestivalBeheer"
         Command="!module/Commands[ScreenCommandShowFestivalBeheer]" />
       <ApplicationNavigationLink
-        Name="ActiviteitOpPodiasListDetail"
-        Command="!module/Commands[ScreenCommandShowActiviteitOpPodiasListDetail]" />
+        Name="CreateNewFestival"
+        Command="!module/Commands[ScreenCommandShowCreateNewFestival]" />
     </ApplicationNavigationGroup>
     <ApplicationNavigationGroup
       Name="group">
@@ -140,6 +140,9 @@
         <DisplayName
           Value="Beheer" />
       </ApplicationNavigationGroup.Attributes>
+      <ApplicationNavigationLink
+        Name="link1"
+        Command="!module/Commands[ScreenCommandShowFestivalBeheer]" />
     </ApplicationNavigationGroup>
     <ApplicationNavigationGroup
       Name="group2">

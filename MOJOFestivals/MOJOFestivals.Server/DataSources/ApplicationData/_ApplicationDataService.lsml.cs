@@ -9,6 +9,8 @@ namespace LightSwitchApplication
 {
     public partial class ApplicationDataService
     {
+
+        // validatie voor aanmaken activiteit tot podium, momenteel controleert hij podium + datumtijd vanaf
         partial void ActiviteitOpPodias_Validate(ActiviteitOpPodia entity, EntitySetValidationResultsBuilder results)
         {
             int currentPodiumId = entity.Podium.Id;
@@ -18,7 +20,7 @@ namespace LightSwitchApplication
 
             if (queryResult > 0)
             {
-                results.AddEntityError("your screwed bro " + currentPodiumId + " " + queryResult);
+                results.AddEntityError("De begin datum / tijd voor dit podium is al in gebruik. Kies een ander podium of tijd.");
             }
         }
     }

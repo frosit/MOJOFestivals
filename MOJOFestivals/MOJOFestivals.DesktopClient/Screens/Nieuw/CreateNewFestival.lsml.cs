@@ -24,5 +24,15 @@ namespace LightSwitchApplication
             this.Close(false);
             Application.Current.ShowDefaultScreen(this.FestivalProperty);
         }
+
+        partial void PakFestivalData_Execute()
+        {
+            // Write your code here.
+            DateTime festivalStart = this.FestivalProperty.Start;
+
+            this.Podia.SelectedItem.Van = festivalStart;
+            this.Podia.SelectedItem.Tot = festivalStart;
+
+        }
     }
 }

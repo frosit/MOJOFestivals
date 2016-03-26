@@ -114,6 +114,14 @@
                 Name="Genre"
                 Kind="Details"
                 DataType="Genre">
+                <ContentItem.ChoicesSource>
+                  <ScreenExpressionTree>
+                    <ChainExpression>
+                      <MemberExpression
+                        Member="CreateNewFestival/Properties[GenresPerType]" />
+                    </ChainExpression>
+                  </ScreenExpressionTree>
+                </ContentItem.ChoicesSource>
                 <ContentItem.DataSource>
                   <ScreenExpressionTree>
                     <ChainExpression>
@@ -189,6 +197,19 @@
             <ContentItem
               Name="right"
               Kind="Group">
+              <ContentItem
+                Name="Prijs"
+                Kind="Value"
+                DataType="Microsoft.LightSwitch.Extensions:Money">
+                <ContentItem.DataSource>
+                  <ScreenExpressionTree>
+                    <ChainExpression>
+                      <MemberExpression
+                        Member="Festival/Properties[Prijs]" />
+                    </ChainExpression>
+                  </ScreenExpressionTree>
+                </ContentItem.DataSource>
+              </ContentItem>
               <ContentItem
                 Name="TicketsTotaal"
                 Kind="Value"
@@ -322,8 +343,7 @@
           </ContentItem>
           <ContentItem
             Name="children"
-            Kind="Group"
-            View="Microsoft.LightSwitch.RichClient:TabsLayout">
+            Kind="Group">
             <ContentItem
               Name="Podia"
               Kind="Collection"
@@ -384,6 +404,20 @@
                     </ScreenExpressionTree>
                   </ContentItem.DataSource>
                 </ContentItem>
+                <ContentItem.CommandItems>
+                  <ContentItem
+                    Name="PakFestivalData"
+                    Kind="Command">
+                    <ContentItem.DataSource>
+                      <ScreenExpressionTree>
+                        <ChainExpression>
+                          <CallExpression
+                            Target="CreateNewFestival/Methods[PakFestivalData]" />
+                        </ChainExpression>
+                      </ScreenExpressionTree>
+                    </ContentItem.DataSource>
+                  </ContentItem>
+                </ContentItem.CommandItems>
               </ContentItem>
               <ContentItem.CommandItems>
                 <ContentItem
@@ -429,19 +463,19 @@
                   </ContentItem.DataSource>
                 </ContentItem>
               </ContentItem.CommandItems>
+              <ContentItem.PropertySources>
+                <ControlPropertySource
+                  Property="Microsoft.LightSwitch.RichClient:RootControl/Properties[VerticalAlignment]">
+                  <ScreenExpressionTree>
+                    <ChainExpression>
+                      <ConstantExpression
+                        Value="Stretch"
+                        ResultType=":String" />
+                    </ChainExpression>
+                  </ScreenExpressionTree>
+                </ControlPropertySource>
+              </ContentItem.PropertySources>
             </ContentItem>
-            <ContentItem.PropertySources>
-              <ControlPropertySource
-                Property="Microsoft.LightSwitch.RichClient:RootControl/Properties[VerticalAlignment]">
-                <ScreenExpressionTree>
-                  <ChainExpression>
-                    <ConstantExpression
-                      Value="Stretch"
-                      ResultType=":String" />
-                  </ChainExpression>
-                </ScreenExpressionTree>
-              </ControlPropertySource>
-            </ContentItem.PropertySources>
           </ContentItem>
           <ContentItem.PropertySources>
             <ControlPropertySource
@@ -513,6 +547,8 @@
           <Generated />
         </ScreenMethod.Attributes>
       </ScreenMethod>
+      <ScreenMethod
+        Name="PakFestivalData" />
     </Screen.Methods>
     <Screen.Properties>
       <ScreenProperty
@@ -548,6 +584,44 @@
           <ChainExpression>
             <CallExpression
               Target="CreateNewFestival/Properties[Podia]/Query" />
+          </ChainExpression>
+        </ScreenExpressionTree>
+      </ScreenCollectionProperty>
+      <ScreenCollectionProperty
+        Name="GenresPerType"
+        PageSize="45"
+        PropertyType="CollectionView$Genre">
+        <ScreenCollectionProperty.Query>
+          <ScreenQueryDefinition
+            Name="GenresPerTypeQuery"
+            ReturnType="Genre*">
+            <ScreenQueryDefinition.FilterExpression>
+              <QueryFilterExpressionTree />
+            </ScreenQueryDefinition.FilterExpression>
+            <ScreenQueryDefinition.Source>
+              <QuerySourceExpressionTree>
+                <MemberExpression
+                  Member="ApplicationData/Members[GenresPerType]" />
+              </QuerySourceExpressionTree>
+            </ScreenQueryDefinition.Source>
+          </ScreenQueryDefinition>
+        </ScreenCollectionProperty.Query>
+        <ScreenExpressionTree>
+          <ChainExpression>
+            <CallExpression
+              Target="CreateNewFestival/Properties[GenresPerType]/Query">
+              <ArgumentExpression
+                Parameter="Id">
+                <ChainExpression>
+                  <MemberExpression
+                    Member="CreateNewFestival/Properties[FestivalProperty]" />
+                  <MemberExpression
+                    Member="Type" />
+                  <MemberExpression
+                    Member="Id" />
+                </ChainExpression>
+              </ArgumentExpression>
+            </CallExpression>
           </ChainExpression>
         </ScreenExpressionTree>
       </ScreenCollectionProperty>
