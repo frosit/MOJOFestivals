@@ -5,7 +5,10 @@
     <Partial />
   </ServiceApplication.Attributes>
   <EntityType
-    Name="Genre">
+    Name="Activiteit">
+    <EntityType.Attributes>
+      <CreatedModifiedPropertiesEnabled />
+    </EntityType.Attributes>
     <EntityType.Methods>
       <EntityMethod
         Name="Delete">
@@ -33,21 +36,82 @@
           <IncludeInUniqueIndex />
         </EntityProperty.Attributes>
       </EntityProperty>
+      <EntityProperty
+        Name="Beschrijving"
+        PropertyType=":String?">
+        <EntityProperty.Attributes>
+          <MaxLength
+            Value="255" />
+        </EntityProperty.Attributes>
+      </EntityProperty>
+      <EntityProperty
+        Name="Afbeelding"
+        PropertyType="Microsoft.LightSwitch.Extensions:Image?">
+        <EntityProperty.Attributes>
+          <NotSearchable />
+        </EntityProperty.Attributes>
+      </EntityProperty>
+      <EntityProperty
+        Name="Land"
+        PropertyType=":String">
+        <EntityProperty.Attributes>
+          <Required />
+          <MaxLength
+            Value="255" />
+          <DisplayName
+            Value="Land van herkomst" />
+        </EntityProperty.Attributes>
+      </EntityProperty>
       <NavigationProperty
         Name="Type"
-        Association="Type_Genre"
-        FromEnd="Genre"
+        Association="Activiteit_Type"
+        FromEnd="Activiteit"
         ToEnd="Type" />
       <NavigationProperty
-        Name="Festivals"
-        Association="Festival_Genre"
-        FromEnd="Genre"
-        ToEnd="Festival" />
-      <NavigationProperty
-        Name="Artiesten"
+        Name="Genre"
         Association="Activiteit_Genre"
-        FromEnd="Genre"
-        ToEnd="Activiteit" />
+        FromEnd="Activiteit"
+        ToEnd="Genre" />
+      <EntityProperty
+        Name="CreatedBy"
+        IsReadOnly="True"
+        PropertyType=":Person?">
+        <EntityProperty.Attributes>
+          <Generated />
+          <NotSearchable />
+          <MaxLength
+            Value="255" />
+        </EntityProperty.Attributes>
+      </EntityProperty>
+      <EntityProperty
+        Name="Created"
+        IsReadOnly="True"
+        PropertyType=":DateTimeOffset?">
+        <EntityProperty.Attributes>
+          <Generated />
+          <NotSearchable />
+        </EntityProperty.Attributes>
+      </EntityProperty>
+      <EntityProperty
+        Name="ModifiedBy"
+        IsReadOnly="True"
+        PropertyType=":Person?">
+        <EntityProperty.Attributes>
+          <Generated />
+          <NotSearchable />
+          <MaxLength
+            Value="255" />
+        </EntityProperty.Attributes>
+      </EntityProperty>
+      <EntityProperty
+        Name="Modified"
+        IsReadOnly="True"
+        PropertyType=":DateTimeOffset?">
+        <EntityProperty.Attributes>
+          <Generated />
+          <NotSearchable />
+        </EntityProperty.Attributes>
+      </EntityProperty>
       <EntityProperty
         Name="RowVersion"
         PropertyType=":RowVersion">
@@ -66,14 +130,14 @@
       <Partial />
     </EntityContainer.Attributes>
     <EntitySet
-      Name="Genres"
+      Name="Artiesten"
       CanDelete="True"
       CanInsert="True"
       CanUpdate="True"
-      EntityType="Genre" />
+      EntityType="Activiteit" />
     <QueryOperation
-      Name="Genres_Single"
-      ReturnType="Genre">
+      Name="Artiesten_Single"
+      ReturnType="Activiteit">
       <QueryOperation.Attributes>
         <Generated />
         <Description
@@ -99,7 +163,7 @@
       <QueryOperation.Source>
         <QuerySourceExpressionTree>
           <MemberExpression
-            Member="Genres" />
+            Member="Artiesten" />
         </QuerySourceExpressionTree>
       </QueryOperation.Source>
       <QueryOperationParameter
@@ -112,8 +176,8 @@
       </QueryOperationParameter>
     </QueryOperation>
     <QueryOperation
-      Name="Genres_SingleOrDefault"
-      ReturnType="Genre">
+      Name="Artiesten_SingleOrDefault"
+      ReturnType="Activiteit">
       <QueryOperation.Attributes>
         <Generated />
         <Description
@@ -139,7 +203,7 @@
       <QueryOperation.Source>
         <QuerySourceExpressionTree>
           <MemberExpression
-            Member="Genres" />
+            Member="Artiesten" />
         </QuerySourceExpressionTree>
       </QueryOperation.Source>
       <QueryOperationParameter
@@ -151,26 +215,6 @@
         </QueryOperationParameter.Attributes>
       </QueryOperationParameter>
     </QueryOperation>
-    <AssociationSet
-      Name="Festival_Genres"
-      Association="Festival_Genre">
-      <AssociationSetEnd
-        Name="Festival"
-        EntitySet="Festivals" />
-      <AssociationSetEnd
-        Name="Genre"
-        EntitySet="Genres" />
-    </AssociationSet>
-    <AssociationSet
-      Name="Activiteit_Genres"
-      Association="Activiteit_Genre">
-      <AssociationSetEnd
-        Name="Activiteit"
-        EntitySet="Artiesten" />
-      <AssociationSetEnd
-        Name="Genre"
-        EntitySet="Genres" />
-    </AssociationSet>
   </EntityContainer>
   <DataService
     Name="ApplicationDataMapping">
@@ -178,87 +222,17 @@
       <Partial />
     </DataService.Attributes>
     <EntitySetMapping
-      EntitySet="Genres">
+      EntitySet="Artiesten">
       <EntitySetMapping.Attributes>
         <SsdlForeignKeyProperty
-          Name="Type_Genre"
+          Name="Activiteit_Type"
+          Nullable="False"
+          Type="int" />
+        <SsdlForeignKeyProperty
+          Name="Activiteit_Genre"
           Nullable="False"
           Type="int" />
       </EntitySetMapping.Attributes>
     </EntitySetMapping>
-    <AssociationSetMapping
-      AssociationSet="Festival_Genres">
-      <AssociationSetMapping.Attributes>
-        <SsdlAssociationSet
-          Name="Festival_Genres" />
-        <SsdlAssociationSetEnd
-          End="ApplicationData/Members[Festival_Genres]/Members[Festival]">
-          <SsdlAssociationSetEnd.Attributes>
-            <SsdlPropertyRef
-              Name="Festival_Genre" />
-          </SsdlAssociationSetEnd.Attributes>
-        </SsdlAssociationSetEnd>
-        <SsdlAssociationSetEnd
-          End="ApplicationData/Members[Festival_Genres]/Members[Genre]">
-          <SsdlAssociationSetEnd.Attributes>
-            <SsdlPropertyRef
-              Name="Id" />
-          </SsdlAssociationSetEnd.Attributes>
-        </SsdlAssociationSetEnd>
-      </AssociationSetMapping.Attributes>
-    </AssociationSetMapping>
-    <AssociationSetMapping
-      AssociationSet="Activiteit_Genres">
-      <AssociationSetMapping.Attributes>
-        <SsdlAssociationSet
-          Name="Activiteit_Genres" />
-        <SsdlAssociationSetEnd
-          End="ApplicationData/Members[Activiteit_Genres]/Members[Activiteit]">
-          <SsdlAssociationSetEnd.Attributes>
-            <SsdlPropertyRef
-              Name="Activiteit_Genre" />
-          </SsdlAssociationSetEnd.Attributes>
-        </SsdlAssociationSetEnd>
-        <SsdlAssociationSetEnd
-          End="ApplicationData/Members[Activiteit_Genres]/Members[Genre]">
-          <SsdlAssociationSetEnd.Attributes>
-            <SsdlPropertyRef
-              Name="Id" />
-          </SsdlAssociationSetEnd.Attributes>
-        </SsdlAssociationSetEnd>
-      </AssociationSetMapping.Attributes>
-    </AssociationSetMapping>
   </DataService>
-  <Association
-    Name="Festival_Genre">
-    <AssociationEnd
-      Name="Festival"
-      Multiplicity="Many"
-      EntityType="Festival" />
-    <AssociationEnd
-      Name="Genre"
-      Multiplicity="One"
-      EntityType="Genre">
-      <AssociationEnd.Attributes>
-        <DeleteRule
-          Action="Restrict" />
-      </AssociationEnd.Attributes>
-    </AssociationEnd>
-  </Association>
-  <Association
-    Name="Activiteit_Genre">
-    <AssociationEnd
-      Name="Activiteit"
-      Multiplicity="Many"
-      EntityType="Activiteit" />
-    <AssociationEnd
-      Name="Genre"
-      Multiplicity="One"
-      EntityType="Genre">
-      <AssociationEnd.Attributes>
-        <DeleteRule
-          Action="Restrict" />
-      </AssociationEnd.Attributes>
-    </AssociationEnd>
-  </Association>
 </ServiceApplication>

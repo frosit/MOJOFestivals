@@ -145,6 +145,25 @@
         Association="Ticket_Festival"
         FromEnd="Festival"
         ToEnd="Ticket" />
+      <NavigationProperty
+        Name="Beoordelingen"
+        Association="Festival_Beoordeling"
+        FromEnd="Festival"
+        ToEnd="Beoordeling" />
+      <EntityProperty
+        Name="TotaalBeoordelingen"
+        PropertyType=":String">
+        <EntityProperty.Attributes>
+          <Computed />
+        </EntityProperty.Attributes>
+      </EntityProperty>
+      <EntityProperty
+        Name="GemiddeldeBeoordeling"
+        PropertyType=":String">
+        <EntityProperty.Attributes>
+          <Computed />
+        </EntityProperty.Attributes>
+      </EntityProperty>
       <EntityProperty
         Name="CreatedBy"
         IsReadOnly="True"
@@ -308,6 +327,16 @@
         Name="Podium"
         EntitySet="Podia" />
     </AssociationSet>
+    <AssociationSet
+      Name="Festival_Beoordelings"
+      Association="Festival_Beoordeling">
+      <AssociationSetEnd
+        Name="Festival"
+        EntitySet="Festivals" />
+      <AssociationSetEnd
+        Name="Beoordeling"
+        EntitySet="Beoordelingen" />
+    </AssociationSet>
   </EntityContainer>
   <DataService
     Name="ApplicationDataMapping">
@@ -369,6 +398,27 @@
         </SsdlAssociationSetEnd>
       </AssociationSetMapping.Attributes>
     </AssociationSetMapping>
+    <AssociationSetMapping
+      AssociationSet="Festival_Beoordelings">
+      <AssociationSetMapping.Attributes>
+        <SsdlAssociationSet
+          Name="Festival_Beoordelings" />
+        <SsdlAssociationSetEnd
+          End="ApplicationData/Members[Festival_Beoordelings]/Members[Festival]">
+          <SsdlAssociationSetEnd.Attributes>
+            <SsdlPropertyRef
+              Name="Id" />
+          </SsdlAssociationSetEnd.Attributes>
+        </SsdlAssociationSetEnd>
+        <SsdlAssociationSetEnd
+          End="ApplicationData/Members[Festival_Beoordelings]/Members[Beoordeling]">
+          <SsdlAssociationSetEnd.Attributes>
+            <SsdlPropertyRef
+              Name="Festival_Beoordeling" />
+          </SsdlAssociationSetEnd.Attributes>
+        </SsdlAssociationSetEnd>
+      </AssociationSetMapping.Attributes>
+    </AssociationSetMapping>
   </DataService>
   <Association
     Name="Ticket_Festival">
@@ -401,5 +451,20 @@
       Name="Podium"
       Multiplicity="Many"
       EntityType="Podium" />
+  </Association>
+  <Association
+    Name="Festival_Beoordeling">
+    <AssociationEnd
+      Name="Festival"
+      EntityType="Festival">
+      <AssociationEnd.Attributes>
+        <DeleteRule
+          Action="Cascade" />
+      </AssociationEnd.Attributes>
+    </AssociationEnd>
+    <AssociationEnd
+      Name="Beoordeling"
+      Multiplicity="Many"
+      EntityType="Beoordeling" />
   </Association>
 </ServiceApplication>

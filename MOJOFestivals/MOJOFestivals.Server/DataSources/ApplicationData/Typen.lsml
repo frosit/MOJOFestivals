@@ -43,6 +43,11 @@
         Association="Festival_Type"
         FromEnd="Type"
         ToEnd="Festival" />
+      <NavigationProperty
+        Name="Artiesten"
+        Association="Activiteit_Type"
+        FromEnd="Type"
+        ToEnd="Activiteit" />
       <EntityProperty
         Name="RowVersion"
         PropertyType=":RowVersion">
@@ -166,6 +171,16 @@
         Name="Type"
         EntitySet="Typen" />
     </AssociationSet>
+    <AssociationSet
+      Name="Activiteit_Types"
+      Association="Activiteit_Type">
+      <AssociationSetEnd
+        Name="Activiteit"
+        EntitySet="Artiesten" />
+      <AssociationSetEnd
+        Name="Type"
+        EntitySet="Typen" />
+    </AssociationSet>
   </EntityContainer>
   <Association
     Name="Type_Genre">
@@ -230,6 +245,27 @@
         </SsdlAssociationSetEnd>
       </AssociationSetMapping.Attributes>
     </AssociationSetMapping>
+    <AssociationSetMapping
+      AssociationSet="Activiteit_Types">
+      <AssociationSetMapping.Attributes>
+        <SsdlAssociationSet
+          Name="Activiteit_Types" />
+        <SsdlAssociationSetEnd
+          End="ApplicationData/Members[Activiteit_Types]/Members[Activiteit]">
+          <SsdlAssociationSetEnd.Attributes>
+            <SsdlPropertyRef
+              Name="Activiteit_Type" />
+          </SsdlAssociationSetEnd.Attributes>
+        </SsdlAssociationSetEnd>
+        <SsdlAssociationSetEnd
+          End="ApplicationData/Members[Activiteit_Types]/Members[Type]">
+          <SsdlAssociationSetEnd.Attributes>
+            <SsdlPropertyRef
+              Name="Id" />
+          </SsdlAssociationSetEnd.Attributes>
+        </SsdlAssociationSetEnd>
+      </AssociationSetMapping.Attributes>
+    </AssociationSetMapping>
   </DataService>
   <Association
     Name="Festival_Type">
@@ -237,6 +273,22 @@
       Name="Festival"
       Multiplicity="Many"
       EntityType="Festival" />
+    <AssociationEnd
+      Name="Type"
+      Multiplicity="One"
+      EntityType="Type">
+      <AssociationEnd.Attributes>
+        <DeleteRule
+          Action="Restrict" />
+      </AssociationEnd.Attributes>
+    </AssociationEnd>
+  </Association>
+  <Association
+    Name="Activiteit_Type">
+    <AssociationEnd
+      Name="Activiteit"
+      Multiplicity="Many"
+      EntityType="Activiteit" />
     <AssociationEnd
       Name="Type"
       Multiplicity="One"
