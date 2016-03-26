@@ -46,17 +46,29 @@
       Name="ScreenCommandShowCreateNewFestival"
       Target="!module/Methods[ShowCreateNewFestival]" />
     <ApplicationCommand
-      Name="ScreenCommandShowBeoordelingenListDetail"
-      Target="!module/Methods[ShowBeoordelingenListDetail]" />
-    <ApplicationCommand
       Name="ScreenCommandShowTicketsListDetail"
       Target="!module/Methods[ShowTicketsListDetail]" />
     <ApplicationCommand
-      Name="ScreenCommandShowGebruikersListDetail"
-      Target="!module/Methods[ShowGebruikersListDetail]" />
-    <ApplicationCommand
       Name="ScreenCommandShowHome"
       Target="!module/Methods[ShowHome]" />
+    <ApplicationCommand
+      Name="ScreenCommandShowBezoekersListDetail"
+      Target="!module/Methods[ShowBezoekersListDetail]" />
+    <ApplicationCommand
+      Name="ScreenCommandShowFestivalsListDetail"
+      Target="!module/Methods[ShowFestivalsListDetail]" />
+    <ApplicationCommand
+      Name="ScreenCommandShowActiviteitenListDetail"
+      Target="!module/Methods[ShowActiviteitenListDetail]" />
+    <ApplicationCommand
+      Name="ScreenCommandShowTypenListDetail"
+      Target="!module/Methods[ShowTypenListDetail]" />
+    <ApplicationCommand
+      Name="ScreenCommandShowTicketOverzicht"
+      Target="!module/Methods[ShowTicketOverzicht]" />
+    <ApplicationCommand
+      Name="ScreenCommandShowBeoordelingenOverzicht"
+      Target="!module/Methods[ShowBeoordelingenOverzicht]" />
   </Application.Commands>
   <Application.NavigationItems>
     <ApplicationNavigationGroup
@@ -76,17 +88,29 @@
         Name="CreateNewFestival"
         Command="!module/Commands[ScreenCommandShowCreateNewFestival]" />
       <ApplicationNavigationLink
-        Name="BeoordelingenListDetail"
-        Command="!module/Commands[ScreenCommandShowBeoordelingenListDetail]" />
-      <ApplicationNavigationLink
         Name="TicketsListDetail"
         Command="!module/Commands[ScreenCommandShowTicketsListDetail]" />
       <ApplicationNavigationLink
-        Name="GebruikersListDetail"
-        Command="!module/Commands[ScreenCommandShowGebruikersListDetail]" />
-      <ApplicationNavigationLink
         Name="Home"
         Command="!module/Commands[ScreenCommandShowHome]" />
+      <ApplicationNavigationLink
+        Name="BezoekersListDetail"
+        Command="!module/Commands[ScreenCommandShowBezoekersListDetail]" />
+      <ApplicationNavigationLink
+        Name="FestivalsListDetail"
+        Command="!module/Commands[ScreenCommandShowFestivalsListDetail]" />
+      <ApplicationNavigationLink
+        Name="ActiviteitenListDetail"
+        Command="!module/Commands[ScreenCommandShowActiviteitenListDetail]" />
+      <ApplicationNavigationLink
+        Name="TypenListDetail"
+        Command="!module/Commands[ScreenCommandShowTypenListDetail]" />
+      <ApplicationNavigationLink
+        Name="TicketOverzicht"
+        Command="!module/Commands[ScreenCommandShowTicketOverzicht]" />
+      <ApplicationNavigationLink
+        Name="BeoordelingenOverzicht"
+        Command="!module/Commands[ScreenCommandShowBeoordelingenOverzicht]" />
     </ApplicationNavigationGroup>
     <ApplicationNavigationGroup
       Name="group">
@@ -111,14 +135,21 @@
           Value="Beheer" />
       </ApplicationNavigationGroup.Attributes>
       <ApplicationNavigationLink
-        Name="link3"
-        Command="!module/Commands[ScreenCommandShowBeoordelingenListDetail]" />
-      <ApplicationNavigationLink
-        Name="link4"
-        Command="!module/Commands[ScreenCommandShowGebruikersListDetail]" />
-      <ApplicationNavigationLink
         Name="link5"
         Command="!module/Commands[ScreenCommandShowTicketsListDetail]" />
+    </ApplicationNavigationGroup>
+    <ApplicationNavigationGroup
+      Name="group2">
+      <ApplicationNavigationGroup.Attributes>
+        <DisplayName
+          Value="Overzicht" />
+      </ApplicationNavigationGroup.Attributes>
+      <ApplicationNavigationLink
+        Name="link3"
+        Command="!module/Commands[ScreenCommandShowBeoordelingenOverzicht]" />
+      <ApplicationNavigationLink
+        Name="link4"
+        Command="!module/Commands[ScreenCommandShowTicketOverzicht]" />
     </ApplicationNavigationGroup>
     <ApplicationNavigationGroup
       Name="Administration">

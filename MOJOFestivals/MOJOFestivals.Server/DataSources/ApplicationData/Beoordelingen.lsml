@@ -54,10 +54,9 @@
         </EntityProperty.Attributes>
       </EntityProperty>
       <EntityProperty
-        Name="Bezoeker"
-        PropertyType=":Person">
+        Name="Gebruiker"
+        PropertyType=":Person?">
         <EntityProperty.Attributes>
-          <Required />
           <NotSearchable />
           <MaxLength
             Value="255" />
@@ -68,6 +67,11 @@
         Association="Festival_Beoordeling"
         FromEnd="Beoordeling"
         ToEnd="Festival" />
+      <NavigationProperty
+        Name="Bezoeker"
+        Association="Beoordeling_Bezoeker"
+        FromEnd="Beoordeling"
+        ToEnd="Bezoeker" />
       <EntityProperty
         Name="CreatedBy"
         IsReadOnly="True"
@@ -222,6 +226,10 @@
       <EntitySetMapping.Attributes>
         <SsdlForeignKeyProperty
           Name="Festival_Beoordeling"
+          Nullable="True"
+          Type="int" />
+        <SsdlForeignKeyProperty
+          Name="Beoordeling_Bezoeker"
           Nullable="True"
           Type="int" />
       </EntitySetMapping.Attributes>

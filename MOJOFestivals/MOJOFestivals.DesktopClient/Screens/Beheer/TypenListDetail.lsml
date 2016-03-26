@@ -5,7 +5,7 @@
     <Partial />
   </Application.Attributes>
   <Screen
-    Name="TicketsListDetail">
+    Name="TypenListDetail">
     <Screen.Attributes>
       <SaveChangesTo
         EntityContainer="ApplicationData" />
@@ -23,124 +23,36 @@
             Name="ListColumn"
             Kind="Group">
             <ContentItem
-              Name="TicketList"
+              Name="TypeList"
               Kind="Collection"
-              DataType="CollectionView$Ticket"
+              DataType="CollectionView$Type"
               View="Microsoft.LightSwitch.RichClient:List">
               <ContentItem.DataSource>
                 <ScreenExpressionTree>
                   <ChainExpression>
                     <MemberExpression
-                      Member="TicketsListDetail/Properties[Tickets]" />
+                      Member="TypenListDetail/Properties[Typen]" />
                   </ChainExpression>
                 </ScreenExpressionTree>
               </ContentItem.DataSource>
               <ContentItem
                 Name="RowTemplate"
                 Kind="Details"
-                DataType="Ticket">
+                DataType="Type">
                 <ContentItem.DataSource>
                   <ScreenExpressionTree>
                     <ChainExpression />
                   </ScreenExpressionTree>
                 </ContentItem.DataSource>
                 <ContentItem
-                  Name="Aantal"
+                  Name="Naam"
                   Kind="Value"
-                  DataType=":Int32">
+                  DataType=":String">
                   <ContentItem.DataSource>
                     <ScreenExpressionTree>
                       <ChainExpression>
                         <MemberExpression
-                          Member="Ticket/Properties[Aantal]" />
-                      </ChainExpression>
-                    </ScreenExpressionTree>
-                  </ContentItem.DataSource>
-                </ContentItem>
-                <ContentItem
-                  Name="Persoon"
-                  Kind="Value"
-                  DataType=":Person?">
-                  <ContentItem.DataSource>
-                    <ScreenExpressionTree>
-                      <ChainExpression>
-                        <MemberExpression
-                          Member="Ticket/Properties[Gebruiker]" />
-                      </ChainExpression>
-                    </ScreenExpressionTree>
-                  </ContentItem.DataSource>
-                </ContentItem>
-                <ContentItem
-                  Name="Festival"
-                  Kind="Details"
-                  DataType="Festival">
-                  <ContentItem.DataSource>
-                    <ScreenExpressionTree>
-                      <ChainExpression>
-                        <MemberExpression
-                          Member="Ticket/Properties[Festival]" />
-                      </ChainExpression>
-                    </ScreenExpressionTree>
-                  </ContentItem.DataSource>
-                  <ContentItem
-                    Name="RowTemplate1"
-                    Kind="Details"
-                    DataType="Festival">
-                    <ContentItem.DataSource>
-                      <ScreenExpressionTree>
-                        <ChainExpression />
-                      </ScreenExpressionTree>
-                    </ContentItem.DataSource>
-                  </ContentItem>
-                </ContentItem>
-                <ContentItem
-                  Name="CreatedBy"
-                  Kind="Value"
-                  DataType=":Person?">
-                  <ContentItem.DataSource>
-                    <ScreenExpressionTree>
-                      <ChainExpression>
-                        <MemberExpression
-                          Member="Ticket/Properties[CreatedBy]" />
-                      </ChainExpression>
-                    </ScreenExpressionTree>
-                  </ContentItem.DataSource>
-                </ContentItem>
-                <ContentItem
-                  Name="Created"
-                  Kind="Value"
-                  DataType=":DateTimeOffset?">
-                  <ContentItem.DataSource>
-                    <ScreenExpressionTree>
-                      <ChainExpression>
-                        <MemberExpression
-                          Member="Ticket/Properties[Created]" />
-                      </ChainExpression>
-                    </ScreenExpressionTree>
-                  </ContentItem.DataSource>
-                </ContentItem>
-                <ContentItem
-                  Name="ModifiedBy"
-                  Kind="Value"
-                  DataType=":Person?">
-                  <ContentItem.DataSource>
-                    <ScreenExpressionTree>
-                      <ChainExpression>
-                        <MemberExpression
-                          Member="Ticket/Properties[ModifiedBy]" />
-                      </ChainExpression>
-                    </ScreenExpressionTree>
-                  </ContentItem.DataSource>
-                </ContentItem>
-                <ContentItem
-                  Name="Modified"
-                  Kind="Value"
-                  DataType=":DateTimeOffset?">
-                  <ContentItem.DataSource>
-                    <ScreenExpressionTree>
-                      <ChainExpression>
-                        <MemberExpression
-                          Member="Ticket/Properties[Modified]" />
+                          Member="Type/Properties[Naam]" />
                       </ChainExpression>
                     </ScreenExpressionTree>
                   </ContentItem.DataSource>
@@ -148,13 +60,13 @@
               </ContentItem>
               <ContentItem.CommandItems>
                 <ContentItem
-                  Name="Tickets_AddAndEditNew"
+                  Name="Typen_AddAndEditNew"
                   Kind="Command">
                   <ContentItem.DataSource>
                     <ScreenExpressionTree>
                       <ChainExpression>
                         <MemberExpression
-                          Member="TicketsListDetail/Properties[Tickets]" />
+                          Member="TypenListDetail/Properties[Typen]" />
                         <CallExpression
                           Target="AddAndEditNew" />
                       </ChainExpression>
@@ -162,13 +74,13 @@
                   </ContentItem.DataSource>
                 </ContentItem>
                 <ContentItem
-                  Name="Tickets_EditSelected"
+                  Name="Typen_EditSelected"
                   Kind="Command">
                   <ContentItem.DataSource>
                     <ScreenExpressionTree>
                       <ChainExpression>
                         <MemberExpression
-                          Member="TicketsListDetail/Properties[Tickets]" />
+                          Member="TypenListDetail/Properties[Typen]" />
                         <CallExpression
                           Target="EditSelected" />
                       </ChainExpression>
@@ -176,13 +88,13 @@
                   </ContentItem.DataSource>
                 </ContentItem>
                 <ContentItem
-                  Name="Tickets_DeleteSelected"
+                  Name="Typen_DeleteSelected"
                   Kind="Command">
                   <ContentItem.DataSource>
                     <ScreenExpressionTree>
                       <ChainExpression>
                         <MemberExpression
-                          Member="TicketsListDetail/Properties[Tickets]" />
+                          Member="TypenListDetail/Properties[Typen]" />
                         <CallExpression
                           Target="DeleteSelected" />
                       </ChainExpression>
@@ -230,120 +142,32 @@
             Name="DetailsColumn"
             Kind="Group">
             <ContentItem
-              Name="TicketDetails"
+              Name="TypeDetails"
               Kind="Details"
-              DataType="Ticket">
+              DataType="Type">
               <ContentItem.Attributes>
                 <DisplayName
-                  Value="Ticket Details" />
+                  Value="Type Details" />
               </ContentItem.Attributes>
               <ContentItem.DataSource>
                 <ScreenExpressionTree>
                   <ChainExpression>
                     <MemberExpression
-                      Member="TicketsListDetail/Properties[Tickets]" />
+                      Member="TypenListDetail/Properties[Typen]" />
                     <MemberExpression
                       Member="SelectedItem" />
                   </ChainExpression>
                 </ScreenExpressionTree>
               </ContentItem.DataSource>
               <ContentItem
-                Name="Aantal1"
+                Name="Naam1"
                 Kind="Value"
-                DataType=":Int32">
+                DataType=":String">
                 <ContentItem.DataSource>
                   <ScreenExpressionTree>
                     <ChainExpression>
                       <MemberExpression
-                        Member="Ticket/Properties[Aantal]" />
-                    </ChainExpression>
-                  </ScreenExpressionTree>
-                </ContentItem.DataSource>
-              </ContentItem>
-              <ContentItem
-                Name="Persoon1"
-                Kind="Value"
-                DataType=":Person?">
-                <ContentItem.DataSource>
-                  <ScreenExpressionTree>
-                    <ChainExpression>
-                      <MemberExpression
-                        Member="Ticket/Properties[Gebruiker]" />
-                    </ChainExpression>
-                  </ScreenExpressionTree>
-                </ContentItem.DataSource>
-              </ContentItem>
-              <ContentItem
-                Name="Festival1"
-                Kind="Details"
-                DataType="Festival">
-                <ContentItem.DataSource>
-                  <ScreenExpressionTree>
-                    <ChainExpression>
-                      <MemberExpression
-                        Member="Ticket/Properties[Festival]" />
-                    </ChainExpression>
-                  </ScreenExpressionTree>
-                </ContentItem.DataSource>
-                <ContentItem
-                  Name="RowTemplate2"
-                  Kind="Details"
-                  DataType="Festival">
-                  <ContentItem.DataSource>
-                    <ScreenExpressionTree>
-                      <ChainExpression />
-                    </ScreenExpressionTree>
-                  </ContentItem.DataSource>
-                </ContentItem>
-              </ContentItem>
-              <ContentItem
-                Name="CreatedBy1"
-                Kind="Value"
-                DataType=":Person?">
-                <ContentItem.DataSource>
-                  <ScreenExpressionTree>
-                    <ChainExpression>
-                      <MemberExpression
-                        Member="Ticket/Properties[CreatedBy]" />
-                    </ChainExpression>
-                  </ScreenExpressionTree>
-                </ContentItem.DataSource>
-              </ContentItem>
-              <ContentItem
-                Name="Created1"
-                Kind="Value"
-                DataType=":DateTimeOffset?">
-                <ContentItem.DataSource>
-                  <ScreenExpressionTree>
-                    <ChainExpression>
-                      <MemberExpression
-                        Member="Ticket/Properties[Created]" />
-                    </ChainExpression>
-                  </ScreenExpressionTree>
-                </ContentItem.DataSource>
-              </ContentItem>
-              <ContentItem
-                Name="ModifiedBy1"
-                Kind="Value"
-                DataType=":Person?">
-                <ContentItem.DataSource>
-                  <ScreenExpressionTree>
-                    <ChainExpression>
-                      <MemberExpression
-                        Member="Ticket/Properties[ModifiedBy]" />
-                    </ChainExpression>
-                  </ScreenExpressionTree>
-                </ContentItem.DataSource>
-              </ContentItem>
-              <ContentItem
-                Name="Modified1"
-                Kind="Value"
-                DataType=":DateTimeOffset?">
-                <ContentItem.DataSource>
-                  <ScreenExpressionTree>
-                    <ChainExpression>
-                      <MemberExpression
-                        Member="Ticket/Properties[Modified]" />
+                        Member="Type/Properties[Naam]" />
                     </ChainExpression>
                   </ScreenExpressionTree>
                 </ContentItem.DataSource>
@@ -355,6 +179,99 @@
                     <ChainExpression>
                       <ConstantExpression
                         Value="Top"
+                        ResultType=":String" />
+                    </ChainExpression>
+                  </ScreenExpressionTree>
+                </ControlPropertySource>
+              </ContentItem.PropertySources>
+            </ContentItem>
+            <ContentItem
+              Name="Genres"
+              Kind="Collection"
+              DataType="CollectionView$Genre"
+              View="Microsoft.LightSwitch.RichClient:DataGrid">
+              <ContentItem.DataSource>
+                <ScreenExpressionTree>
+                  <ChainExpression>
+                    <MemberExpression
+                      Member="TypenListDetail/Properties[Genres]" />
+                  </ChainExpression>
+                </ScreenExpressionTree>
+              </ContentItem.DataSource>
+              <ContentItem
+                Name="RowTemplate1"
+                Kind="Details"
+                DataType="Genre">
+                <ContentItem.DataSource>
+                  <ScreenExpressionTree>
+                    <ChainExpression />
+                  </ScreenExpressionTree>
+                </ContentItem.DataSource>
+                <ContentItem
+                  Name="Naam2"
+                  Kind="Value"
+                  DataType=":String">
+                  <ContentItem.DataSource>
+                    <ScreenExpressionTree>
+                      <ChainExpression>
+                        <MemberExpression
+                          Member="Genre/Properties[Naam]" />
+                      </ChainExpression>
+                    </ScreenExpressionTree>
+                  </ContentItem.DataSource>
+                </ContentItem>
+              </ContentItem>
+              <ContentItem.CommandItems>
+                <ContentItem
+                  Name="Genres_AddAndEditNew"
+                  Kind="Command">
+                  <ContentItem.DataSource>
+                    <ScreenExpressionTree>
+                      <ChainExpression>
+                        <MemberExpression
+                          Member="TypenListDetail/Properties[Genres]" />
+                        <CallExpression
+                          Target="AddAndEditNew" />
+                      </ChainExpression>
+                    </ScreenExpressionTree>
+                  </ContentItem.DataSource>
+                </ContentItem>
+                <ContentItem
+                  Name="Genres_EditSelected"
+                  Kind="Command">
+                  <ContentItem.DataSource>
+                    <ScreenExpressionTree>
+                      <ChainExpression>
+                        <MemberExpression
+                          Member="TypenListDetail/Properties[Genres]" />
+                        <CallExpression
+                          Target="EditSelected" />
+                      </ChainExpression>
+                    </ScreenExpressionTree>
+                  </ContentItem.DataSource>
+                </ContentItem>
+                <ContentItem
+                  Name="Genres_DeleteSelected"
+                  Kind="Command">
+                  <ContentItem.DataSource>
+                    <ScreenExpressionTree>
+                      <ChainExpression>
+                        <MemberExpression
+                          Member="TypenListDetail/Properties[Genres]" />
+                        <CallExpression
+                          Target="DeleteSelected" />
+                      </ChainExpression>
+                    </ScreenExpressionTree>
+                  </ContentItem.DataSource>
+                </ContentItem>
+              </ContentItem.CommandItems>
+              <ContentItem.PropertySources>
+                <ControlPropertySource
+                  Property="Microsoft.LightSwitch.RichClient:RootControl/Properties[VerticalAlignment]">
+                  <ScreenExpressionTree>
+                    <ChainExpression>
+                      <ConstantExpression
+                        Value="Stretch"
                         ResultType=":String" />
                     </ChainExpression>
                   </ScreenExpressionTree>
@@ -393,7 +310,7 @@
               <ScreenExpressionTree>
                 <ChainExpression>
                   <CallExpression
-                    Target="TicketsListDetail/Methods[Save]" />
+                    Target="TypenListDetail/Methods[Save]" />
                 </ChainExpression>
               </ScreenExpressionTree>
             </ContentItem.DataSource>
@@ -405,7 +322,7 @@
               <ScreenExpressionTree>
                 <ChainExpression>
                   <CallExpression
-                    Target="TicketsListDetail/Methods[Refresh]" />
+                    Target="TypenListDetail/Methods[Refresh]" />
                 </ChainExpression>
               </ScreenExpressionTree>
             </ContentItem.DataSource>
@@ -445,20 +362,20 @@
     </Screen.Methods>
     <Screen.Properties>
       <ScreenCollectionProperty
-        Name="Tickets"
+        Name="Typen"
         PageSize="45"
-        PropertyType="CollectionView$Ticket">
+        PropertyType="CollectionView$Type">
         <ScreenCollectionProperty.Query>
           <ScreenQueryDefinition
-            Name="TicketsQuery"
-            ReturnType="Ticket*">
+            Name="TypenQuery"
+            ReturnType="Type*">
             <ScreenQueryDefinition.FilterExpression>
               <QueryFilterExpressionTree />
             </ScreenQueryDefinition.FilterExpression>
             <ScreenQueryDefinition.Source>
               <QuerySourceExpressionTree>
                 <MemberExpression
-                  Member="ApplicationData/Members[Tickets]" />
+                  Member="ApplicationData/Members[Typen]" />
               </QuerySourceExpressionTree>
             </ScreenQueryDefinition.Source>
           </ScreenQueryDefinition>
@@ -466,7 +383,39 @@
         <ScreenExpressionTree>
           <ChainExpression>
             <CallExpression
-              Target="TicketsListDetail/Properties[Tickets]/Query" />
+              Target="TypenListDetail/Properties[Typen]/Query" />
+          </ChainExpression>
+        </ScreenExpressionTree>
+      </ScreenCollectionProperty>
+      <ScreenCollectionProperty
+        Name="Genres"
+        PageSize="15"
+        PropertyType="CollectionView$Genre">
+        <ScreenCollectionProperty.Query>
+          <ScreenQueryDefinition
+            Name="GenresQuery"
+            ReturnType="Genre*">
+            <ScreenQueryDefinition.FilterExpression>
+              <QueryFilterExpressionTree />
+            </ScreenQueryDefinition.FilterExpression>
+            <ScreenQueryDefinition.Source>
+              <QuerySourceExpressionTree>
+                <ChainExpression>
+                  <MemberExpression
+                    Member="TypenListDetail/Properties[Typen]" />
+                  <MemberExpression
+                    Member="SelectedItem" />
+                  <MemberExpression
+                    Member="Genres" />
+                </ChainExpression>
+              </QuerySourceExpressionTree>
+            </ScreenQueryDefinition.Source>
+          </ScreenQueryDefinition>
+        </ScreenCollectionProperty.Query>
+        <ScreenExpressionTree>
+          <ChainExpression>
+            <CallExpression
+              Target="TypenListDetail/Properties[Genres]/Query" />
           </ChainExpression>
         </ScreenExpressionTree>
       </ScreenCollectionProperty>
@@ -474,10 +423,10 @@
   </Screen>
   <Application.Methods>
     <ApplicationMethod
-      Name="ShowTicketsListDetail">
+      Name="ShowTypenListDetail">
       <ApplicationMethod.Attributes>
         <ShowScreenMethod
-          TargetScreen="TicketsListDetail" />
+          TargetScreen="TypenListDetail" />
       </ApplicationMethod.Attributes>
     </ApplicationMethod>
   </Application.Methods>

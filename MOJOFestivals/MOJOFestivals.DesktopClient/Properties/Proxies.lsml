@@ -40,12 +40,6 @@
         Target="ServiceInterface:Festival_Genre" />
     </Association.Attributes>
   </Association>
-  <EntityType>
-    <EntityType.Attributes>
-      <Proxy
-        Target="ServiceInterface:Ticket" />
-    </EntityType.Attributes>
-  </EntityType>
   <Association>
     <Association.Attributes>
       <Proxy
@@ -116,6 +110,24 @@
     <Association.Attributes>
       <Proxy
         Target="ServiceInterface:ActiviteitOpPodia_Festival" />
+    </Association.Attributes>
+  </Association>
+  <Association>
+    <Association.Attributes>
+      <Proxy
+        Target="ServiceInterface:Ticket_Bezoeker" />
+    </Association.Attributes>
+  </Association>
+  <EntityType>
+    <EntityType.Attributes>
+      <Proxy
+        Target="ServiceInterface:Ticket" />
+    </EntityType.Attributes>
+  </EntityType>
+  <Association>
+    <Association.Attributes>
+      <Proxy
+        Target="ServiceInterface:Beoordeling_Bezoeker" />
     </Association.Attributes>
   </Association>
 </Application>

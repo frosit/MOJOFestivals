@@ -205,7 +205,7 @@
     <LightSwitchModel Include="DataSources\ApplicationData\Festivals.lsml" />
     <LightSwitchModel Include="DataSources\ApplicationData\Genres.lsml" />
     <LightSwitchModel Include="DataSources\ApplicationData\Typen.lsml" />
-    <LightSwitchModel Include="DataSources\ApplicationData\Gebruikers.lsml" />
+    <LightSwitchModel Include="DataSources\ApplicationData\Bezoekers.lsml" />
     <LightSwitchModel Include="DataSources\ApplicationData\GenresPerType.lsml">
       <DependentUpon>Genres.lsml</DependentUpon>
     </LightSwitchModel>

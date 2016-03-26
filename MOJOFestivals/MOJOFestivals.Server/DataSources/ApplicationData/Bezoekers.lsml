@@ -5,7 +5,7 @@
     <Partial />
   </ServiceApplication.Attributes>
   <EntityType
-    Name="Gebruiker">
+    Name="Bezoeker">
     <EntityType.Attributes>
       <CreatedModifiedPropertiesEnabled />
     </EntityType.Attributes>
@@ -27,13 +27,13 @@
         </KeyProperty.Attributes>
       </KeyProperty>
       <EntityProperty
-        Name="Persoon"
+        Name="Gebruiker"
         PropertyType=":Person">
         <EntityProperty.Attributes>
           <Required />
-          <NotSearchable />
           <MaxLength
             Value="255" />
+          <IncludeInUniqueIndex />
         </EntityProperty.Attributes>
       </EntityProperty>
       <EntityProperty
@@ -99,6 +99,16 @@
             Value="True" />
         </EntityProperty.Attributes>
       </EntityProperty>
+      <NavigationProperty
+        Name="Tickets"
+        Association="Ticket_Bezoeker"
+        FromEnd="Bezoeker"
+        ToEnd="Ticket" />
+      <NavigationProperty
+        Name="Beoordelingen"
+        Association="Beoordeling_Bezoeker"
+        FromEnd="Bezoeker"
+        ToEnd="Beoordeling" />
       <EntityProperty
         Name="CreatedBy"
         IsReadOnly="True"
@@ -157,14 +167,14 @@
       <Partial />
     </EntityContainer.Attributes>
     <EntitySet
-      Name="Gebruikers"
+      Name="Bezoekers"
       CanDelete="True"
       CanInsert="True"
       CanUpdate="True"
-      EntityType="Gebruiker" />
+      EntityType="Bezoeker" />
     <QueryOperation
-      Name="Gebruikers_Single"
-      ReturnType="Gebruiker">
+      Name="Bezoekers_Single"
+      ReturnType="Bezoeker">
       <QueryOperation.Attributes>
         <Generated />
         <Description
@@ -190,7 +200,7 @@
       <QueryOperation.Source>
         <QuerySourceExpressionTree>
           <MemberExpression
-            Member="Gebruikers" />
+            Member="Bezoekers" />
         </QuerySourceExpressionTree>
       </QueryOperation.Source>
       <QueryOperationParameter
@@ -203,8 +213,8 @@
       </QueryOperationParameter>
     </QueryOperation>
     <QueryOperation
-      Name="Gebruikers_SingleOrDefault"
-      ReturnType="Gebruiker">
+      Name="Bezoekers_SingleOrDefault"
+      ReturnType="Bezoeker">
       <QueryOperation.Attributes>
         <Generated />
         <Description
@@ -230,7 +240,7 @@
       <QueryOperation.Source>
         <QuerySourceExpressionTree>
           <MemberExpression
-            Member="Gebruikers" />
+            Member="Bezoekers" />
         </QuerySourceExpressionTree>
       </QueryOperation.Source>
       <QueryOperationParameter
@@ -242,5 +252,103 @@
         </QueryOperationParameter.Attributes>
       </QueryOperationParameter>
     </QueryOperation>
+    <AssociationSet
+      Name="Ticket_Bezoekers"
+      Association="Ticket_Bezoeker">
+      <AssociationSetEnd
+        Name="Ticket"
+        EntitySet="Tickets" />
+      <AssociationSetEnd
+        Name="Bezoeker"
+        EntitySet="Bezoekers" />
+    </AssociationSet>
+    <AssociationSet
+      Name="Beoordeling_Bezoekers"
+      Association="Beoordeling_Bezoeker">
+      <AssociationSetEnd
+        Name="Beoordeling"
+        EntitySet="Beoordelingen" />
+      <AssociationSetEnd
+        Name="Bezoeker"
+        EntitySet="Bezoekers" />
+    </AssociationSet>
   </EntityContainer>
+  <Association
+    Name="Ticket_Bezoeker">
+    <AssociationEnd
+      Name="Ticket"
+      Multiplicity="Many"
+      EntityType="Ticket" />
+    <AssociationEnd
+      Name="Bezoeker"
+      EntityType="Bezoeker">
+      <AssociationEnd.Attributes>
+        <DeleteRule
+          Action="Disassociate" />
+      </AssociationEnd.Attributes>
+    </AssociationEnd>
+  </Association>
+  <DataService
+    Name="ApplicationDataMapping">
+    <DataService.Attributes>
+      <Partial />
+    </DataService.Attributes>
+    <AssociationSetMapping
+      AssociationSet="Ticket_Bezoekers">
+      <AssociationSetMapping.Attributes>
+        <SsdlAssociationSet
+          Name="Ticket_Bezoekers" />
+        <SsdlAssociationSetEnd
+          End="ApplicationData/Members[Ticket_Bezoekers]/Members[Ticket]">
+          <SsdlAssociationSetEnd.Attributes>
+            <SsdlPropertyRef
+              Name="Ticket_Bezoeker" />
+          </SsdlAssociationSetEnd.Attributes>
+        </SsdlAssociationSetEnd>
+        <SsdlAssociationSetEnd
+          End="ApplicationData/Members[Ticket_Bezoekers]/Members[Bezoeker]">
+          <SsdlAssociationSetEnd.Attributes>
+            <SsdlPropertyRef
+              Name="Id" />
+          </SsdlAssociationSetEnd.Attributes>
+        </SsdlAssociationSetEnd>
+      </AssociationSetMapping.Attributes>
+    </AssociationSetMapping>
+    <AssociationSetMapping
+      AssociationSet="Beoordeling_Bezoekers">
+      <AssociationSetMapping.Attributes>
+        <SsdlAssociationSet
+          Name="Beoordeling_Bezoekers" />
+        <SsdlAssociationSetEnd
+          End="ApplicationData/Members[Beoordeling_Bezoekers]/Members[Beoordeling]">
+          <SsdlAssociationSetEnd.Attributes>
+            <SsdlPropertyRef
+              Name="Beoordeling_Bezoeker" />
+          </SsdlAssociationSetEnd.Attributes>
+        </SsdlAssociationSetEnd>
+        <SsdlAssociationSetEnd
+          End="ApplicationData/Members[Beoordeling_Bezoekers]/Members[Bezoeker]">
+          <SsdlAssociationSetEnd.Attributes>
+            <SsdlPropertyRef
+              Name="Id" />
+          </SsdlAssociationSetEnd.Attributes>
+        </SsdlAssociationSetEnd>
+      </AssociationSetMapping.Attributes>
+    </AssociationSetMapping>
+  </DataService>
+  <Association
+    Name="Beoordeling_Bezoeker">
+    <AssociationEnd
+      Name="Beoordeling"
+      Multiplicity="Many"
+      EntityType="Beoordeling" />
+    <AssociationEnd
+      Name="Bezoeker"
+      EntityType="Bezoeker">
+      <AssociationEnd.Attributes>
+        <DeleteRule
+          Action="Disassociate" />
+      </AssociationEnd.Attributes>
+    </AssociationEnd>
+  </Association>
 </ServiceApplication>
