@@ -510,6 +510,7 @@
     Name="Festival_Beoordeling">
     <AssociationEnd
       Name="Festival"
+      Multiplicity="One"
       EntityType="Festival">
       <AssociationEnd.Attributes>
         <DeleteRule
@@ -533,7 +534,7 @@
       EntityType="Festival">
       <AssociationEnd.Attributes>
         <DeleteRule
-          Action="Cascade" />
+          Action="Restrict" />
       </AssociationEnd.Attributes>
     </AssociationEnd>
   </Association>

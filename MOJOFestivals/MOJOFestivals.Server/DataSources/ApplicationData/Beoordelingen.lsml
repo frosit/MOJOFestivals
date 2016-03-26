@@ -225,12 +225,12 @@
       EntitySet="Beoordelingen">
       <EntitySetMapping.Attributes>
         <SsdlForeignKeyProperty
-          Name="Festival_Beoordeling"
+          Name="Beoordeling_Bezoeker"
           Nullable="True"
           Type="int" />
         <SsdlForeignKeyProperty
-          Name="Beoordeling_Bezoeker"
-          Nullable="True"
+          Name="Festival_Beoordeling"
+          Nullable="False"
           Type="int" />
       </EntitySetMapping.Attributes>
     </EntitySetMapping>
