@@ -33,4 +33,22 @@
         Replacement="$1 $2" />
     </GlobalAttributeGroup.Attributes>
   </GlobalAttributeGroup>
+  <Permission
+    Name="Organisator">
+    <Permission.Attributes>
+      <DisplayName
+        Value="Organisator" />
+      <Description
+        Value="Kan alle data omtrent festivals beheren" />
+    </Permission.Attributes>
+  </Permission>
+  <Permission
+    Name="Gebruiker">
+    <Permission.Attributes>
+      <DisplayName
+        Value="Gebruiker" />
+      <Description
+        Value="Kan festival data inzien, tickets en beoordeling aanmaken" />
+    </Permission.Attributes>
+  </Permission>
 </ServiceApplication>
