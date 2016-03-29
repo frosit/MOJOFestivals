@@ -23,6 +23,9 @@ namespace LightSwitchApplication
                                  where p.Id == FestivalId
                                  select p).First();
                 this.TicketProperty.Festival = fest;
+
+                
+
             }
             else
             {

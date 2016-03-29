@@ -1,0 +1,24 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="LightSwitchApplication.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="SMTPServer" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">smtp.gdprproof.com</Value>
+    </Setting>
+    <Setting Name="SMTPUserID" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">gdprp004</Value>
+    </Setting>
+    <Setting Name="SMTPPassword" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">mbhpR6bPv</Value>
+    </Setting>
+    <Setting Name="SMTPPort" Type="System.Int32" Scope="Application">
+      <Value Profile="(Default)">52</Value>
+    </Setting>
+    <Setting Name="UseMail" Type="System.Boolean" Scope="Application">
+      <Value Profile="(Default)">True</Value>
+    </Setting>
+    <Setting Name="DefaultSendMail" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">info@mojo.nl</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>

@@ -15,5 +15,7 @@ namespace LightSwitchApplication
             result = totaal;
 
         }
+
+
     }
 }
