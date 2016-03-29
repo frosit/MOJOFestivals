@@ -243,14 +243,23 @@
     <Compile Include="Screens\Beheer\FestivalBeheer.lsml.cs">
       <DependentUpon>FestivalBeheer.lsml</DependentUpon>
     </Compile>
+    <Compile Include="Screens\Home.lsml.cs">
+      <DependentUpon>Home.lsml</DependentUpon>
+    </Compile>
     <Compile Include="Screens\Nieuw\CreateNewActiviteit.lsml.cs">
       <DependentUpon>CreateNewActiviteit.lsml</DependentUpon>
     </Compile>
     <Compile Include="Screens\Nieuw\CreateNewActiviteitOpPodia.lsml.cs">
       <DependentUpon>CreateNewActiviteitOpPodia.lsml</DependentUpon>
     </Compile>
+    <Compile Include="Screens\Nieuw\CreateNewBeoordeling.lsml.cs">
+      <DependentUpon>CreateNewBeoordeling.lsml</DependentUpon>
+    </Compile>
     <Compile Include="Screens\Nieuw\CreateNewFestival.lsml.cs">
       <DependentUpon>CreateNewFestival.lsml</DependentUpon>
+    </Compile>
+    <Compile Include="Screens\Nieuw\CreateNewTicket.lsml.cs">
+      <DependentUpon>CreateNewTicket.lsml</DependentUpon>
     </Compile>
     <Compile Include="Screens\Statistieken\FestivalStatistieken.lsml.cs">
       <DependentUpon>FestivalStatistieken.lsml</DependentUpon>
@@ -282,6 +291,8 @@
     <LightSwitchModel Include="Screens\Nieuw\CreateNewFestival.lsml" />
     <LightSwitchModel Include="Screens\Statistieken\FestivalStatistieken.lsml" />
     <LightSwitchModel Include="Screens\Home.lsml" />
+    <LightSwitchModel Include="Screens\Nieuw\CreateNewTicket.lsml" />
+    <LightSwitchModel Include="Screens\Nieuw\CreateNewBeoordeling.lsml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>

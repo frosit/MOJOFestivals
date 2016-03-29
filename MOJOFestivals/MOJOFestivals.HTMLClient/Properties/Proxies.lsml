@@ -13,20 +13,6 @@
   <EntityType>
     <EntityType.Attributes>
       <Proxy
-        Target="ServiceInterface:Bezoeker" />
-    </EntityType.Attributes>
-    <EntityType.Properties>
-      <EntityProperty>
-        <EntityProperty.Attributes>
-          <Proxy
-            Target="LightSwitchServiceApplication:Bezoeker/Properties[Naam]" />
-        </EntityProperty.Attributes>
-      </EntityProperty>
-    </EntityType.Properties>
-  </EntityType>
-  <EntityType>
-    <EntityType.Attributes>
-      <Proxy
         Target="ServiceInterface:Genre" />
     </EntityType.Attributes>
   </EntityType>

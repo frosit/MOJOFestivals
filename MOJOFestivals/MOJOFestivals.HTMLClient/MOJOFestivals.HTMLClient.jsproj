@@ -105,6 +105,7 @@
   <ItemGroup>
     <LightSwitchModel Include="Properties\ApplicationData\Activiteiten.lsml" />
     <LightSwitchModel Include="Properties\ApplicationData\Beoordelingen.lsml" />
+    <LightSwitchModel Include="Properties\ApplicationData\Bezoekers.lsml" />
     <LightSwitchModel Include="Properties\ApplicationData\Festivals.lsml" />
     <LightSwitchModel Include="Properties\ApplicationData\Tickets.lsml" />
     <LightSwitchModel Include="Properties\Client.lsml">

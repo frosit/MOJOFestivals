@@ -235,6 +235,9 @@
     <LightSwitchModel Include="DataSources\ApplicationData\ActiviteitenPerFestival.lsml">
       <DependentUpon>ActiviteitOpPodias.lsml</DependentUpon>
     </LightSwitchModel>
+    <LightSwitchModel Include="DataSources\ApplicationData\FestivalPerType.lsml">
+      <DependentUpon>Festivals.lsml</DependentUpon>
+    </LightSwitchModel>
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
