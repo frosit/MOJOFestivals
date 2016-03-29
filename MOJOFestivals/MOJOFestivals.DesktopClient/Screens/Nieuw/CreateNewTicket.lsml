@@ -47,6 +47,7 @@
             </ContentItem>
             <ContentItem
               Name="Gebruiker"
+              IsHidden="True"
               Kind="Value"
               DataType=":Person?">
               <ContentItem.DataSource>
@@ -83,6 +84,7 @@
             </ContentItem>
             <ContentItem
               Name="Bezoeker"
+              IsHidden="True"
               Kind="Details"
               DataType="Bezoeker">
               <ContentItem.DataSource>

@@ -98,5 +98,16 @@ namespace LightSwitchApplication
             entity.Bezoeker = bezoeker;
             entity.Gebruiker = Application.Current.User.PersonId;
         }
+
+        partial void Tickets_Validate(Ticket entity, EntitySetValidationResultsBuilder results)
+        {
+            int totaal = this.Tickets.Sum(h => h.Aantal);
+            int resterend = entity.Festival.TicketsTotaal - totaal;
+
+            if (resterend < entity.Aantal)
+            {
+                results.AddEntityError("Sorry, Zoveel tickets zijn er niet meer beschikbaar, we hebben er nog maar " + Convert.ToString(resterend) + " over.");
+            }
+        }
     }
 }
